@@ -73,7 +73,7 @@ class Hosting:
 
     @host.command(pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
-                           "game night moderator")
+                           "Game Night Moderator")
     async def gamemodes(self, ctx):
         """Vote for today's gamemodes"""
 
@@ -119,7 +119,8 @@ You may choose more than 1.
         await self.bot.add_reaction(msg, vigil)
     
     @host.command(pass_context=True)
-    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator", "game night moderator")
+    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
+                           "Game Night Moderator")
     async def start(self, ctx, *, gamemode):
         """Notify a game is starting"""
 
@@ -150,7 +151,8 @@ Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly
         await self.bot.send_message(self.bot.get_channel('407003125128495104'), "Names for the game of **" + str(gamemode) + "** are being posted below.")
 
     @host.command(pass_context=True)
-    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator", "game night moderator")
+    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
+                           "Game Night Moderator")
     async def final(self, ctx, *, gamemode):
         """Notify a game is starting"""
 
