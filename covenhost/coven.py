@@ -46,7 +46,8 @@ class Coven:
         mod = discord.Role(id='288682024515141634', server='288455332173316106')
         gmn = discord.Role(id='358401178909933568', server='288455332173316106')
 
-        if channelid in ['358331904233046016', '358660402462326784', '288463362357067777', '288455332173316106', '296069608216068098']:
+        if channelid in ['358331904233046016', '358660402462326784', '288463362357067777', '288455332173316106',
+                         '296069608216068098']:
             if ctx.invoked_subcommand is None:
                 if senior or mod or gmn in ctx.message.author.roles:
                     await self.bot.say('`/coven host` or `/coven final` or `/coven gamemodes`')
@@ -55,7 +56,8 @@ class Coven:
                 else:
                     await self.bot.say('Use `/coven enable` to enable Coven Notifications.')
         else:
-            await self.bot.say('<@' + authorid + '> **||** This command is only usable in <#288455332173316106> or <#288463362357067777>.')
+            await self.bot.say('<@' + authorid + '> **||** This command is only usable in <#288455332173316106> or '
+                                                 '<#288463362357067777>.')
             return
 
     @coven.command(pass_context=True)
@@ -67,7 +69,9 @@ class Coven:
         if channelid in ['288463362357067777', '288455332173316106', '296069608216068098']:
             pass
         else:
-            await self.bot.say("<@" + str(ctx.message.author.id) + "> **||** This command is only usable in <#288455332173316106>, <#288463362357067777> or <#358331904233046016>.")
+            await self.bot.say("<@" + str(ctx.message.author.id) + "> **||** This command is only usable in "
+                                                                   "<#288455332173316106>, <#288463362357067777> or "
+                                                                   "<#358331904233046016>.")
             return
 
         user = ctx.message.author
@@ -85,7 +89,9 @@ class Coven:
         if channelid in ['288463362357067777', '288455332173316106', '296069608216068098']:
             pass
         else:
-            await self.bot.say("<@" + str(ctx.message.author.id) + "> **||** This command is only usable in <#288455332173316106>, <#288463362357067777> or <#358331904233046016>.")
+            await self.bot.say("<@" + str(ctx.message.author.id) + "> **||** This command is only usable in "
+                                                                   "<#288455332173316106>, <#288463362357067777> or "
+                                                                   "<#358331904233046016>.")
             return
 
         user = ctx.message.author
@@ -95,7 +101,8 @@ class Coven:
         await self.bot.say('You now **will not** recieve coven game notifications. Use `/coven enable` to *enable* them.')
 
     @coven.command(pass_context=True)
-    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator", "Game Night Moderator")
+    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
+                           "Game Night Moderator")
     async def host(self, ctx, *, gamemode):
         """Notify a game is starting"""
 
@@ -123,11 +130,13 @@ Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
                                  colour=discord.Colour(0x550a94), mentionable=False)
 
-        await self.bot.send_message(self.bot.get_channel('407003125128495104'), "Names for the game of **" + str(gamemode) + "** are being posted below.")
+        await self.bot.send_message(self.bot.get_channel('407003125128495104'), "Names for the game of **"
+                                    + str(gamemode) + "** are being posted below.")
         
 
     @coven.command(pass_context=True)
-    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator", "game night moderator")
+    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
+                           "Game Night Moderator")
     async def final(self, ctx, *, gamemode):
         """Notify a game is starting"""
 
@@ -143,7 +152,8 @@ Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
                                  colour=discord.Colour(0x550a94), mentionable=True)
 
-        await self.bot.say("""<@&358655924342095874> **||** This is the final call for a game of **""" + gamemode + """** is starting.
+        await self.bot.say("""<@&358655924342095874> **||** This is the final call for a game of **""" + gamemode +
+                           """** is starting.
 The game will start shortly.
 
 Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly after get a party invite.""")
@@ -152,7 +162,8 @@ Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly
                                  colour=discord.Colour(0x550a94), mentionable=False)
 
     @coven.command(pass_context=True)
-    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator", "game night moderator")
+    @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
+                           "Game Night Moderator")
     async def gamemodes(self, ctx):
         """Vote for today's gamemodes"""
 
