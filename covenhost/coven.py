@@ -197,7 +197,7 @@ You may choose more than 1.
 <:CovenEvilsVEvils:406242997492252674> - Evils v Evils.
 <:CovenAllAny:406242997727133697> - All Any.
 <:CovenMafiaReturns:406242998083649546> - Mafia Returns
-<:CovenRotating:406242998205153298> - Rotating Gamemode (VIP, Rivals, or Lovers.)
+<:CovenRotating:406242998205153298> - Rotating Gamemode (VIP or Lovers.)
 """)
         
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
