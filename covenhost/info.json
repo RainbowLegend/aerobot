@@ -3,7 +3,7 @@
     "SHORT" : "Coven hosting cogs",
     "DESCRIPTION" : "",
     "DISABLED" : false,
-    "NAME" : "CovenHost",
+    "NAME" : "Coven",
     "TAGS" : ["rcogs"],
     "INSTALL_MSG" : "Updated/Installed."
 }
