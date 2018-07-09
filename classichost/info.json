@@ -3,7 +3,7 @@
     "SHORT" : "Classic hosting cogs",
     "DESCRIPTION" : "",
     "DISABLED" : false,
-    "NAME" : "ClassicHost",
+    "NAME" : "Hosting",
     "TAGS" : ["rcogs"],
     "INSTALL_MSG" : "Updated/Installed."
 }
