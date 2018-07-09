@@ -3,7 +3,7 @@
     "SHORT" : "Self-assignable roles",
     "DESCRIPTION" : "",
     "DISABLED" : false,
-    "NAME" : "Tos-Roles",
+    "NAME" : "SelfToSRoles",
     "TAGS" : ["rcogs"],
     "INSTALL_MSG" : "Updated/Installed."
 }
