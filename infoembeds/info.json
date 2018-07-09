@@ -3,7 +3,7 @@
     "SHORT" : "Information posters",
     "DESCRIPTION" : "",
     "DISABLED" : false,
-    "NAME" : "InfoEmbeds",
+    "NAME" : "InfoLoader",
     "TAGS" : ["rcogs"],
     "INSTALL_MSG" : "Updated/Installed."
 }
