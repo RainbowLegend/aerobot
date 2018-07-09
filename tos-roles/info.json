@@ -1,0 +1,9 @@
+{
+    "AUTHOR" : "RainbowLegend",
+    "SHORT" : "Self-assignable roles",
+    "DESCRIPTION" : "",
+    "DISABLED" : false,
+    "NAME" : "Tos-Roles",
+    "TAGS" : ["rcogs"],
+    "INSTALL_MSG" : "Updated/Installed."
+}
