@@ -45,11 +45,12 @@ class Coven:
         senior = discord.Role(id='288464565791096838', server='288455332173316106')
         mod = discord.Role(id='288682024515141634', server='288455332173316106')
         gmn = discord.Role(id='358401178909933568', server='288455332173316106')
+        temp = discord.Role(id='465973033106931713', server='288455332173316106')
 
         if channelid in ['358331904233046016', '358660402462326784', '288463362357067777', '288455332173316106',
                          '296069608216068098']:
             if ctx.invoked_subcommand is None:
-                if senior or mod or gmn in ctx.message.author.roles:
+                if senior or mod or gmn or temp in ctx.message.author.roles:
                     await self.bot.say('`/coven host` or `/coven final` or `/coven gamemodes`')
                 elif covennotifs in ctx.message.author.roles:
                     await self.bot.say('Use `/coven disable` to disable Coven Notifications.')
@@ -102,7 +103,7 @@ class Coven:
 
     @coven.command(pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
-                           "Game Night Moderator")
+                           "Game Night Moderator", "Temp Host")
     async def host(self, ctx, *, gamemode):
         """Notify a game is starting"""
 
@@ -136,7 +137,7 @@ Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly
 
     @coven.command(pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
-                           "Game Night Moderator")
+                           "Game Night Moderator", "Temp Host")
     async def final(self, ctx, *, gamemode):
         """Notify a game is starting"""
 
@@ -163,7 +164,7 @@ Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly
 
     @coven.command(pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
-                           "Game Night Moderator")
+                           "Game Night Moderator", "Temp Host")
     async def gamemodes(self, ctx):
         """Vote for today's gamemodes"""
 
