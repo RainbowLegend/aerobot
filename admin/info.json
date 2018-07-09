@@ -1,0 +1,9 @@
+{
+    "AUTHOR" : "RainbowLegend",
+    "SHORT" : "Administrative cogs",
+    "DESCRIPTION" : "",
+    "DISABLED" : false,
+    "NAME" : "Admin",
+    "TAGS" : ["rcogs"],
+    "INSTALL_MSG" : "Updated/Installed."
+}
