@@ -1,4 +1,4 @@
-# update 13jan18 - fixed a few things including new staff names
+# update 9June18 - Changed names of Staff -elijah
 import discord
 from discord.ext import commands
 from cogs.utils import checks
@@ -76,18 +76,21 @@ We collect this to make your experience better, and in the case of possibly dele
 
         icon = ctx.message.server.icon_url
         embed = discord.Embed(colour=0xCFFF63)
-        embed.add_field(name='Administrators', value="""- <@235542999063461888>
+        embed.add_field(name='Administrators', value="""- <@298166754331459586>
 - <@222147236728012800>
+- <@167736120400936960>
 - <@333621621116108800>""", inline=False)
-        embed.add_field(name='Senior Moderators', value="""- <@179645538533244929>
-- <@298166754331459586>
-- <@231785539370614784>
-- <@121005551877357569> 
-- <@167736120400936960>""", inline=False)
-        embed.add_field(name='Moderators', value="""- <@70221374404173824>
+        embed.add_field(name='Senior Moderators', value="""- <@231785539370614784>
 - <@267723762563022849>
-- <@!115378623028002822>
-- <@232131655274332160>""", inline=False)
+- <@235542999063461888> 
+- <@182942393371197440>
+- <@189125691504066561>""", inline=False)
+        embed.add_field(name='Moderators', value="""- <@233753965353893898>
+- <@179645538533244929>
+- <@155507643115503617>
+- <@228700305263558656>
+- <@70221374404173824>""", inline=False)
+        embed.add_field(name='ToS Global Moderators', value="""- <@224737113210355712>""", inline=False)
         embed.set_author(name='Staff List', icon_url=icon)
 
         await self.bot.say(embed=embed)
@@ -110,7 +113,7 @@ We collect this to make your experience better, and in the case of possibly dele
         embed.add_field(name='What are Administrators?', value="""- Administrators run the server and keep everything together. This role has the most power.
 - Administrators can do EVERYTHING. They have every permission.
 - Administrators will oversee the entire server and make the important decisions.""", inline=False)
-        embed.set_footer(text='If you think any Staff Member is abusing their permissions or not doing a good job, DM an Administrator immediately. If the person you have concerns about is an Administrator, DM the Owner, Anna <3#4007', icon_url=ctx.message.server.icon_url)
+        embed.set_footer(text='If you think any Staff Member is abusing their permissions or not doing a good job, DM an Administrator immediately. If the person you have concerns about is an Administrator, DM the Owner, henlo.', icon_url=ctx.message.server.icon_url)
         await self.bot.say(embed=embed)
 
     @commands.command(no_pm=True, pass_context=True)
