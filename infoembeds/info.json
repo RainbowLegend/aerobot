@@ -2,7 +2,7 @@
     "AUTHOR" : "RainbowLegend",
     "SHORT" : "Information posters",
     "DESCRIPTION" : "Information embeds",
-    "DISABLED" : false,
+    "HIDDEN" : false,
     "NAME" : "InfoEmbeds",
     "TAGS" : ["rcogs"],
     "INSTALL_MSG" : "Updated/Installed."
