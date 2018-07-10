@@ -1,7 +1,7 @@
 {
     "AUTHOR" : "RainbowLegend",
     "SHORT" : "Information posters",
-    "DESCRIPTION" : "",
+    "DESCRIPTION" : "Information embeds",
     "DISABLED" : false,
     "NAME" : "InfoLoader",
     "TAGS" : ["rcogs"],
