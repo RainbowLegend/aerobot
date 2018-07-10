@@ -14,7 +14,7 @@ import datetime
 import re
 from datetime import datetime
 
-class Coven:
+class CovenHost:
     """Self ToS Role assignment system. ~Danners"""
 
     default = {}
@@ -232,5 +232,5 @@ def check_files():
         dataIO.save_json("data/hosting/data.json", {})
 
 def setup(bot):
-    n = Coven(bot)
+    n = CovenHost(bot)
     bot.add_cog(n)     
