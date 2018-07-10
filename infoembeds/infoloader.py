@@ -15,7 +15,7 @@ import datetime
 import re
 from datetime import datetime
 
-class InfoEmbeds:
+class InfoLoader:
     """Loads up the #info"""
 
     def __init__(self, bot):
