@@ -1,9 +1,0 @@
-{
-    "AUTHOR" : "RainbowLegend",
-    "SHORT" : "Classic hosting cogs",
-    "DESCRIPTION" : "",
-    "DISABLED" : false,
-    "NAME" : "Hosting",
-    "TAGS" : ["rcogs"],
-    "INSTALL_MSG" : "Updated/Installed."
-}
