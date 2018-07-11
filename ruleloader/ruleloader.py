@@ -54,13 +54,13 @@ class RuleLoader:
 -<#294178185711452180> Is for random talk. Other games, memes, art, pets, anything. Just no nsfw.
 -<#292018256888463360> Suggestions to make the server better.
 -<#288463362357067777> Are for bot commands.""",inline=False)
-    embed.add_field(name='Do not abuse Staff Tags.',
+      embed.add_field(name='Do not abuse Staff Tags.',
                         value='This includes, but is not limited to, phantom tagging, spamming staff tags, and tagging for unnecessary reasons.',inline=False)
-    embed.add_field(name='Do not use alts to avoid punishment.',
+      embed.add_field(name='Do not use alts to avoid punishment.',
                         value='If you would like to protest a punishment, using an alt (alternate account) to evade it is not going to resolve anything. This will result in further punishment and usually a ban.',inline=False)
-    embed.add_field(name='Please be courteous to everyone.',
+      embed.add_field(name='Please be courteous to everyone.',
                         value='While you do not need to like every member of this server, we would like to ask that you are courteous to all. Treat others how you would like to be treated. If you have any issues with other members, please DM a staff member with your concerns.',inline=False)
-    embed.add_field(name='Do not share the personal information of others without consent.',
+      embed.add_field(name='Do not share the personal information of others without consent.',
                         value='While you may be alright with sharing this info about yourself, others may not want it shared. Please be respectful of other users’ privacy.',inline=False)
         
     @commands.command(no_pm=True, pass_context=True)
