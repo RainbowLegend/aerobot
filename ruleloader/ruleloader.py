@@ -62,10 +62,12 @@ class RuleLoader:
                         value='While you do not need to like every member of this server, we would like to ask that you are courteous to all. Treat others how you would like to be treated. If you have any issues with other members, please DM a staff member with your concerns.',inline=False)
         embed.add_field(name='Do not share the personal information of others without consent.',
                         value='While you may be alright with sharing this info about yourself, others may not want it shared. Please be respectful of other users’ privacy.',inline=False)
+        await self.bot.say(embed=embed)
+       
         
     @commands.command(no_pm=True, pass_context=True)
     @commands.has_any_role("Administrator", "AeroBot Manager")
-    async def rulesembed(self, ctx):
+    async def rulesembed2(self, ctx):
       """Rule loading embed"""
         body = 'https://media.discordapp.net/attachments/294178185711452180/466383542520250378/body.png'
         embed = discord.Embed(colour=0xFF9900)
@@ -82,10 +84,11 @@ class RuleLoader:
                         value='This includes both targeting based on who the player actually is as well as targeting for failure to follow name schemes. If you have problems with players, please report them rather than target them in-game. Do not report them for not following a theme.',inline=False)
         embed.add_field(name='Do not flame, insult, or harass players for plays they make in-game.',
                         value='Please try and help other players improve rather than put them down for any mistakes. If these mistakes break rules, please contact a staff member rather than berate other players.',inline=False)
+        await self.bot.say(embed=embed)
         
     @commands.command(no_pm=True, pass_context=True)
     @commands.has_any_role("Administrator", "AeroBot Manager")
-    async def rulesembed(self, ctx):
+    async def rulesembed3(self, ctx):
       """Rule loading embed"""        
         mic = 'https://media.discordapp.net/attachments/294178185711452180/466385729572831255/mic.png?width=398&height=398'
         embed = discord.Embed(colour=0xFBF606)
@@ -98,10 +101,11 @@ class RuleLoader:
                         value='There is a music channel for a reason. Keep all music to this channel, please.', inline=False)
         embed.add_field(name='Do not play songs specifically to annoy others.',
                         value='This includes, but is not limited to, playing very loud songs (i.e. “ear rape”), troll songs, meme songs, or playing songs on repeat multiple tlmes in a short amount of time.', inline=False)
+        await self.bot.say(embed=embed)
         
     @commands.command(no_pm=True, pass_context=True)
     @commands.has_any_role("Administrator", "AeroBot Manager")
-    async def rulesembed(self, ctx):
+    async def rulesembed4(self, ctx):
       """Rule loading embed""" 
         gae = 'https://media.discordapp.net/attachments/288681936870703105/466390095151235072/Untitled.png?width=400&height=300'
         embed = discord.Embed(colour=0xE60042)
@@ -116,10 +120,11 @@ class RuleLoader:
                         value='While you do not need to like all of the staff members, you need to be able to get along and treat others with respect for any staff work to work. Treat the others how you would like to be treated.',inline=False)
         embed.add_field(name='Senior Moderators.',
                         value='Just moderators that are more trusted and have more permissons.',inline=False)
+        await self.bot.say(embed=embed)
         
     @commands.command(no_pm=True, pass_context=True)
     @commands.has_any_role("Administrator", "AeroBot Manager")
-    async def rulesembed(self, ctx):
+    async def rulesembed5(self, ctx):
       """Rule loading embed""" 
         icon = ctx.message.server.icon_url
         embed = discord.Embed(0x9B0029)
@@ -128,6 +133,7 @@ class RuleLoader:
         embed.add_field(name='*If a staff member is in breach of their rules, please DM an Administrator.*',inline=False)
         embed.set_footer(text='If you have any question about the rules, please feel free to DM a Staff Member.',icon_url=icon)
         
+        await self.bot.say(embed=embed)
    # End code here
       
 def setup(bot):
