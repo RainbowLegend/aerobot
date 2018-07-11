@@ -89,8 +89,8 @@ We collect this to make your experience better, and in the case of possibly dele
 - <@179645538533244929>
 - <@155507643115503617>
 - <@228700305263558656>
-- <@70221374404173824>
-- <@321759261925441538>""", inline=False)
+- <@321759261925441538>
+- <@70221374404173824>""", inline=False)
         embed.add_field(name='ToS Global Moderators', value="""- <@224737113210355712>""", inline=False)
         embed.set_author(name='Staff List', icon_url=icon)
 
@@ -104,13 +104,13 @@ We collect this to make your experience better, and in the case of possibly dele
         spy = 'https://images-ext-2.discordapp.net/.eJwNyFEKgzAMANC79N9mretAQTyEJ-gk64I1KTYqMnb37X2-j9m3bHrzVi09wEGJURXv9qSFomWZRRZC-19QObmRV1NjxhVojQkrtNA-YCqXLZxgw4MqCUOOilXH-Tn4mwvO-c51IXhvvj_u-yZa.VyMAY7O3cPIU09jtrPQ4X92HbrQ'
         embed = discord.Embed(colour=0x5DADE2)
         embed.set_author(name='What can the staff roles do?', icon_url=spy)
-        embed.add_field(name='What are Game Moderators?', value="""- As the name suggests, Game Moderators are players who frequently play Town of Salem and have knowledge of what's breaking the rules and what's not.
-- When a report on Discord concerning a broken in-game rule, the Game Moderators will handle it.
-- Game Moderators are in most games and can take action immediately.
-- Game Moderators have the power to manage the messages in ToS related channels. This includes pinning and deleting messages. They can also block you from the ToS related channels.""", inline=False)
-        embed.add_field(name='What are Moderators?', value="""- Moderators can be considered as Semi-Administrators. They help moderate the games as well as moderate the server.
-- Moderators have the power to manage messages in every channel.
-- Moderators can kick or ban users, force nicknames if the user's name is offensive, block you from any channel, mute you, and assign roles. They also have perms in the voice chats.""", inline=False)
+        embed.add_field(name='What are Moderators?', value="""- As the name suggests, Moderators are people who moderate the server, but at a lower end.
+- Moderators can delete messages, hand out punishments, create roles, etc.
+- Moderators will be in most gamenights and will be there to make sure it follows rules.
+- Moderators have the power to manage the messages in channels. This includes pinning and deleting messages. They can also block you from channels.""", inline=False)
+        embed.add_field(name='What are Senior Moderators?', value="""- Senior Moderators can be considered as Semi-Administrators. They help moderate the games as well as moderate the server.
+- Senior Moderators have every permisson Moderators have.
+- Moderators can kick or ban users aswell, but can also force nicknames if the user's name is offensive, block you from any channel, mute you, and assign roles. They also have perms in the voice chats.""", inline=False)
         embed.add_field(name='What are Administrators?', value="""- Administrators run the server and keep everything together. This role has the most power.
 - Administrators can do EVERYTHING. They have every permission.
 - Administrators will oversee the entire server and make the important decisions.""", inline=False)
