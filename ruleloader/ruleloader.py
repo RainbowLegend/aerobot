@@ -130,7 +130,7 @@ class RuleLoader:
       embed = discord.Embed(colour=0x9B0029, description="""**If you believe someone is breaching the rules, please contact staff either in a direct message or the channel it happened.**
       
 **If a staff member is in breach of their rules, please DM an Administrator.**""")
-      embed.set_author(name='Section 5: Final Note')
+      embed.set_author(name='Section 5: Final Note', icon_url='https://images-ext-2.discordapp.net/external/G1VU3IuTKV8JDAoLn428_qiADS7h-R3gENCZdwmFQYc/http/clipart-finder.com/data/mini/accessories-text-editor.png')
       embed.set_footer(text='If you have any question about the rules, please feel free to DM a Staff Member.',icon_url=icon)
         
       await self.bot.say(embed=embed)
