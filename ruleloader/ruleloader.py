@@ -92,7 +92,7 @@ class RuleLoader:
       """Rule loading embed"""        
       mic = 'https://media.discordapp.net/attachments/294178185711452180/466385729572831255/mic.png?width=398&height=398'
       embed = discord.Embed(colour=0xFBF606)
-      embed.set_author(name='Section 3: Voice Chat and Music Rules', icon_url=song)
+      embed.set_author(name='Section 3: Voice Chat and Music Rules', icon_url=mic)
       embed.add_field(name='All in-game cheating rules apply.',
                         value='If you can not do it in text channels, you can not do it in Voice Channels.', inline=False)
       embed.add_field(name='Do not remain AFK in VC for a long period of time',
