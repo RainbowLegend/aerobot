@@ -109,7 +109,7 @@ class RuleLoader:
       """Rule loading embed""" 
       gae = 'https://media.discordapp.net/attachments/288681936870703105/466390095151235072/Untitled.png?width=400&height=300'
       embed = discord.Embed(colour=0xE60042)
-      embed.set_authoer(name='Section 4: Moderator/Senior Moderator Rules',icon_url=gae)
+      embed.set_author(name='Section 4: Moderator/Senior Moderator Rules',icon_url=gae)
       embed.add_field(name='You have been trusted with Perms. Do not abuse them.',
                         value='This includes, but is not limited to, changing roles without consent, deleting messages that do not break rules, punishing people who do not rightfully deserve it, and so on. Use common sense for what is and is not okay.',inline=False)
       embed.add_field(name='Do not go pinning a ton of messages around the channels for no reason.',
