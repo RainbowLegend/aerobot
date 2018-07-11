@@ -89,7 +89,8 @@ We collect this to make your experience better, and in the case of possibly dele
 - <@179645538533244929>
 - <@155507643115503617>
 - <@228700305263558656>
-- <@70221374404173824>""", inline=False)
+- <@70221374404173824>
+- <@321759261925441538>""", inline=False)
         embed.add_field(name='ToS Global Moderators', value="""- <@224737113210355712>""", inline=False)
         embed.set_author(name='Staff List', icon_url=icon)
 
