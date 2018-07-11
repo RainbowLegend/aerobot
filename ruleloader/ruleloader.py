@@ -128,9 +128,9 @@ class RuleLoader:
       """Rule loading embed""" 
       icon = ctx.message.server.icon_url
       embed = discord.Embed(0x9B0029)
-      embed.set_author(name='Section 5: Final Note',icon_url=icon)
-      embed.add_field(name='*If you believe someone is breaching the rules, please contact staff either in a direct message or the channel it happened.*',inline=False)
-      embed.add_field(name='*If a staff member is in breach of their rules, please DM an Administrator.*',inline=False)
+      embed.set_author(name='Section 5: Final Note', icon_url=icon, description="""**If you believe someone is breaching the rules, please contact staff either in a direct message or the channel it happened.**
+      
+      *If a staff member is in breach of their rules, please DM an Administrator.*""")
       embed.set_footer(text='If you have any question about the rules, please feel free to DM a Staff Member.',icon_url=icon)
         
       await self.bot.say(embed=embed)
