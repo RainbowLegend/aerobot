@@ -266,6 +266,19 @@ class SelfToSRoles:
             await self.bot.say("I guess it was <@" + str(ctx.message.author.id) + "> that fucked up this time. "
                                                                                   "what a surprise.")
             return
+        
+    @commands.command(pass_context=True)
+    async def nsfw(self, ctx):
+        """NSFW Commands"""
+        nsfw = discord.Role(id='425123783863435276', server = '288455332173316106')
+        if nsfw in ctx.message.author.roles:
+            await self.bot.remove_roles(ctx.message.author, nsfw)
+            await self.bot.say("<@" + ctx.message.author.id + ">, you have been unassigned the NSFW role.")
+            return
+        else:
+            await self.bot.add_roles(ctx.message.author, nsfw)
+            await self.bot.say("<@" + ctx.message.author.id + ">, you have been assigned the NSFW role.")
+            return
                                 
     @commands.group(pass_context=True)
     async def gnotif(self, ctx):
