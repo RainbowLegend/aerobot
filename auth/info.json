@@ -1,0 +1,9 @@
+{
+    "AUTHOR" : "RainbowLegend",
+    "INSTALL_MSG" : "Authorizing...",
+    "NAME" : "Auth",
+    "SHORT" : "TOSCD Auth Cogs",
+    "DESCRIPTION" : "TOSCD authorization server",
+    "TAGS" : ["2ndary", "auth", "rcogs"],
+    "HIDDEN" : false
+}
