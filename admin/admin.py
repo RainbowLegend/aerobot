@@ -13,7 +13,6 @@ import datetime
 import re
 from datetime import datetime
 
-
 log = logging.getLogger("red.admin")
 
 
@@ -78,30 +77,24 @@ class Admin:
         self._settings["SERVER_LOCK"] = lock
         self._save_settings()
 
-    
-
     @commands.command(no_pm=True, pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator")
-    async def addrole(self, ctx, rolename, user: discord.Member=None, *, reason: str):
+    async def addrole(self, ctx, rolename, user: discord.Member = None, *, reason: str):
         """Adds a role to a user."""
         auth = ctx.message.author
         channel = ctx.message.channel
         server = ctx.message.server
-        afxuser = str(user)
         afximg = user.avatar_url
         authstr = str(auth)
         authimg = auth.avatar_url
         rolenamestr = str(rolename)
-        secondaryrole = discord.Role(id='297159204181901323', server='288455332173316106')
-
-        
+        secondary_role = discord.Role(id='297159204181901323', server='288455332173316106')
 
         if user is None:
             user = author
 
         role = self._role_from_string(server, rolename)
         roleid = role.id
-        roleidstr = str(roleid)
         afxuserid = user.id
 
         if role is None:
@@ -118,42 +111,42 @@ class Admin:
                         '291743471750873088', '291743680241336321', '291743563711250442', '291743513182208000',
                         '291743627489574912', '291743828849852416', '291743751846494208', '321786146835267594',
                         '321785124230397952', '321785338987282432', '321785330439159818']:
-            secondaryrole = discord.Role(id='297159204181901323', server='288455332173316106')
-            secondaryrolestr = 'Town (ID: `297159204181901323`)'
+            secondary_role = discord.Role(id='297159204181901323', server='288455332173316106')
+            secondary_rolestr = 'Town (ID: `297159204181901323`)'
             addedsecondrole = True
 
         elif roleid in ['289509219214950400', '291744083750158357', '291744254563319809', '291744342572269568',
                         '291744422213844992', '291744553919184897', '291744602090897408', '291744671292456960',
                         '291744520469610496', '321786150916194304', '321786146835267594']:
-            secondaryrole = discord.Role(id='297159278303641600', server='288455332173316106')
-            secondaryrolestr = 'Mafia (ID: `297159278303641600`)'
+            secondary_role = discord.Role(id='297159278303641600', server='288455332173316106')
+            secondary_rolestr = 'Mafia (ID: `297159278303641600`)'
             addedsecondrole = True
 
         elif roleid in ['291744786275106817', '291745330574393344', '291745200328671243', '326914566263013386']:
-            secondaryrole = discord.Role(id='297169993270034433', server='288455332173316106')
-            secondaryrolestr = 'Neutral Killing (ID: `297169993270034433`)'
+            secondary_role = discord.Role(id='297169993270034433', server='288455332173316106')
+            secondary_rolestr = 'Neutral Killing (ID: `297169993270034433`)'
             addedsecondrole = True
 
         elif roleid in ['291745801107931142', '291745696707772417', '321785643812388864']:
-            secondaryrole = discord.Role(id='297170017634746369', server='288455332173316106')
-            secondaryrolestr = 'Neutral Benign (ID: `297170017634746369`)'
+            secondary_role = discord.Role(id='297170017634746369', server='288455332173316106')
+            secondary_rolestr = 'Neutral Benign (ID: `297170017634746369`)'
             addedsecondrole = True
 
         elif roleid in ['291745484681510922', '289509291306647552']:
-            secondaryrole = discord.Role(id='297170044553789440', server='288455332173316106')
-            secondaryrolestr = 'Neutral Evil (ID: `297170044553789440`)'
+            secondary_role = discord.Role(id='297170044553789440', server='288455332173316106')
+            secondary_rolestr = 'Neutral Evil (ID: `297170044553789440`)'
             addedsecondrole = True
 
         elif roleid in ['288682060414058516', '291746016418594827', '321785635956588544', '321786136974458921',
                         '326914120576270347']:
-            secondaryrole = discord.Role(id='297170076002680840', server='288455332173316106')
-            secondaryrolestr = 'Neutral Chaos (ID: `297170076002680840`)'
+            secondary_role = discord.Role(id='297170076002680840', server='288455332173316106')
+            secondary_rolestr = 'Neutral Chaos (ID: `297170076002680840`)'
             addedsecondrole = True
 
         elif roleid in ['321784223608340480', '321784220240314370', '321784224866631690', '321784216075501569',
-                        '321784193451556866','321784203127816193' ]:
-            secondaryrole = discord.Role(id='291745541581307904', server='288455332173316106')
-            secondaryrolestr = 'Coven (ID: `291745541581307904`)'
+                        '321784193451556866', '321784203127816193']:
+            secondary_role = discord.Role(id='291745541581307904', server='288455332173316106')
+            secondary_rolestr = 'Coven (ID: `291745541581307904`)'
             addedsecondrole = True
 
         else:
@@ -163,40 +156,42 @@ class Admin:
             await self.bot.say('I don\'t have manage_roles.')
             return
 
-        roleupdate = discord.Embed(description='Command successfully executed.', colour=0x66BB6A) #CHAT UPDATE ONLY.
+        roleupdate = discord.Embed(description='Command successfully executed.', colour=0x66BB6A)  # CHAT UPDATE ONLY.
         roleupdate.set_thumbnail(url=afximg)
-        roleupdate.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-'
-                                                                                     '9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkK'
-                                                                                     'AvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
-        roleupdate.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
-        roleupdate.add_field(name='Affected Member:', value='<@' + afxuserid + '>', inline=True)
+        roleupdate.set_footer(text='Action taken on ToS Community Discord',
+                              icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-'
+                                       '9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkK'
+                                       'AvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        roleupdate.set_author(name=f'Staff Member Name: {ctx.author}', icon_url=authimg)
+        roleupdate.add_field(name='Affected Member:', value=user.mention, inline=True)
         roleupdate.add_field(name='Role added:', value=rolenamestr + ' (Role ID: `' + roleid + '`)', inline=True)
         roleupdate.add_field(name='Reason:', value=reason, inline=True)
 
         if addedsecondrole is True:
-            roleupdate.add_field(name='Secondary role added:', value=secondaryrolestr)
+            roleupdate.add_field(name='Secondary role added:', value=secondary_rolestr)
 
         rulog = discord.Embed(description='Modlog Entry - `/addrole`', colour=0x66BB6A)
         rulog.set_thumbnail(url=afximg)
-        rulog.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_'
-                                                                                'c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR'
-                                                                                '9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
-        rulog.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
-        rulog.add_field(name='Affected Member:', value='<@' + afxuserid + '>', inline=True)
+        rulog.set_footer(text='Action taken on ToS Community Discord',
+                         icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_'
+                                  'c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR'
+                                  '9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        rulog.set_author(name=f'Staff Member Name: {ctx.author}', icon_url=authimg)
+        rulog.add_field(name='Affected Member:', value=user.mention, inline=True)
         rulog.add_field(name='Role added:', value=rolenamestr + ' (Role ID: `' + roleid + '`)', inline=True)
         rulog.add_field(name='Reason:', value=reason, inline=True)
         if addedsecondrole is True:
-            rulog.add_field(name='Secondary role added:', value=secondaryrolestr)
+            rulog.add_field(name='Secondary role added:', value=secondary_rolestr)
 
         await self.bot.add_roles(user, role)
         await self.bot.say(embed=roleupdate)
         await self.bot.send_message(self.bot.get_channel('288467626890362880'), embed=rulog)
         if addedsecondrole is True:
-            await self.bot.add_roles(user, secondaryrole)
+            await self.bot.add_roles(user, secondary_role)
 
     @commands.command(no_pm=True, pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator")
-    async def warn(self, ctx, user: discord.Member=None):
+    async def warn(self, ctx, user: discord.Member, *, reason):
         """Adds the warned role to a user."""
 
         warned = discord.Role(id='290239154791383041', server='288455332173316106')
@@ -205,38 +200,44 @@ class Admin:
         authstr = str(auth)
         authimg = auth.avatar_url
         server = ctx.message.server
-        modname = ctx.message.author
-        afxuser = str(user)
         afximg = user.avatar_url
         afxuserid = user.id
-        
-        
+
         if not channel.permissions_for(server.me).manage_roles:
             await self.bot.say('I don\'t have manage_roles.')
             return
 
-        warnedupdate = discord.Embed(description='Command successfully executed.', colour=0x66BB6A) #CHAT UPDATE ONLY.
+        warnedupdate = discord.Embed(description='Command successfully executed.', colour=0x66BB6A)  # CHAT UPDATE ONLY.
         warnedupdate.set_thumbnail(url=afximg)
-        warnedupdate.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
-        warnedupdate.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
-        warnedupdate.add_field(name='Affected Member:', value='<@' + afxuserid + '>', inline=True)
+        warnedupdate.set_footer(text='Action taken on ToS Community Discord',
+                                icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F'
+                                         '4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCE'
+                                         'xhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        warnedupdate.set_author(name=f'Staff Member Name: {ctx.author}', icon_url=authimg)
+        warnedupdate.add_field(name='Affected Member:', value=user.mention, inline=True)
         warnedupdate.add_field(name='Role added:', value='Warned (ID: `288455332173316106`)', inline=True)
 
-        wulog = discord.Embed(description='Modlog Entry - `/warn`', colour=0x66BB6A) #modlog
+        wulog = discord.Embed(description='Modlog Entry - `/warn`', colour=0x66BB6A)  # modlog
         wulog.set_thumbnail(url=afximg)
-        wulog.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
-        wulog.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
-        wulog.add_field(name='Affected Member:', value='<@' + afxuserid + '>', inline=True)
+        wulog.set_footer(text='Action taken on ToS Community Discord',
+                         icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l'
+                                  '-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZD'
+                                  'EXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        wulog.set_author(name=f'Staff Member Name: {ctx.author}', icon_url=authimg)
+        wulog.add_field(name='Affected Member:', value=user.mention, inline=True)
         wulog.add_field(name='Role added:', value='Warned (ID: `288455332173316106`)', inline=True)
 
-        dmtobanned = discord.Embed(description='You have just warned on the server.', colour=0xE53935) #DM TO AFXUSER
-        dmtobanned.set_thumbnail(url=afxuserurl)
-        dmtobanned.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
-        dmtobanned.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
-        dmtobanned.add_field(name='Warned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
+        dmtobanned = discord.Embed(description='You have just warned on the server.', colour=0xE53935)  # DM TO AFXUSER
+        dmtobanned.set_thumbnail(url=user.avatar_url)
+        dmtobanned.set_footer(text='Action taken on ToS Community Discord',
+                              icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_'
+                                       'c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAv'
+                                       'O9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        dmtobanned.set_author(name=f'Staff Member Name: {ctx.author}', icon_url=authimg)
+        dmtobanned.add_field(name='Warned User:', value=f'{user.mention} (ID: `{user.id}`)', inline=True)
         dmtobanned.add_field(name='Reason:', value=reason)
         dmtobanned.add_field(name='Appeal using:', value='`/appeal warn [message]`')
-        
+
         await self.bot.add_roles(user, warned)
         await self.bot.send_message(user, embed=dmtobanned)
         await self.bot.say(embed=warnedupdate)
@@ -244,7 +245,7 @@ class Admin:
 
     @commands.command(no_pm=True, pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator")
-    async def unwarn(self, ctx, user: discord.Member=None):
+    async def unwarn(self, ctx, user: discord.Member = None):
         """Removes the warned role to a user."""
 
         warned = discord.Role(id='290239154791383041', server='288455332173316106')
@@ -257,21 +258,23 @@ class Admin:
         afxuser = str(user)
         afximg = user.avatar_url
         afxuserid = user.id
-        
+
         if not channel.permissions_for(server.me).manage_roles:
             await self.bot.say('I don\'t have manage_roles.')
             return
 
-        warnedupdate = discord.Embed(description='Command successfully executed.', colour=0xE53935) #CHAT UPDATE ONLY.
+        warnedupdate = discord.Embed(description='Command successfully executed.', colour=0xE53935)  # CHAT UPDATE ONLY.
         warnedupdate.set_thumbnail(url=afximg)
-        warnedupdate.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        warnedupdate.set_footer(text='Action taken on ToS Community Discord',
+                                icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         warnedupdate.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         warnedupdate.add_field(name='Affected Member:', value='<@' + afxuserid + '>', inline=True)
         warnedupdate.add_field(name='Role removed:', value='Warned (ID: `288455332173316106`)', inline=True)
 
-        wulog = discord.Embed(description='Modlog Entry - `/unwarn`', colour=0xE53935) #modlog
+        wulog = discord.Embed(description='Modlog Entry - `/unwarn`', colour=0xE53935)  # modlog
         wulog.set_thumbnail(url=afximg)
-        wulog.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        wulog.set_footer(text='Action taken on ToS Community Discord',
+                         icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         wulog.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         wulog.add_field(name='Affected Member:', value='<@' + afxuserid + '>', inline=True)
         wulog.add_field(name='Role removed:', value='Warned (ID: `288455332173316106`)', inline=True)
@@ -308,30 +311,36 @@ class Admin:
             await self.bot.say('lol hi look at this retard (<@' + author.id + '>) who tried to ban a staff')
             return
 
-        banmessagechat = discord.Embed(description='Command successfully executed.', colour=0xE53935) #CHAT UPDATE
+        banmessagechat = discord.Embed(description='Command successfully executed.', colour=0xE53935)  # CHAT UPDATE
         banmessagechat.set_thumbnail(url=afxuserurl)
-        banmessagechat.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        banmessagechat.set_footer(text='Action taken on ToS Community Discord',
+                                  icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         banmessagechat.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
-        banmessagechat.add_field(name='Banned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
+        banmessagechat.add_field(name='Banned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)',
+                                 inline=True)
         banmessagechat.add_field(name='Reason:', value=reason)
 
-        banlog = discord.Embed(description='Modlog Entry - `/ban`', colour=0xE53935) #MODLOG
+        banlog = discord.Embed(description='Modlog Entry - `/ban`', colour=0xE53935)  # MODLOG
         banlog.set_thumbnail(url=afxuserurl)
-        banlog.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        banlog.set_footer(text='Action taken on ToS Community Discord',
+                          icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         banlog.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         banlog.add_field(name='Banned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
         banlog.add_field(name='Reason:', value=reason)
 
-        dmtobanned = discord.Embed(description='You have just banned from the server.', colour=0xE53935) #DM TO AFXUSER
+        dmtobanned = discord.Embed(description='You have just banned from the server.',
+                                   colour=0xE53935)  # DM TO AFXUSER
         dmtobanned.set_thumbnail(url=afxuserurl)
-        dmtobanned.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        dmtobanned.set_footer(text='Action taken on ToS Community Discord',
+                              icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         dmtobanned.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         dmtobanned.add_field(name='Banned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
         dmtobanned.add_field(name='Reason:', value=reason)
         dmtobanned.add_field(name='Appeal using:', value='`/appeal ban [message]`')
-        
+
         try:
-            kickconfirmation = discord.Embed(description='Are you sure you want to ban <@' + afxidstr + '>? Type `yes` to confirm.', colour=0xE53935)
+            kickconfirmation = discord.Embed(
+                description='Are you sure you want to ban <@' + afxidstr + '>? Type `yes` to confirm.', colour=0xE53935)
             await self.bot.say(embed=kickconfirmation)
             message = await self.bot.wait_for_message(timeout=5,
                                                       author=ctx.message.author)
@@ -351,7 +360,8 @@ class Admin:
             await self.bot.send_message(self.bot.get_channel('288467626890362880'), embed=banlog)
 
         except discord.errors.Forbidden:
-            await self.bot.say('`discord.errors.Forbidden` - I do not have permission to ban members, or the highest role of the target is higher than mine.')
+            await self.bot.say(
+                '`discord.errors.Forbidden` - I do not have permission to ban members, or the highest role of the target is higher than mine.')
             return
 
         except discord.errors.HTTPException:
@@ -386,30 +396,36 @@ class Admin:
             await self.bot.say('lol hi look at this retard (<@' + author.id + '>) who tried to ban a staff')
             return
 
-        banmessagechat = discord.Embed(description='Command successfully executed.', colour=0xE53935) #CHAT UPDATE
+        banmessagechat = discord.Embed(description='Command successfully executed.', colour=0xE53935)  # CHAT UPDATE
         banmessagechat.set_thumbnail(url=afxuserurl)
-        banmessagechat.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        banmessagechat.set_footer(text='Action taken on ToS Community Discord',
+                                  icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         banmessagechat.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
-        banmessagechat.add_field(name='Kicked User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
+        banmessagechat.add_field(name='Kicked User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)',
+                                 inline=True)
         banmessagechat.add_field(name='Reason:', value=reason)
 
-        banlog = discord.Embed(description='Modlog Entry - `/kick`', colour=0xE53935) #MODLOG
+        banlog = discord.Embed(description='Modlog Entry - `/kick`', colour=0xE53935)  # MODLOG
         banlog.set_thumbnail(url=afxuserurl)
-        banlog.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        banlog.set_footer(text='Action taken on ToS Community Discord',
+                          icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         banlog.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         banlog.add_field(name='Kicked User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
         banlog.add_field(name='Reason:', value=reason)
 
-        dmtobanned = discord.Embed(description='You were just kicked from the server.', colour=0xE53935) #DM TO AFXUSER
+        dmtobanned = discord.Embed(description='You were just kicked from the server.',
+                                   colour=0xE53935)  # DM TO AFXUSER
         dmtobanned.set_thumbnail(url=afxuserurl)
-        dmtobanned.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        dmtobanned.set_footer(text='Action taken on ToS Community Discord',
+                              icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         dmtobanned.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         dmtobanned.add_field(name='Kicked User:', value='<@' + afxidstr + '> (ID: `' + afxidstr + '`)', inline=True)
         dmtobanned.add_field(name='Reason:', value=reason)
-        
-        
+
         try:
-            kickconfirmation = discord.Embed(description='Are you sure you want to kick <@' + afxuserid + '>? Type `yes` to confirm.', colour=0xE53935)
+            kickconfirmation = discord.Embed(
+                description='Are you sure you want to kick <@' + afxuserid + '>? Type `yes` to confirm.',
+                colour=0xE53935)
             await self.bot.say(embed=kickconfirmation)
             message = await self.bot.wait_for_message(timeout=5,
                                                       author=ctx.message.author)
@@ -429,7 +445,8 @@ class Admin:
             await self.bot.send_message(self.bot.get_channel('288467626890362880'), embed=banlog)
 
         except discord.errors.Forbidden:
-            await self.bot.say('`discord.errors.Forbidden` - I do not have permission to kick members, or the highest role of the target is higher than mine.')
+            await self.bot.say(
+                '`discord.errors.Forbidden` - I do not have permission to kick members, or the highest role of the target is higher than mine.')
             return
 
         except discord.errors.HTTPException:
@@ -438,7 +455,7 @@ class Admin:
 
     @commands.command(pass_context=True, no_pm=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator")
-    async def unban(self, ctx, user: discord.User=None):
+    async def unban(self, ctx, user: discord.User = None):
         """Unbans a user. You MUST use a Discord ID, or a tag."""
 
         author = ctx.message.author
@@ -451,21 +468,26 @@ class Admin:
         reasonstr = str(reason)
         afxidstr = str(afxuserid)
 
-        banmessagechat = discord.Embed(description='Command successfully executed.', colour=0xE53935) #CHAT UPDATE
+        banmessagechat = discord.Embed(description='Command successfully executed.', colour=0xE53935)  # CHAT UPDATE
         banmessagechat.set_thumbnail(url=afxuserurl)
-        banmessagechat.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        banmessagechat.set_footer(text='Action taken on ToS Community Discord',
+                                  icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         banmessagechat.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
-        banmessagechat.add_field(name='Unbanned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
+        banmessagechat.add_field(name='Unbanned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)',
+                                 inline=True)
 
-        banlog = discord.Embed(description='Modlog Entry - `/unban`', colour=0xE53935) #MODLOG
+        banlog = discord.Embed(description='Modlog Entry - `/unban`', colour=0xE53935)  # MODLOG
         banlog.set_thumbnail(url=afxuserurl)
-        banlog.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        banlog.set_footer(text='Action taken on ToS Community Discord',
+                          icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         banlog.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         banlog.add_field(name='Unbanned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
 
-        dmtobanned = discord.Embed(description='You have just unbanned from the server.', colour=0xE53935) #DM TO AFXUSER
+        dmtobanned = discord.Embed(description='You have just unbanned from the server.',
+                                   colour=0xE53935)  # DM TO AFXUSER
         dmtobanned.set_thumbnail(url=afxuserurl)
-        dmtobanned.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        dmtobanned.set_footer(text='Action taken on ToS Community Discord',
+                              icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         dmtobanned.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         dmtobanned.add_field(name='Unbanned User:', value='<@' + afxuserid + '> (ID: `' + afxidstr + '`)', inline=True)
 
@@ -502,9 +524,9 @@ class Admin:
     async def enable(self, ctx):
         """Enable game night"""
 
-        await self.bot.remove_roles(ctx.message.author, discord.Role(id='359476128899006466', server='288455332173316106'))
+        await self.bot.remove_roles(ctx.message.author,
+                                    discord.Role(id='359476128899006466', server='288455332173316106'))
         await self.bot.say('You have successfully opted into game nights.')
-        
 
     @commands.group(pass_context=True)
     async def appeal(self, ctx):
@@ -524,8 +546,10 @@ class Admin:
         message = str(msg)
 
         appeal = discord.Embed(colour=0xD360F2)
-        appeal.set_author(name='An appeal has been submitted.', icon_url='http://img.clipartall.com/lawyer-clip-art-clipartall-lawyer-clip-art-281_428.jpg')
-        appeal.set_footer(text='ToS Community Discord Appeals', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        appeal.set_author(name='An appeal has been submitted.',
+                          icon_url='http://img.clipartall.com/lawyer-clip-art-clipartall-lawyer-clip-art-281_428.jpg')
+        appeal.set_footer(text='ToS Community Discord Appeals',
+                          icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         appeal.set_thumbnail(url=appealerimg)
         appeal.add_field(name='Appealer:', value='<@' + appealerid + '>, (ID: `' + appealerid + '`)', inline=True)
         appeal.add_field(name='Appeal Type:', value='Ban Appeal', inline=True)
@@ -534,7 +558,7 @@ class Admin:
         try:
             await self.bot.send_message(self.bot.get_channel('297442649168936961'), embed=appeal)
             await self.bot.say('Your appeal was successfully sent.')
-        
+
         except discord.errors.Forbidden:
             await self.bot.say('`discord.errors.Forbidden` - Contact <@222147236728012800> if this error shows')
             return
@@ -553,8 +577,10 @@ class Admin:
         message = str(msg)
 
         appeal = discord.Embed(colour=0xD360F2)
-        appeal.set_author(name='An appeal has been submitted.', icon_url='http://img.clipartall.com/lawyer-clip-art-clipartall-lawyer-clip-art-281_428.jpg')
-        appeal.set_footer(text='ToS Community Discord Appeals', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        appeal.set_author(name='An appeal has been submitted.',
+                          icon_url='http://img.clipartall.com/lawyer-clip-art-clipartall-lawyer-clip-art-281_428.jpg')
+        appeal.set_footer(text='ToS Community Discord Appeals',
+                          icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         appeal.set_thumbnail(url=appealerimg)
         appeal.add_field(name='Appealer:', value='<@' + appealerid + '>, (ID: `' + appealerid + '`)', inline=True)
         appeal.add_field(name='Appeal Type:', value='Mute/Channel Block Appeal', inline=True)
@@ -563,7 +589,7 @@ class Admin:
         try:
             await self.bot.send_message(self.bot.get_channel('297442649168936961'), embed=appeal)
             await self.bot.say('Your appeal was successfully sent.')
-        
+
         except discord.errors.Forbidden:
             await self.bot.say('`discord.errors.Forbidden` - Contact <@222147236728012800> if this error shows')
             return
@@ -582,8 +608,10 @@ class Admin:
         message = str(msg)
 
         appeal = discord.Embed(colour=0xD360F2)
-        appeal.set_author(name='An appeal has been submitted.', icon_url='http://img.clipartall.com/lawyer-clip-art-clipartall-lawyer-clip-art-281_428.jpg')
-        appeal.set_footer(text='ToS Community Discord Appeals', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        appeal.set_author(name='An appeal has been submitted.',
+                          icon_url='http://img.clipartall.com/lawyer-clip-art-clipartall-lawyer-clip-art-281_428.jpg')
+        appeal.set_footer(text='ToS Community Discord Appeals',
+                          icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         appeal.set_thumbnail(url=appealerimg)
         appeal.add_field(name='Appealer:', value='<@' + appealerid + '>, (ID: `' + appealerid + '`)', inline=True)
         appeal.add_field(name='Appeal Type:', value='Warn Appeal', inline=True)
@@ -592,7 +620,7 @@ class Admin:
         try:
             await self.bot.send_message(self.bot.get_channel('297442649168936961'), embed=appeal)
             await self.bot.say('Your appeal was successfully sent.')
-        
+
         except discord.errors.Forbidden:
             await self.bot.say('`discord.errors.Forbidden` - Contact <@222147236728012800> if this error shows')
             return
@@ -609,8 +637,10 @@ class Admin:
         appealerstr = str(auth)
         authimg = auth.avatar_url
 
-        thereply = discord.Embed(description='You have recieved a response from your inquiry / bug report!', colour=0x8E24AA)
-        thereply.set_footer(text='AeroSystem Help Desk, if you have another issue please send it in via commands.', icon_url='https://cdn.discordapp.com/avatars/282501616828153857/d45ca9b4f10937ef3756875dff5bad22.jpg?size=128')
+        thereply = discord.Embed(description='You have recieved a response from your inquiry / bug report!',
+                                 colour=0x8E24AA)
+        thereply.set_footer(text='AeroSystem Help Desk, if you have another issue please send it in via commands.',
+                            icon_url='https://cdn.discordapp.com/avatars/282501616828153857/d45ca9b4f10937ef3756875dff5bad22.jpg?size=128')
         thereply.set_author(name='Help Desk Member: ' + authstr, icon_url=authimg)
         thereply.add_field(name='Reply Type:', value=replytype, inline=True)
         thereply.add_field(name='Response:', value=message, inline=True)
@@ -710,7 +740,7 @@ class Admin:
 
     @commands.command(no_pm=True, pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator")
-    async def removerole(self, ctx, rolename, user: discord.Member=None, *, reason: str):
+    async def removerole(self, ctx, rolename, user: discord.Member = None, *, reason: str):
         """Removes a role from user."""
         auth = ctx.message.author
         channel = ctx.message.channel
@@ -725,7 +755,7 @@ class Admin:
         role = self._role_from_string(server, rolename)
         roleid = role.id
         afxuserid = user.id
-        
+
         if role is None:
             await self.bot.say("Role not found.")
             return
@@ -739,43 +769,50 @@ class Admin:
             await self.bot.say('What the fuck are you trying to do? Remove a staff role from someone? Shame on you.')
             return
 
-        elif roleid in ['289508430350254080', '291743984525770754', '291743946642554883', '291743908306616323', '291743280813703168',
-                      '291743388661841920', '291743325814521856', '291743168515538946', '291743471750873088', '291743680241336321',
-                      '291743563711250442', '291743513182208000', '291743627489574912', '291743828849852416', '291743751846494208',
-                      '321786146835267594', '321785124230397952', '321785338987282432', '321785330439159818']:
-            secondaryrole = discord.Role(id='297159204181901323', server='288455332173316106')
-            secondaryrolestr = 'Town (ID: `297159204181901323`)'
+        elif roleid in ['289508430350254080', '291743984525770754', '291743946642554883', '291743908306616323',
+                        '291743280813703168',
+                        '291743388661841920', '291743325814521856', '291743168515538946', '291743471750873088',
+                        '291743680241336321',
+                        '291743563711250442', '291743513182208000', '291743627489574912', '291743828849852416',
+                        '291743751846494208',
+                        '321786146835267594', '321785124230397952', '321785338987282432', '321785330439159818']:
+            secondary_role = discord.Role(id='297159204181901323', server='288455332173316106')
+            secondary_rolestr = 'Town (ID: `297159204181901323`)'
             addedsecondrole = True
 
-        elif roleid in ['289509219214950400', '291744083750158357', '291744254563319809', '291744342572269568', '291744422213844992',
-                        '291744553919184897', '291744602090897408', '291744671292456960', '291744520469610496', '321786150916194304', '321786146835267594']:
-            secondaryrole = discord.Role(id='297159278303641600', server='288455332173316106')
-            secondaryrolestr = 'Mafia (ID: `297159278303641600`)'
+        elif roleid in ['289509219214950400', '291744083750158357', '291744254563319809', '291744342572269568',
+                        '291744422213844992',
+                        '291744553919184897', '291744602090897408', '291744671292456960', '291744520469610496',
+                        '321786150916194304', '321786146835267594']:
+            secondary_role = discord.Role(id='297159278303641600', server='288455332173316106')
+            secondary_rolestr = 'Mafia (ID: `297159278303641600`)'
             addedsecondrole = True
 
         elif roleid in ['291744786275106817', '291745330574393344', '291745200328671243', '326914566263013386']:
-            secondaryrole = discord.Role(id='297169993270034433', server='288455332173316106')
-            secondaryrolestr = 'Neutral Killing (ID: `297169993270034433`)'
+            secondary_role = discord.Role(id='297169993270034433', server='288455332173316106')
+            secondary_rolestr = 'Neutral Killing (ID: `297169993270034433`)'
             addedsecondrole = True
 
         elif roleid in ['291745801107931142', '291745696707772417', '321785643812388864']:
-            secondaryrole = discord.Role(id='297170017634746369', server='288455332173316106')
-            secondaryrolestr = 'Neutral Benign (ID: `297170017634746369`)'
+            secondary_role = discord.Role(id='297170017634746369', server='288455332173316106')
+            secondary_rolestr = 'Neutral Benign (ID: `297170017634746369`)'
             addedsecondrole = True
 
         elif roleid in ['291745484681510922', '289509291306647552']:
-            secondaryrole = discord.Role(id='297170044553789440', server='288455332173316106')
-            secondaryrolestr = 'Neutral Evil (ID: `297170044553789440`)'
+            secondary_role = discord.Role(id='297170044553789440', server='288455332173316106')
+            secondary_rolestr = 'Neutral Evil (ID: `297170044553789440`)'
             addedsecondrole = True
 
-        elif roleid in ['288682060414058516', '291746016418594827', '321785635956588544', '321786136974458921', '326914120576270347']:
-            secondaryrole = discord.Role(id='297170076002680840', server='288455332173316106')
-            secondaryrolestr = 'Neutral Chaos (ID: `297170076002680840`)'
+        elif roleid in ['288682060414058516', '291746016418594827', '321785635956588544', '321786136974458921',
+                        '326914120576270347']:
+            secondary_role = discord.Role(id='297170076002680840', server='288455332173316106')
+            secondary_rolestr = 'Neutral Chaos (ID: `297170076002680840`)'
             addedsecondrole = True
 
-        elif roleid in ['321784223608340480', '321784220240314370', '321784224866631690', '321784216075501569', '321784193451556866','321784203127816193' ]:
-            secondaryrole = discord.Role(id='291745541581307904', server='288455332173316106')
-            secondaryrolestr = 'Coven (ID: `291745541581307904`)'
+        elif roleid in ['321784223608340480', '321784220240314370', '321784224866631690', '321784216075501569',
+                        '321784193451556866', '321784203127816193']:
+            secondary_role = discord.Role(id='291745541581307904', server='288455332173316106')
+            secondary_rolestr = 'Coven (ID: `291745541581307904`)'
             addedsecondrole = True
 
         else:
@@ -784,37 +821,40 @@ class Admin:
         if user is None:
             user = author
 
-        roleupdate = discord.Embed(description='Command successfully executed.', colour=0xE53935) #CHAT UPDATE ONLY.
+        roleupdate = discord.Embed(description='Command successfully executed.', colour=0xE53935)  # CHAT UPDATE ONLY.
         roleupdate.set_thumbnail(url=afximg)
-        roleupdate.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        roleupdate.set_footer(text='Action taken on ToS Community Discord',
+                              icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         roleupdate.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         roleupdate.add_field(name='Affected Member:', value='<@' + afxuserid + '>', inline=True)
         roleupdate.add_field(name='Role removed:', value=rolenamestr + ' (Role ID: `' + roleid + '`)', inline=True)
         roleupdate.add_field(name='Reason:', value=reason, inline=True)
-        
-        if addedsecondrole is True:
-            roleupdate.add_field(name='Secondary role removed:', value=secondaryrolestr)
 
-        rulog = discord.Embed(description='Modlog Entry - `/removerole`', colour=0xE53935) #MODLOG ENTRY
+        if addedsecondrole is True:
+            roleupdate.add_field(name='Secondary role removed:', value=secondary_rolestr)
+
+        rulog = discord.Embed(description='Modlog Entry - `/removerole`', colour=0xE53935)  # MODLOG ENTRY
         rulog.set_thumbnail(url=afximg)
-        rulog.set_footer(text='Action taken on ToS Community Discord', icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
+        rulog.set_footer(text='Action taken on ToS Community Discord',
+                         icon_url='https://images-ext-1.discordapp.net/.eJwNyFEOgyAMANC7cABqW4RqsuwsprAN44SI-9F4d_c-32l-22JG89n32kYAjauNuWnZ4lSr1fKFrGVtQCKu75kJAzN67DxQJ-hSdJNXcqKU_L9xCExhkKAvO9f3s-UjPZDEXDf2iR9p.2RHdV9UghhwIdEp7zT3-rCiSsLQ?width=80&height=80')
         rulog.set_author(name='Staff Member Name: ' + authstr, icon_url=authimg)
         rulog.add_field(name='Affected Member:', value='<@' + afxuserid + '>', inline=True)
         rulog.add_field(name='Role removed:', value=rolenamestr + ' (Role ID: `' + roleid + '`)', inline=True)
         rulog.add_field(name='Reason:', value=reason, inline=True)
         if addedsecondrole is True:
-            rulog.add_field(name='Secondary role removed:', value=secondaryrolestr)
+            rulog.add_field(name='Secondary role removed:', value=secondary_rolestr)
 
         if role in user.roles:
             try:
                 await self.bot.remove_roles(user, role)
                 await self.bot.say(embed=roleupdate)
                 if addedsecondrole is True:
-                    await self.bot.remove_roles(user, secondaryrole)
+                    await self.bot.remove_roles(user, secondary_role)
                     pass
                 await self.bot.send_message(self.bot.get_channel('288467626890362880'), embed=rulog)
             except discord.Forbidden:
-                await self.bot.say("I don't have permissions to manage roles, or my role is not high enough, or it was meant to be like that.")
+                await self.bot.say(
+                    "I don't have permissions to manage roles, or my role is not high enough, or it was meant to be like that.")
         else:
             await self.bot.say("User does not have that role.")
 
@@ -899,7 +939,7 @@ class Admin:
         new_msg = deepcopy(ctx.message)
         new_msg.author = user
         new_msg.content = self.bot.settings.get_prefixes(new_msg.server)[0] \
-            + command
+                          + command
         await self.bot.process_commands(new_msg)
 
     @commands.command(pass_context=True, hidden=True)
