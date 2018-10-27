@@ -21,10 +21,16 @@ class Auth:
                 if len(message.attachments) >= 1:
                     await self.bot.send_message(message.author, 'You have been kicked for mentioning all staff.\n'
                                                                 'You may rejoin if you wish.')
-                    await self.bot.send_message(self.bot.get_channel('288681936870703105'), f'{message.author.mention} '
-                                                                                            f'has been kicked for '
-                                                                                            f'autospam.')
+                    await self.bot.send_message(self.bot.get_channel('288681936870703105'),
+                                                f'{message.author.mention} has been kicked for autospam. '
+                                                '(3+ role ping, attachment)')
                     await self.bot.kick(message.author)
+            elif len(message.role_mentions) >= 4:
+                await self.bot.send_message(message.author, 'You have been kicked for mentioning all staff.\n'
+                                                            'You may rejoin if you wish.')
+                await self.bot.send_message(self.bot.get_channel('288681936870703105'),
+                                            f'{message.author.mention} has been kicked for autospam. (4+ role ping)')
+                await self.bot.kick(message.author)
 
 
 def setup(bot):
