@@ -1,18 +1,7 @@
 import discord
 from discord.ext import commands
-from cogs.utils import checks
-from cogs.utils.dataIO import dataIO
-from cogs.utils.chat_formatting import box, pagify
-from copy import deepcopy
-from collections import defaultdict
-import asyncio
-import logging
-import logging.handlers
-import random
 import os
-import datetime
-import re
-from datetime import datetime
+
 
 class CovenHost:
     """Self ToS Role assignment system. ~Danners"""
@@ -20,19 +9,7 @@ class CovenHost:
     default = {}
 
     def __init__(self, bot):
-        db = dataIO.load_json("data/hostdata/data.json")
         self.bot = bot
-        self.db = defaultdict(lambda: default.copy(), db)
-
-    async def _save_current_host(self, ctx, hostid):
-        
-        if "host" in self.db:
-            del self.db["host"]
-            self.save()
-            
-        self.db["host"] = []
-        self.db["host"].append(hostid)
-        self.save()
 
     @commands.group(pass_context=True)
     async def coven(self, ctx):
@@ -57,7 +34,7 @@ class CovenHost:
                 else:
                     await self.bot.say('Use `/coven enable` to enable Coven Notifications.')
         else:
-            await self.bot.say('<@' + authorid + '> **||** This command is only usable in <#288455332173316106> or '
+            await self.bot.say(f'{ctx.message.author.mention} **||** This command is only usable in <#288455332173316106> or '
                                                  '<#288463362357067777>.')
             return
 
@@ -65,14 +42,12 @@ class CovenHost:
     async def enable(self, ctx):
         channel = ctx.message.channel
         channelid = str(channel.id)
-        authorid = str(ctx.message.author.id)
 
         if channelid in ['288463362357067777', '288455332173316106', '296069608216068098']:
             pass
         else:
-            await self.bot.say("<@" + str(ctx.message.author.id) + "> **||** This command is only usable in "
-                                                                   "<#288455332173316106>, <#288463362357067777> or "
-                                                                   "<#358331904233046016>.")
+            await self.bot.say(f"{ctx.message.author.mention} **||** This command is only usable in <#288455332173316106>, "
+                               f"<#288463362357067777> or <#358331904233046016>.")
             return
 
         user = ctx.message.author
@@ -85,7 +60,6 @@ class CovenHost:
     async def disable(self, ctx):
         channel = ctx.message.channel
         channelid = str(channel.id)
-        authorid = str(ctx.message.author.id)
 
         if channelid in ['288463362357067777', '288455332173316106', '296069608216068098']:
             pass
@@ -99,17 +73,14 @@ class CovenHost:
         optinrole = discord.Role(id='358655924342095874', server='288455332173316106')
 
         await self.bot.remove_roles(user, optinrole)
-        await self.bot.say('You now **will not** recieve coven game notifications. Use `/coven enable` to *enable* them.')
+        await self.bot.say(
+            'You now **will not** recieve coven game notifications. Use `/coven enable` to *enable* them.')
 
     @coven.command(pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
                            "Game Night Moderator", "Temp Host", "Gamenight Host")
-    async def host(self, ctx, *, gamemode):
+    async def host(self, ctx, *, gamemode = None):
         """Notify a game is starting"""
-
-        channel = ctx.message.channel
-        channelid = str(channel.id)
-        authorid = str(ctx.message.author.id)
 
         toscd = discord.Server(id='288455332173316106')
         optinrole = discord.Role(id='358655924342095874', server='288455332173316106')
@@ -123,21 +94,19 @@ class CovenHost:
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
                                  colour=discord.Colour(0x550a94), mentionable=True)
 
-        await self.bot.say("""<@&358655924342095874> **||** A new game of **""" + gamemode + """** is starting.
-
-
-Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly after get a party invite.""")
+        await self.bot.say(f"<@&358655924342095874> **||** A new game of ** {gamemode}** is starting.\n\n"
+                           "Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly after "
+                           "get a party invite.")
 
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
                                  colour=discord.Colour(0x550a94), mentionable=False)
 
         await self.bot.send_message(self.bot.get_channel('407003125128495104'), "Names for the game of **"
                                     + str(gamemode) + "** are being posted below.")
-        
 
     @coven.command(pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
-                           "Game Night Moderator", "Temp Host, "Gamenight Host")
+                           "Game Night Moderator", "Temp Host", "Gamenight Host")
     async def final(self, ctx, *, gamemode):
         """Notify a game is starting"""
 
@@ -151,16 +120,16 @@ Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly
         auth = str(ctx.message.author.id)
 
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
-                                 colour=discord.Colour(0x550a94), mentionable=True)
+                           colour=discord.Colour(0x550a94), mentionable=True)
 
-        await self.bot.say("""<@&358655924342095874> **||** This is the final call for a game of **""" + gamemode +
-                           """** is starting.
-The game will start shortly.
+        await self.bot.say(f"<@&358655924342095874> **||** This is the final call for a game of **{gamemode}** is "
+                           f"starting.\n"
+                            "The game will start shortly.\n\n"
+                            "Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly after "
+                            "get a party invite.")
 
-Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly after get a party invite.""")
-        
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
-                                 colour=discord.Colour(0x550a94), mentionable=False)
+                           colour=discord.Colour(0x550a94), mentionable=False)
 
     @coven.command(pass_context=True)
     @commands.has_any_role("Senior Moderator", "Moderator", "AeroBot Manager", "Administrator", "Game Moderator",
@@ -187,20 +156,18 @@ Use `/joingame [Town of Salem IGN]` or `/jg [ToS IGN]` to join. You will shortly
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
                                  colour=discord.Colour(0x550a94), mentionable=True)
 
-        msg = await self.bot.say("""<a:animpartyblob1:401122373236948993> <a:animpartyblob2:401122373367234570> <a:animpartyblob3:401122373396463616> <a:animpartyblob4:401122373262376971> <a:animpartyblob5:401122373425823744> <a:animpartyblob6:401122373614567434> <a:animpartyblob7:401122373698322432> <a:animpartyblob8:401122373270503427> <a:animpartyblob9:401122373434343431>
-<@&358655924342095874> **||** We're voting for today's coven gamemodes! React to a gamemode to react.
-You may choose more than 1.
+        msg = await self.bot.say("<a:animpartyblob1:401122373236948993> <a:animpartyblob2:401122373367234570> <a:animpartyblob3:401122373396463616> <a:animpartyblob4:401122373262376971> <a:animpartyblob5:401122373425823744> <a:animpartyblob6:401122373614567434> <a:animpartyblob7:401122373698322432> <a:animpartyblob8:401122373270503427> <a:animpartyblob9:401122373434343431>\n"
+                                 "<@&358655924342095874> **||** We're voting for today's coven gamemodes! "
+                                 "React to a gamemode to react.\nYou may choose more than 1.\n\n"
+                                 "**You may choose from these options:**\n"
+                                 "<:CovenNormalClassic:406242997852700672> - Classic.\n"
+                                 "<:CovenRankedPractice:406242997903163392> - Ranked Practice.\n"
+                                 "<:CovenCustomCustom:406242997584396299> - Custom.\n"
+                                 "<:CovenEvilsVEvils:406242997492252674> - Evils v Evils.\n"
+                                 "<:CovenAllAny:406242997727133697> - All Any.\n"
+                                 "<:CovenMafiaReturns:406242998083649546> - Mafia Returns.\n"
+                                 "<:CovenRotating:406242998205153298> - Rotating Gamemode (VIP or Lovers.)")
 
-**You may choose from these options:**
-<:CovenNormalClassic:406242997852700672> - Classic.
-<:CovenRankedPractice:406242997903163392> - Ranked Practice.
-<:CovenCustomCustom:406242997584396299> - Custom.
-<:CovenEvilsVEvils:406242997492252674> - Evils v Evils.
-<:CovenAllAny:406242997727133697> - All Any.
-<:CovenMafiaReturns:406242998083649546> - Mafia Returns
-<:CovenRotating:406242998205153298> - Rotating Gamemode (VIP or Lovers.)
-""")
-        
         await self.bot.edit_role(toscd, optinrole, name="Coven Notifications",
                                  colour=discord.Colour(0x550a94), mentionable=False)
 
@@ -213,24 +180,6 @@ You may choose more than 1.
         await self.bot.add_reaction(msg, aa)
 
 
-        def save(self):
-            dataIO.save_json("data/hostdata/data.json", self.db)
-
-
-def check_folders():
-    if not os.path.exists("data/hostdata"):
-        print("Creating data/hostdata folder...")
-        os.makedirs("data/hostdata")
-
-
-
-
-
-def check_files():
-    if not dataIO.is_valid_json("data/hostdata/data.json"):
-        print("Creating empty data/hostdata/data.json...")
-        dataIO.save_json("data/hosting/data.json", {})
-
 def setup(bot):
     n = CovenHost(bot)
-    bot.add_cog(n)     
+    bot.add_cog(n)
