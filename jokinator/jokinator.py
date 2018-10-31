@@ -260,7 +260,7 @@ class Jokinator:
     @commands.command(pass_context=True)
     async def givejoke(self, ctx):
         """Want cool jokes?"""
-        await self.bot.say(f'{ctx.message.author.mention}, {random.choice(JOKE)}')
+        await self.bot.say(f'{ctx.message.author.mention}, {random.choice(JOKES)}')
 
 
 def setup(bot):
