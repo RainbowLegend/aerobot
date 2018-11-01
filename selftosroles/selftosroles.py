@@ -1,3 +1,12 @@
+import discord
+from discord.ext import commands
+from cogs.utils import checks
+from cogs.utils.dataIO import dataIO
+from collections import defaultdict
+import asyncio
+import os
+
+
 class SelfToSRoles:
     """Self ToS Role assignment system. ~Danners"""
 
