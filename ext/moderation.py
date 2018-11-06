@@ -6,7 +6,6 @@ import typing
 
 class Moderation:
     """Cogs made for moderation.
-
     Include various other stuff as well.
     """
 
@@ -43,14 +42,14 @@ class Moderation:
         em.set_footer(text='ToS Community Discord', icon_url=ctx.guild.icon_url)
         em.timestamp = datetime.datetime.utcnow()
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-
-        await (toscd.get_channel(288467626890362880)).send(embed=em)
+        channel = toscd.get_channel(288467626890362880)
+        await channel.send(embed=em)
         await user.send('A recipt of a moderator action has been sent to you:', embed=em)
 
     @commands.command()
     @commands.has_any_role('Administrator', 'Senior Moderator', 'Moderator')
-    async def addrole(self, ctx, role: commands.Greedy[discord.Role], user: discord.Member, *, reason='None'):
-        """Adds a role to a user.
+    async def removerole(self, ctx, role: commands.Greedy[discord.Role], user: discord.Member, *, reason='None'):
+        """Removes a role from a user.
 
         Params:
         role - Role(s) to remove to the user
@@ -69,8 +68,9 @@ class Moderation:
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
         toscd = self.bot.get_guild(288455332173316106)
+        channel = toscd.get_channel(288467626890362880)
 
-        await (toscd.get_channel(288467626890362880)).send(embed=em)
+        await channel.send(embed=em)
         await user.send('A recipt of a moderator action has been sent to you:', embed=em)
 
     @commands.command(name='kick', aliases=['boot'])
@@ -92,11 +92,11 @@ class Moderation:
         em.timestamp = datetime.datetime.utcnow()
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await user.send(embed=em)
+        await user.send('You can appeal by DMing me once you join '
+                        'the Auth server by using `/appeal [contents]`.', embed=em)
         toscd = self.bot.get_guild(288455332173316106)
-        await (toscd.get_channel(288467626890362880)).send('You can appeal by DMing me once you join '
-                                                                'the Auth server by using `/appeal [contents]`.',
-                                                                embed=em)
+        channel = toscd.get_channel(288467626890362880)
+        channel.send(embed=em)
         await user.kick(reason=f'Action by {ctx.author}')
 
     @commands.command(name='ban')
@@ -118,11 +118,11 @@ class Moderation:
         em.timestamp = datetime.datetime.utcnow()
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await user.send(embed=em)
+        await user.send('You can appeal by DMing me once you join '
+                        'the Auth server by using `/appeal [contents]`', embed=em)
         toscd = self.bot.get_guild(288455332173316106)
-        await (toscd.get_channel(288467626890362880)).send('You can appeal by DMing me once you join '
-                                                                'the Auth server by using `/appeal [contents]`',
-                                                                embed=em)
+        channel = toscd.get_channel(288467626890362880)
+        await channel.send(embed=em)
         await user.ban(reason=f'Action by {ctx.author}')
 
     @commands.command(name='mute', aliases=['blackmail', 'bm'])
@@ -135,7 +135,7 @@ class Moderation:
             *, reason='None'
     ):
         """Mutes a user.
-
+        
         Params:
         user - A member of the Discord
         time - {optional} in seconds
@@ -153,7 +153,10 @@ class Moderation:
 
         toscd = self.bot.get_guild(288455332173316106)
         muted = toscd.get_role(289194167463182337)
+        channel = toscd.get_channel(288467626890362880)
 
+        await user.send('You can appeal by DMing me by using `/appeal [contents]`', embed=em)
+        await channel.send(embed=em)
         await user.add_roles(muted, reason=f'Action by {ctx.author}')
         await __import__('asyncio').sleep(time)
         await user.remove_roles(muted, reason='Unmute.')
@@ -172,8 +175,9 @@ class Moderation:
         em.timestamp = datetime.datetime.utcnow()
 
         toscd = self.bot.get_guild(288455332173316106)
+        channel = toscd.get_channel(297442649168936961)
 
-        await (toscd.get_channel(297442649168936961)).send(embed=em)
+        await channel.send(embed=em)
         await ctx.author.send('Your appeal was successfully sent.')
 
 
