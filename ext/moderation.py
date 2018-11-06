@@ -31,6 +31,7 @@ class Moderation:
         You can pass more than one role in at the same time, make sure it is between member and /addrole.
         """
 
+        toscd = self.bot.get_guild(288455332173316106)
         await user.add_roles(*role)
         em = discord.Embed(colour=discord.Colour.green(), description='Logging Entry - `/addrole`')
         em.add_field(name=f'Member:', value=f'{user.mention}')
@@ -40,7 +41,7 @@ class Moderation:
         em.timestamp = datetime.datetime.utcnow()
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await (self.toscd.get_channel(288467626890362880)).send(embed=em)
+        await (toscd.get_channel(288467626890362880)).send(embed=em)
         await user.send('A recipt of a moderator action has been sent to you:', embed=em)
 
     @commands.command()
@@ -61,7 +62,9 @@ class Moderation:
         em.timestamp = datetime.datetime.utcnow()
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await (self.toscd.get_channel(288467626890362880)).send(embed=em)
+        toscd = self.bot.get_guild(288455332173316106)
+
+        await (toscd.get_channel(288467626890362880)).send(embed=em)
         await user.send('A recipt of a moderator action has been sent to you:', embed=em)
 
     @commands.command(name='kick', aliases=['boot'])
@@ -69,7 +72,9 @@ class Moderation:
     async def _kick(self, ctx, user: discord.Member, *, reason='None'):
         """Kicks a user
 
-        /kick [user] {reason: optional}
+        Params:
+        user - user to kick
+        reason - {optional} reason for kick
         """
 
         em = discord.Embed(colour=discord.Colour.orange(),
@@ -82,7 +87,8 @@ class Moderation:
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
         await user.send(embed=em)
-        await (self.toscd.get_channel(288467626890362880)).send('You can appeal by DMing me once you join '
+        toscd = self.bot.get_guild(288455332173316106)
+        await (toscd.get_channel(288467626890362880)).send('You can appeal by DMing me once you join '
                                                                 'the Auth server by using `/appeal [contents]`.',
                                                                 embed=em)
         await user.kick(reason=f'Action by {ctx.author}')
@@ -92,7 +98,9 @@ class Moderation:
     async def _ban(self, ctx, user: discord.Member, *, reason='None'):
         """Bans a user
 
-        /ban [user] {reason: optional}
+        Params:
+        user - A member of the discord
+        reason - {optional} reason for ban
         """
 
         em = discord.Embed(colour=discord.Colour.orange(),
@@ -105,7 +113,8 @@ class Moderation:
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
         await user.send(embed=em)
-        await (self.toscd.get_channel(288467626890362880)).send('You can appeal by DMing me once you join '
+        toscd = self.bot.get_guild(288455332173316106)
+        await (toscd.get_channel(288467626890362880)).send('You can appeal by DMing me once you join '
                                                                 'the Auth server by using `/appeal [contents]`',
                                                                 embed=em)
         await user.ban(reason=f'Action by {ctx.author}')
@@ -121,7 +130,10 @@ class Moderation:
     ):
         """Mutes a user.
 
-        /mute [user] {time in seconds: optional, def: 3600s} {reason: optional}
+        Params:
+        user - A member of the Discord
+        time - {optional} in seconds
+        reason - {optional} reason for mute
         """
 
         em = discord.Embed(colour=discord.Colour.orange(),
@@ -133,7 +145,8 @@ class Moderation:
         em.timestamp = datetime.datetime.utcnow()
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        muted = self.toscd.get_role(289194167463182337)
+        toscd = self.bot.get_guild(288455332173316106)
+        muted = toscd.get_role(289194167463182337)
 
         await user.add_roles(muted, reason=f'Action by {ctx.author}')
         await __import__('asyncio').sleep(time)
@@ -152,7 +165,9 @@ class Moderation:
         em.set_footer(text='ToS Community Discord', icon_url=ctx.guild.icon_url)
         em.timestamp = datetime.datetime.utcnow()
 
-        await (self.toscd.get_channel(297442649168936961)).send(embed=em)
+        toscd = self.bot.get_guild(288455332173316106)
+
+        await (toscd.get_channel(297442649168936961)).send(embed=em)
         await ctx.author.send('Your appeal was successfully sent.')
 
 
