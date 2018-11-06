@@ -85,7 +85,7 @@ class SelfRoles:
         if ctx.channel.id not in [288463362357067777, 288455332173316106, 296069608216068098]:
             return await ctx.send(f'{ctx.author.mention} **||** This command is only usable in '
                                   '<#288455332173316106> or <#288463362357067777>.')
-        elif newrole not in roles.keys():
+        elif newrole.lower() not in roles.keys():
             return await ctx.send(f'{ctx.author.mention} **||** For a list of roles, please check '
                                   '<#288752291463299083>.  Make sure capitalization is also followed.')
 
@@ -93,9 +93,9 @@ class SelfRoles:
             if role[1].id in (crole.id for crole in ctx.author.roles):
                 await ctx.author.remove_roles(*role, reason='Auto assigner (removal)')
 
-        await ctx.author.add_roles(*roles[newrole], reason='Auto assigner')
+        await ctx.author.add_roles(*roles[newrole.lower()], reason='Auto assigner')
 
-        await ctx.send(f'{ctx.author.mention}, you have been assigned **{roles[newrole][1].name.title()}**')
+        await ctx.send(f'{ctx.author.mention}, you have been assigned **{roles[newrole.lower()][1].name.title()}**')
 
     @commands.command()
     async def nsfw(self, ctx):
