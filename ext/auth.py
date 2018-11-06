@@ -7,7 +7,7 @@ class Auth:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command
+    @commands.command()
     async def auth(self, ctx):
         destination = self.bot.get_channel(288677420720979978)
         inv = await self.bot.create_invite(destination, max_uses=1, max_age=60)

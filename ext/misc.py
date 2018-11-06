@@ -8,7 +8,7 @@ class Misc:
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command
+    @commands.command()
     async def penis(self, ctx, user: discord.Member=None):
         """:b:enis?"""
         if user.id == 228700305263558656:
