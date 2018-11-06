@@ -27,7 +27,10 @@ class Moderation:
     async def addrole(self, ctx, role: commands.Greedy[discord.Role], user: discord.Member, *, reason='None'):
         """Adds a role to a user.
 
-        /addrole [role, if multi-word use quotes] [member] {reason: optional}
+        Params:
+        role - Role(s) to add to the user
+        user - A member of the discord
+        reason - {optional} for the addition
         You can pass more than one role in at the same time, make sure it is between member and /addrole.
         """
 
@@ -46,10 +49,13 @@ class Moderation:
 
     @commands.command()
     @commands.has_any_role('Administrator', 'Senior Moderator', 'Moderator')
-    async def addrole(self, ctx, role: commands.Greedy[discord.Role], user: discord.Member, *, reason='None'):
+    async def removerole(self, ctx, role: commands.Greedy[discord.Role], user: discord.Member, *, reason='None'):
         """Adds a role to a user.
 
-        /removerole [role, if multi-word use quotes] [member] {reason: optional}
+        Params:
+        role - Role(s) to remove to the user
+        user - A member of the discord
+        reason - {optional} for the removal
         You can pass more than one role in at the same time, make sure it is between member and /removerole.
         """
 
