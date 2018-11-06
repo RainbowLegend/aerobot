@@ -13,7 +13,6 @@ class Notifications:
     async def host(self, ctx, mode, notification_type, gamemode='Not Defined'):
         """Pings the appropriate role for the appropriate game mode.
 
-        /host [mode] [notification_type] {gamemode}
         Params:
         mode - Either `Coven` or `Classic`
         notification_type - Either `start` or `final`
@@ -44,10 +43,7 @@ class Notifications:
 
     @commands.command(aliases=['joingame', 'jg'])
     async def _joingame(self, ctx, ign):
-        """Send your IGN to the lobby host.
-
-        /joingame [ToS IGN]
-        """
+        """Send your IGN to the lobby host."""
 
         await (self.toscd.get_channel(407003125128495104)).send('{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')

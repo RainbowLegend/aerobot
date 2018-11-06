@@ -10,12 +10,9 @@ class SelfRoles:
 
     @commands.command()
     async def tosrole(self, ctx, *, newrole):
-        """Y'all like jazz?
+        """Y'all like jazz?"""
 
-        /tosrole [roles, list in #info]
-        """
-
-        toscd = self.bot.get_guild(336642139381301249)
+        toscd = self.bot.get_guild(288455332173316106)
         base_roles = {
             'town': toscd.get_role(297159204181901323),
             'mafia': toscd.get_role(297159278303641600),
@@ -117,7 +114,7 @@ class SelfRoles:
     async def gnotif(self, ctx, arg=None):
         """Notifications for games
 
-        /gnotif [enable/disable]"""
+        arg must be either 'enable' or 'disable'"""
 
         toscd = self.bot.get_guild(336642139381301249)
         role = toscd.get_role(379748801197637644)
@@ -144,7 +141,7 @@ class SelfRoles:
     async def coven(self, ctx, arg=None):
         """Notifications for coven games
 
-        /coven [enable/disable]
+        arg must be either 'enable' or 'disable'
         """
 
         toscd = self.bot.get_guild(336642139381301249)

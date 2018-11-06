@@ -49,7 +49,7 @@ class Moderation:
 
     @commands.command()
     @commands.has_any_role('Administrator', 'Senior Moderator', 'Moderator')
-    async def removerole(self, ctx, role: commands.Greedy[discord.Role], user: discord.Member, *, reason='None'):
+    async def addrole(self, ctx, role: commands.Greedy[discord.Role], user: discord.Member, *, reason='None'):
         """Adds a role to a user.
 
         Params:
@@ -92,11 +92,11 @@ class Moderation:
         em.timestamp = datetime.datetime.utcnow()
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await user.send('You can appeal by DMing me once you join '
-                        'the Auth server by using `/appeal [contents]`.', embed=em)
+        await user.send(embed=em)
         toscd = self.bot.get_guild(288455332173316106)
-        channel = toscd.get_channel(288467626890362880)
-        await channel.send(embed=em)
+        await (toscd.get_channel(288467626890362880)).send('You can appeal by DMing me once you join '
+                                                                'the Auth server by using `/appeal [contents]`.',
+                                                                embed=em)
         await user.kick(reason=f'Action by {ctx.author}')
 
     @commands.command(name='ban')
@@ -118,11 +118,11 @@ class Moderation:
         em.timestamp = datetime.datetime.utcnow()
         em.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        await user.send('You can appeal by DMing me once you join '
-                        'the Auth server by using `/appeal [contents]`', embed=em)
+        await user.send(embed=em)
         toscd = self.bot.get_guild(288455332173316106)
-        channel = toscd.get_channel(288467626890362880)
-        await channel.send(embed=em)
+        await (toscd.get_channel(288467626890362880)).send('You can appeal by DMing me once you join '
+                                                                'the Auth server by using `/appeal [contents]`',
+                                                                embed=em)
         await user.ban(reason=f'Action by {ctx.author}')
 
     @commands.command(name='mute', aliases=['blackmail', 'bm'])
@@ -153,10 +153,7 @@ class Moderation:
 
         toscd = self.bot.get_guild(288455332173316106)
         muted = toscd.get_role(289194167463182337)
-        channel = toscd.get_channel(288467626890362880)
 
-        await user.send('You can appeal by DMing me by using `/appeal [contents]`', embed=em)
-        await channel.send(embed=em)
         await user.add_roles(muted, reason=f'Action by {ctx.author}')
         await __import__('asyncio').sleep(time)
         await user.remove_roles(muted, reason='Unmute.')

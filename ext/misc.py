@@ -10,6 +10,7 @@ class Miscellaneous:
 
     @commands.command
     async def penis(self, ctx):
+        """:b:enis?"""
         if ctx.author.id == 228700305263558656:
             return await self.bot.say(lelijah)
         state = random.getstate()
