@@ -162,7 +162,7 @@ class Moderation:
         await user.remove_roles(muted, reason='Unmute.')
         await user.send('You have been unmuted.')
 
-    @commands.command
+    @commands.command()
     async def appeal(self, ctx, *, contents):
         """You can send an appeal to the mods using this command.
         Please be as detailed as you can in the details.

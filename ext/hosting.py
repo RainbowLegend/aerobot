@@ -41,11 +41,11 @@ class Notifications:
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
 
-    @commands.command(aliases=['joingame', 'jg'])
+    @commands.command(name='joingame', aliases=['jg'])
     async def _joingame(self, ctx, ign):
         """Send your IGN to the lobby host."""
 
-        await (self.toscd.get_channel(407003125128495104)).send('{ctx.author.mention} - **{ign}**')
+        await (self.toscd.get_channel(407003125128495104)).send(f'{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
 
 
