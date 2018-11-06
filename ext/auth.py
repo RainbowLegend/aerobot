@@ -10,7 +10,7 @@ class Auth:
     @commands.command()
     async def auth(self, ctx):
         destination = self.bot.get_channel(288677420720979978)
-        inv = await self.bot.create_invite(destination, max_uses=1, max_age=60)
+        inv = await destination.create_invite(reason='Auth server', max_uses=1, max_age=60, unique=True)
         await ctx.author.send(f'Your unique invite link is: {inv}')
 
 
