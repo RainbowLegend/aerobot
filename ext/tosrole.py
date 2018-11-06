@@ -95,7 +95,7 @@ class SelfRoles:
 
         await ctx.author.add_roles(*roles[newrole], reason='Auto assigner')
 
-        await ctx.send(f'{ctx.author.mention}, you have been assigned **{roles[newrole].name}**')
+        await ctx.send(f'{ctx.author.mention}, you have been assigned **{roles[newrole][1].name.title()}**')
 
     @commands.command()
     async def nsfw(self, ctx):
