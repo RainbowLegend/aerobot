@@ -15,4 +15,4 @@ class AeroBot(commands.Bot):
 bot = AeroBot(command_prefix='/', case_insensitive=True)
 bot.load_extensions(config.extensions)
 bot.load_extension('jishaku')
-AeroBot.run(config.token)
+bot.run(config.token)
