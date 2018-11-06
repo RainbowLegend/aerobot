@@ -1,9 +1,0 @@
-{
-    "AUTHOR" : "RainbowLegend",
-    "INSTALL_MSG" : "Admin cog updated/installed.",
-    "NAME" : "Admin",
-    "SHORT" : "TOSCD Administrative Cogs",
-    "DESCRIPTION" : "Administrative cogs including banning, kicking and role commands.",
-    "TAGS" : ["administrative", "rcogs"],
-    "HIDDEN" : false
-}

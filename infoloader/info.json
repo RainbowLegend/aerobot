@@ -1,9 +1,0 @@
-{
-    "AUTHOR" : "RainbowLegend",
-    "SHORT" : "Information posters",
-    "DESCRIPTION" : "Information embeds",
-    "HIDDEN" : false,
-    "NAME" : "InfoLoader",
-    "TAGS" : ["rcogs"],
-    "INSTALL_MSG" : "Updated/Installed."
-}

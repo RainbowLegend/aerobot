@@ -1,9 +1,0 @@
-{
-    "AUTHOR" : "RainbowLegend",
-    "INSTALL_MSG" : "Coven hosting cog installed/updated.",
-    "NAME" : "CovenHost",
-    "SHORT" : "TOSCD Coven Hosting Cogs",
-    "DESCRIPTION" : "Coven hosting cogs for the TOSCD people to host games",
-    "TAGS" : ["hosting", "coven", "rcogs"],
-    "HIDDEN" : false
-}

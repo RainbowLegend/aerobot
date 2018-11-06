@@ -1,9 +1,0 @@
-{
-    "AUTHOR" : "Elijahnt",
-    "INSTALL_MSG" : "Ruler loader cog updated/installed.",
-    "NAME" : "RuleLoader",
-    "SHORT" : "TOSCD Rule Cogs",
-    "DESCRIPTION" : "Rule loading cog for TOSCD to embed the rules",
-    "TAGS" : ["rules", "loader", "rcogs"],
-    "HIDDEN" : false
-}

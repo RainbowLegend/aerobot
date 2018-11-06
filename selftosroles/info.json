@@ -1,9 +1,0 @@
-{
-    "AUTHOR" : "RainbowLegend",
-    "INSTALL_MSG" : "Self assignable role cog installed/updated",
-    "NAME" : "SelfToSRoles",
-    "SHORT" : "TOSCD SelfRole Cogs for town/maf/neutral/coven roles",
-    "DESCRIPTION" : "Self-assignable roles",
-    "TAGS" : ["roles", "sar", "rcogs"],
-    "HIDDEN" : false
-}

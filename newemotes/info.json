@@ -1,9 +1,0 @@
-{
-    "AUTHOR" : "RainbowLegend",
-    "INSTALL_MSG" : "Emotes cog updated/installed.",
-    "NAME" : "NewEmotes",
-    "SHORT" : "TOSCD Administrative Cogs",
-    "DESCRIPTION" : "Administrative cogs including banning, kicking and role commands.",
-    "TAGS" : ["administrative", "rcogs"],
-    "HIDDEN" : false
-}

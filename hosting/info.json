@@ -1,9 +1,0 @@
-{
-    "AUTHOR" : "RainbowLegend",
-    "INSTALL_MSG" : "Classic hosting cog updated/installed.",
-    "NAME" : "Hosting",
-    "SHORT" : "TOSCD Classic Hosting Cogs",
-    "DESCRIPTION" : "Hosting commands for the TOSCD for regular, classic gamemodes.",
-    "TAGS" : ["hosting", "classic", "rcogs"],
-    "HIDDEN" : false
-}
