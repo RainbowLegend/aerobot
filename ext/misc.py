@@ -9,12 +9,14 @@ class Miscellaneous:
         self.bot = bot
 
     @commands.command
-    async def penis(self, ctx):
+    async def penis(self, ctx, user: discord.Member=None):
         """:b:enis?"""
-        if ctx.author.id == 228700305263558656:
+        if user.id == 228700305263558656:
             return await self.bot.say(lelijah)
+        elif user is None:
+            user = ctx.author
         state = random.getstate()
-        random.seed(ctx.author.id)
+        random.seed(user.id)
         random.setstate(state)
         await self.bot.say(f"Size: 8{'=' * random.randint(0, 30)}D")
 
