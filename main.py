@@ -17,7 +17,7 @@ bot.load_extensions(config.extensions)
 bot.load_extension('jishaku')
 
 @bot.event
-async def on_message(self, message):
+async def on_message(message):
     await bot.process_commands(message)
 
 bot.run(config.token)
