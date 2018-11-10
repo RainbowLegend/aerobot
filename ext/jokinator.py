@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 from jokes import JOKES
+import aiohttp
+import random
 
 
 class Jokinator:
