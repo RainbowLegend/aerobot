@@ -1,3 +1,7 @@
+import discord
+from discord.ext import commands
+
+
 class Jokinator:
     """Let's make jokes!"""
 
