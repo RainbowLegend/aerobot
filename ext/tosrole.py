@@ -100,7 +100,7 @@ class SelfRoles:
     @commands.command()
     async def nsfw(self, ctx):
         """Gives you the NSFW role."""
-        toscd = self.bot.get_guild(336642139381301249)
+        toscd = self.bot.get_guild(288455332173316106)
         nsfw = toscd.get_role(425123783863435276)
         if nsfw in ctx.message.author.roles:
             await ctx.author.remove_roles(nsfw, reason='NSFW removal')
@@ -116,7 +116,7 @@ class SelfRoles:
 
         arg must be either 'enable' or 'disable'"""
 
-        toscd = self.bot.get_guild(336642139381301249)
+        toscd = self.bot.get_guild(288455332173316106)
         role = toscd.get_role(379748801197637644)
 
         if ctx.channel.id in [288463362357067777, 288455332173316106, 296069608216068098]:
@@ -144,7 +144,7 @@ class SelfRoles:
         arg must be either 'enable' or 'disable'
         """
 
-        toscd = self.bot.get_guild(336642139381301249)
+        toscd = self.bot.get_guild(288455332173316106)
         role = toscd.get_role(358655924342095874)
 
         if ctx.channel.id in [288463362357067777, 288455332173316106, 296069608216068098]:
