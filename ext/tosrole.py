@@ -134,7 +134,7 @@ class SelfRoles:
                                f'Use `/gnotif enable` to *enable* them.')
 
         else:
-            return await self.bot.say(f'{ctx.author.id} **||** This command is only usable in '
+            return await ctx.send(f'{ctx.author.id} **||** This command is only usable in '
                                       '<#288455332173316106> or <#288463362357067777>.')
 
     @commands.command()
@@ -162,7 +162,7 @@ class SelfRoles:
                                f'Use `/coven enable` to *enable* them.')
 
         else:
-            return await self.bot.say(f'{ctx.author.id} **||** This command is only usable in '
+            return await ctx.send(f'{ctx.author.id} **||** This command is only usable in '
                                       '<#288455332173316106> or <#288463362357067777>.')
 
 
