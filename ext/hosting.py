@@ -45,8 +45,9 @@ class Notifications:
     @commands.command(name='joingame', aliases=['jg'])
     async def _joingame(self, ctx, ign):
         """Send your IGN to the lobby host."""
-        self.bot.get_guild(288455332173316106)
-        await (toscd.get_channel(407003125128495104)).send(f'{ctx.author.mention} - **{ign}**')
+        toscd = self.bot.get_guild(288455332173316106)
+        channel = toscd.get_channel(407003125128495104)
+        await channel.send(f'{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
 
 
