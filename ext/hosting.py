@@ -7,7 +7,6 @@ class Notifications:
 
     def __init__(self, bot):
         self.bot = bot
-        self.toscd = bot.get_guild(288455332173316106)
 
     @commands.command()
     async def host(self, ctx, mode, notification_type, gamemode='Not Defined'):
@@ -18,9 +17,11 @@ class Notifications:
         notification_type - Either `start` or `final`
         gamemode - Things like Ranked Practice, Classic, etc.
         """
+        
+        toscd = self.bot.get_guild(288455332173316106)
 
-        coven = self.toscd.get_role(358655924342095874)
-        classic = self.toscd.get_role(379748801197637644)
+        coven = toscd.get_role(358655924342095874)
+        classic = toscd.get_role(379748801197637644)
 
         start = ('{0.mention} **||** A new game of **{1}** is starting.\n\n'
                  'Use `/joingame [ToS IGN]` or `/jg [ToS IGN]` to join. You will shortly get a party '
@@ -44,8 +45,8 @@ class Notifications:
     @commands.command(name='joingame', aliases=['jg'])
     async def _joingame(self, ctx, ign):
         """Send your IGN to the lobby host."""
-
-        await (self.toscd.get_channel(407003125128495104)).send(f'{ctx.author.mention} - **{ign}**')
+        self.bot.get_guild(288455332173316106)
+        await (toscd.get_channel(407003125128495104)).send(f'{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
 
 
