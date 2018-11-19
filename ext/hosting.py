@@ -11,7 +11,7 @@ class Notifications:
         self.toscd = bot.get_guild(288455332173316106)
 
     @commands.command()
-    async def host(self, ctx, mode, notification_type, gamemode='Not Defined'):
+    async def host(self, ctx, mode, notification_type, *, gamemode='Not Defined'):
         """Pings the appropriate role for the appropriate game mode.
 
         Params:
