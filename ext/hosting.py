@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from ext.consts import COVEN, CLASSIC
 
 
 class Notifications:
@@ -56,7 +57,7 @@ class Notifications:
         ========	
         mode - `str` Either `coven` or `classic`"""	
         if mode.lower() == 'coven':
-            res = await ctx.send(msg.format(coven, gamemode))
+            res = await ctx.send(COVEN)
             await res.add_reaction('CovenNormalClassic:406242997852700672')
             await res.add_reaction('CovenRankedPractice:406242997903163392')
             await res.add_reaction('CovenCustomCustom:406242997584396299')
@@ -65,7 +66,7 @@ class Notifications:
             await res.add_reaction('CovenMafiaReturns:406242998083649546')
             await res.add_reaction('CovenRotating:406242998205153298')
         elif mode.lower() == 'classic':
-            res = await ctx.send(msg.format(classic, gamemode))
+            res = await ctx.send(CLASSIC)
             await res.add_reaction('NormalClassic:386748316894887938')
             await res.add_reaction('NormalRankedPractice:386742079252070401')
             await res.add_reaction('CustomCustom:386742078975115265')
