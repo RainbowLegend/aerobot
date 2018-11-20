@@ -190,19 +190,3 @@ class Moderation:
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
-
-        em = discord.Embed(colour=discord.Colour.dark_magenta(), description='Appeal Entry')
-        em.add_field(name='Member:', value=f'{ctx.author}, ID `{ctx.author.id}`')
-        em.add_field(name='Contents:', value=f'{contents}')
-        em.set_footer(text='ToS Community Discord', icon_url=ctx.guild.icon_url)
-        em.timestamp = datetime.datetime.utcnow()
-
-        toscd = self.bot.get_guild(288455332173316106)
-        channel = toscd.get_channel(297442649168936961)
-
-        await channel.send(embed=em)
-        await ctx.author.send('Your appeal was successfully sent.')
-
-
-def setup(bot):
-    bot.add_cog(Moderation(bot))
