@@ -9,7 +9,7 @@ class Notifications:
         self.bot = bot
 
     @commands.command()
-    async def host(self, ctx, mode, notification_type, gamemode='Not Defined'):
+    async def host(self, ctx, mode, notification_type, *, gamemode='Not Defined'):
         """Pings the appropriate role for the appropriate game mode.
         Params:
         mode - Either `Coven` or `Classic`
@@ -35,24 +35,9 @@ class Notifications:
             msg = final
 
         if mode.lower() == 'coven':
-            res = await ctx.send(msg.format(coven, gamemode))
-            await res.add_reaction('CovenNormalClassic:406242997852700672')
-            await res.add_reaction('CovenRankedPractice:406242997903163392')
-            await res.add_reaction('CovenCustomCustom:406242997584396299')
-            await res.add_reaction('CovenEvilsVEvils:406242997492252674')
-            await res.add_reaction('CovenAllAny:406242997727133697')
-            await res.add_reaction('CovenMafiaReturns:406242998083649546')
-            await res.add_reaction('CovenRotating:406242998205153298')
+            return await ctx.send(msg.format(coven, gamemode))
         elif mode.lower() == 'classic':
-            res = await ctx.send(msg.format(classic, gamemode))
-            await res.add_reaction('NormalClassic:386748316894887938')
-            await res.add_reaction('NormalRankedPractice:386742079252070401')
-            await res.add_reaction('CustomCustom:386742078975115265')
-            await res.add_reaction('CustomEvilsvEvils:386742078912069633')
-            await res.add_reaction('CustomRapidMode:386748316886499328')
-            await res.add_reaction('ChaosAllAny:386742078421467159')
-            await res.add_reaction('ChaosRainbow:386742078845222937')
-            await res.add_reaction('ChaosVigilantics:386742078471667714')
+            return await ctx.send(msg.format(classic, gamemode))
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
 
