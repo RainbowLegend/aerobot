@@ -9,7 +9,7 @@ You may choose more than 1.
 <:CustomRapidMode:386748316886499328> - Rapid Mode.
 <:ChaosAllAny:386742078421467159> - All Any.
 <:ChaosRainbow:386742078845222937>- Rainbow.
-<:ChaosVigilantics:386742078471667714> - Vigilantics.""")
+<:ChaosVigilantics:386742078471667714> - Dracula's Palace""")
 
 COVEN = ("<a:animpartyblob1:401122373236948993> <a:animpartyblob2:401122373367234570> "
          "<a:animpartyblob3:401122373396463616> <a:animpartyblob4:401122373262376971> "
