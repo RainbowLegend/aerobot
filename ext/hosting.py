@@ -62,6 +62,35 @@ class Notifications:
         self.bot.get_guild(288455332173316106)
         await (toscd.get_channel(407003125128495104)).send(f'{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
+    
+    @commands.command(name='gamemodes')	
+    @commands.has_any_role("Administrator", "Moderator", "Senior Moderator", "Gamenight Host")	
+    async def gamemodes(self, ctx, mode):	
+        """Sends the message for each gamemode.	
+         Params	
+        ========	
+        mode - `str` Either `coven` or `classic`"""	
+        if mode.lower() == 'coven':
+            res = await ctx.send(msg.format(coven, gamemode))
+            await res.add_reaction('CovenNormalClassic:406242997852700672')
+            await res.add_reaction('CovenRankedPractice:406242997903163392')
+            await res.add_reaction('CovenCustomCustom:406242997584396299')
+            await res.add_reaction('CovenEvilsVEvils:406242997492252674')
+            await res.add_reaction('CovenAllAny:406242997727133697')
+            await res.add_reaction('CovenMafiaReturns:406242998083649546')
+            await res.add_reaction('CovenRotating:406242998205153298')
+        elif mode.lower() == 'classic':
+            res = await ctx.send(msg.format(classic, gamemode))
+            await res.add_reaction('NormalClassic:386748316894887938')
+            await res.add_reaction('NormalRankedPractice:386742079252070401')
+            await res.add_reaction('CustomCustom:386742078975115265')
+            await res.add_reaction('CustomEvilsvEvils:386742078912069633')
+            await res.add_reaction('CustomRapidMode:386748316886499328')
+            await res.add_reaction('ChaosAllAny:386742078421467159')
+            await res.add_reaction('ChaosRainbow:386742078845222937')
+            await res.add_reaction('ChaosVigilantics:386742078471667714')
+        else:	
+            await ctx.send('Invalid gamemode!')
 
 
 def setup(bot):
