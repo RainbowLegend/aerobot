@@ -42,10 +42,10 @@ class MessageLogger:
         target - `User` or `TextChannel` Where you want the logs from"""
         
         if isinstance(target, discord.User):
-            await ctx.send(file=discord.File(f'logs/users/{target.id}', filename=target.name))
+            await ctx.send(file=discord.File(f'logs/users/{target.id}.log', filename=target.name))
         
         elif isinstance(target, discord.TextChannel):
-            await ctx.send(file=discord.File(f'logs/channels/{target.id}', filename=target.name))
+            await ctx.send(file=discord.File(f'logs/channels/{target.id}.log', filename=target.name))
 
 
 def setup(bot):
