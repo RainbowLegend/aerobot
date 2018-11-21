@@ -18,7 +18,7 @@ class MessageLogger:
         
         channel = message.channel
 
-        time = strftime("%Y-%b-%d %H:%M:%S", message.timestamp)
+        time = strftime("%Y-%b-%d %H:%M:%S", message.created_at)
 
         with open(f'logs/channels/{channel.id}.log', 'a+') as f:
             f.write(f'{time} {message.author} || {message.content}')
