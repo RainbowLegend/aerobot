@@ -12,9 +12,8 @@ class MessageLogger:
 
     async def on_message(self, message):
         """This processes each message sent in our server"""
-        self.bot.process_command(message)  # To make sure the .ext handler gets it
-        
         if not message.guild:  # Server only, idrc if you send gay porn to the bot. Nor do I want to see it.
+            self.bot.process_command(message)
             return
         
         channel = message.channel
@@ -32,6 +31,8 @@ class MessageLogger:
 
             if message.attachments:
                 f.write(f'Additional attachments: {a.url for a in message.attachments}')
+        
+        self.bot.process_command(message)
 
     @commands.command()
     @commands.has_any_role('Administrator', 'Senior Moderator', 'Moderator')
