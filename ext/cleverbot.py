@@ -35,7 +35,7 @@ class CleverBot:
             async with message.channel.typing(), aiohttp.ClientSession() as cs:
                 req = await cs.post("https://public-api.travitia.xyz/talk", json=payload,
                                     headers={"authorization": self.key})
-                await ctx.send((await req.json())["response"])
+                await message.channel.send((await req.json())["response"])
 
     @commands.command()
     @commands.is_owner()
