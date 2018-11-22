@@ -20,7 +20,7 @@ class CleverBot:
         if str(self.bot.user.id) in message.content.split(" ")[0]:
             text = " ".join(message.content.split(" ")[1:])
             if not (3 <= len(text) <= 60):
-                return message.channel.send("Text must be between 3-60 characters.")
+                return await message.channel.send("Text must be between 3-60 characters.")
 
             if str(message.author.id) not in self.context.keys():
                 self.context[str(message.author.id)] = []
