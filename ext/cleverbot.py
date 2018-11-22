@@ -18,7 +18,7 @@ class CleverBot:
         """This is for processing the CleverBot responses."""
 
         if str(self.bot.user.id) in message.content.split(" ")[0]:
-            text = message.content.split(" ")[1:].join(" ")
+            text = " ".join(message.content.split(" ")[1:])
             if not (3 <= len(text) <= 60):
                 return message.channel.send("Text must be between 3-60 characters.")
 
