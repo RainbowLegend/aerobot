@@ -17,7 +17,7 @@ class CleverBot:
     async def on_message(self, message):
         """This is for processing the CleverBot responses."""
 
-        if message.guild.me.id in message.content.split(" ")[:1]:
+        if self.bot.user.id in message.content.split(" ")[:1]:
             text = message.content.split(" ")[1:].join(" ")
             if not (3 <= len(text) <= 60):
                 return message.channel.send("Text must be between 3-60 characters.")
