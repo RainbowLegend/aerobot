@@ -56,7 +56,7 @@ class CleverBot:
         await ctx.send('Sniping in this channel...', delete_after=5)
 
         def check(m):
-            return m.channel.id == ctx.channel.id and m.author.id == self.bot.user.id
+            return m.channel.id == ctx.channel.id and not m.author.id == self.bot.user.id
 
         try:
             message = await self.bot.wait_for('message_delete', timeout=timeout, check=check)
