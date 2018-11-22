@@ -177,6 +177,7 @@ class Embeds:
                          icon_url=icon)
 
         await ctx.send(embed=embed)
+ 
 
 def setup(bot):
     bot.add_cog(Embed(bot))
