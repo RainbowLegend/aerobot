@@ -45,7 +45,7 @@ class Embeds:
                         value="Each channel has a reason. You will be punished if you don't use them accordingly:\n\n"
                               
                               
-                              "-<#290849989683445761> Is for general town of salem discussion.\n"
+                              "-<#290849989683445761> For general talk that includes any topic allowed within rules; memes and shitposting are not allowed.\n"
                               
                               "-<#288677153334231040> Is for finding matches and sharing in game names.\n"
                               
