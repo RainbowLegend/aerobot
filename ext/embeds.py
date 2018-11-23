@@ -43,28 +43,28 @@ class Embeds:
                         inline=False)
         embed.add_field(name='Keep all channels on topic.',
                         value="Each channel has a reason. You will be punished if you don't use them accordingly:\n\n"
-                              
-                              
+
+
                               "-<#290849989683445761> For general talk that includes any topic allowed within rules; memes and shitposting are not allowed.\n"
-                              
+
                               "-<#288677153334231040> Is for finding matches and sharing in game names.\n"
-                              
+
                               "-<#304800218908590090> Is for trial-reports and using the Trial Bot Commands.\n"
-                              
+
                               "-<#304799721464004609> Is for sharing stories about your Town of Salem experience, "
                               "good or bad.\n"
-                              
+
                               "-<#304799816813379585> Is for sharing and finding strategies from other members.\n"
-                              
+
                               "-<#288455332173316106> Is where new players will be welcomed.\n"
-                              
+
                               "-<#425124003838033920> Is where all Not Safe For Work Content will go.\n"
-                              
+
                               "-<#294178185711452180> Is for random talk. Other games, memes, art, pets, anything. "
                               "Just no nsfw.\n"
-                              
+
                               "-<#292018256888463360> Suggestions to make the server better.\n"
-                              
+
                               "-<#288463362357067777> Are for bot commands.\n", inline=False)
         embed.add_field(name='Do not abuse Staff Tags.',
                         value='This includes, but is not limited to, phantom tagging, spamming staff tags, '
@@ -177,7 +177,7 @@ class Embeds:
                          icon_url=icon)
 
         await ctx.send(embed=embed)
- 
+
 
 def setup(bot):
-    bot.add_cog(Embed(bot))
+    bot.add_cog(Embeds(bot))
