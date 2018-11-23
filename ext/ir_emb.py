@@ -175,8 +175,10 @@ class Embeds:
                                   'R3gENCZdwmFQYc/http/clipart-finder.com/data/mini/accessories-text-editor.png')
         embed.set_footer(text='If you have any question about the rules, please feel free to DM a Staff Member.',
                          icon_url=icon)
-
-        await ctx.send(embed=embed)
+        try:
+            await ctx.send(embed=embed)
+        except Exception as e:
+            await ctx.send(str(e))
 
 
 def setup(bot):
