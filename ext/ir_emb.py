@@ -138,7 +138,7 @@ class Embeds:
                               'troll songs, meme songs, or playing songs on repeat multiple tlmes in a short amount '
                               'of time.',
                         inline=False)
-        await ctx.sendd(embed=embed)
+        await ctx.send(embed=embed)
 
         gae = 'https://media.discordapp.net/attachments/288681936870703105/466390095151235072/' \
               'Untitled.png?width=400&height=300'
