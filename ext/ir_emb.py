@@ -45,7 +45,8 @@ class Embeds:
                         value="Each channel has a reason. You will be punished if you don't use them accordingly:\n\n"
 
 
-                              "-<#290849989683445761> For general talk that includes any topic allowed within rules; memes and shitposting are not allowed.\n"
+                              "-<#290849989683445761> For general talk that includes any topic allowed within rules; "
+                              "memes and shitposting are not allowed.\n"
 
                               "-<#288677153334231040> Is for finding matches and sharing in game names.\n"
 
@@ -53,8 +54,6 @@ class Embeds:
 
                               "-<#304799721464004609> Is for sharing stories about your Town of Salem experience, "
                               "good or bad.\n"
-
-                              "-<#304799816813379585> Is for sharing and finding strategies from other members.\n"
 
                               "-<#288455332173316106> Is where new players will be welcomed.\n"
 
@@ -146,7 +145,8 @@ class Embeds:
         embed.set_author(name='Section 4: Moderator/Senior Moderator Rules', icon_url=gae)
         embed.add_field(name='You have been trusted with Perms. Do not abuse them.',
                         value='This includes, but is not limited to, changing roles without consent, deleting messages '
-                              'that do not break rules, punishing people who do not rightfully deserve it, and so on. Use common sense for what is and is not okay.',
+                              'that do not break rules, punishing people who do not rightfully deserve it, and so on. '
+                              'Use common sense for what is and is not okay.',
                         inline=False)
         embed.add_field(name='Do not go pinning a ton of messages around the channels for no reason.',
                         value='If it is important for the channel, go ahead and pin it. A joke here and there? Go '
@@ -165,20 +165,18 @@ class Embeds:
                         value='Just moderators that are more trusted and have more permissons.', inline=False)
         await ctx.send(embed=embed)
 
-        icon = ctx.message.server.icon_url
-        embed = discord.Embed(colour=0x9B0029, description="""**If you believe someone is breaching the rules, please 
-        contact staff either in a direct message or the channel it happened.**
-
-**If a staff member is in breach of their rules, please DM an Administrator.**""")
+        icon = ctx.message.guild.icon_url
+        embed = discord.Embed(colour=0x9B0029, 
+                              description="**If you believe someone is breaching the rules, please "
+                                          "contact staff either in a direct message or the channel it happened.**\n\n"
+                                          "**If a staff member is in breach of their rules, please DM an "
+                                          "Administrator.**")
         embed.set_author(name='Section 5: Final Note',
                          icon_url='https://images-ext-2.discordapp.net/external/G1VU3IuTKV8JDAoLn428_qiADS7h-'
                                   'R3gENCZdwmFQYc/http/clipart-finder.com/data/mini/accessories-text-editor.png')
         embed.set_footer(text='If you have any question about the rules, please feel free to DM a Staff Member.',
                          icon_url=icon)
-        try:
-            await ctx.send(embed=embed)
-        except Exception as e:
-            await ctx.send(str(e))
+        await ctx.send(embed=embed)
 
 
 def setup(bot):
