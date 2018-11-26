@@ -13,10 +13,7 @@ class AeroBot(commands.Bot):
 
     def load_extensions(self, extensions):
         for extension in extensions:
-            try:
-                self.load_extension(extension)
-            except ModuleNotFoundError:
-                pass
+            self.load_extension(extension)
 
 bot = AeroBot(command_prefix='/', case_insensitive=True)
 bot.load_extensions(config.extensions)
