@@ -10,4 +10,4 @@ install:
 
 # tost
 script:
-  - python main.py
+  - python _travis.py
