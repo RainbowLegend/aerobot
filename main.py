@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
-import config
 import logging
+import config
 
 
 class AeroBot(commands.Bot):
