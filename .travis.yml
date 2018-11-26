@@ -7,7 +7,3 @@ python:
 # install deps
 install:
   - pip install -r requirements.txt
-  
-# run unit tests
-script:
-  - pytest
