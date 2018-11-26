@@ -3,8 +3,8 @@ from discord.ext import commands
 import logging
 import os
 class Config:
-    token = os.getenv("TOKEN")
-    cogs = ['ext.auth', 'ext.cleverbot', 'ext.hosting', 'ext.ir_emb', 'ext.jokinator', 'ext.misc', 'ext.moderation', 'ext.owner', 'ext.tosrole']
+    token = "HI"
+    extensions = ['ext.auth', 'ext.cleverbot', 'ext.hosting', 'ext.ir_emb', 'ext.jokinator', 'ext.misc', 'ext.moderation', 'ext.owner', 'ext.tosrole']
 config = Config
 
 class AeroBot(commands.Bot):
