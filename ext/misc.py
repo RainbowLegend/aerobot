@@ -1,7 +1,11 @@
 import discord
 from discord.ext import commands
 import random
-from config import lelijah
+try:
+    from config import lelijah
+except ModuleNotFoundError:  # Travis CI check compat
+    class config:
+        lelijah = ""
 
 
 class Misc:
