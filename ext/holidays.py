@@ -25,7 +25,7 @@ class Holidays2018:
         
         if any(r.id in (elf.id, nice_list.id, naughty_list.id) for r in ctx.author.roles):
             return await ctx.send("You already have a Christmas role!")
-        
+
         chance = random.randint(1, 10)
 
         if chance == 1:

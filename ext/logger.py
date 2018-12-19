@@ -37,7 +37,7 @@ class MessageLogger:
     @commands.has_any_role('Administrator', 'Senior Moderator', 'Moderator')
     async def log(self, ctx, target: typing.Union[discord.User, discord.TextChannel]):
         """Gets the logs for a user/channel.
-        
+
         Params:
         target - `User` or `TextChannel` Where you want the logs from"""
 
