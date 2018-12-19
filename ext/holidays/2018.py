@@ -21,7 +21,7 @@ class Holidays2018:
         6/10 chance of being a bad boye."""
         elf = discord.utils.get(ctx.guild.roles, name="Elf")
         nice_list = discord.utils.get(ctx.guild.roles, name="Nice List")
-        naughty_list = discord.utils.get(ctx.guild.roles, name="Naughty List)
+        naughty_list = discord.utils.get(ctx.guild.roles, name="Naughty List")
         
         if any(r.id in (elf.id, nice_list.id, naughty_list.id) for r in ctx.author.roles):
             return await ctx.send("You already have a Christmas role!")
