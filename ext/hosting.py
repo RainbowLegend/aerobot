@@ -47,7 +47,7 @@ class Notifications:
         toscd = self.bot.get_guild(288455332173316106)
         await (toscd.get_channel(407003125128495104)).send(f'{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
-
+    
     @commands.command(name='gamemodes')
     @commands.has_any_role("Administrator", "Moderator", "Senior Moderator", "Gamenight Host")
     async def gamemodes(self, ctx, mode):
