@@ -141,7 +141,7 @@ class Moderation:
             *, reason='None'
     ):
         """Mutes a user.
-        
+
         Params:
         user - A member of the Discord
         time - {optional} in seconds

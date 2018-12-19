@@ -27,7 +27,7 @@ class Holidays2018:
             return await ctx.send("You already have a Christmas role!")
         
         chance = random.randint(1, 10)
-        
+
         if chance == 1:
             await ctx.author.add_roles(elf, reason="A true good boy. (Holidays 2018)")
             return await ctx.send("**Superb luck you have!** You are an *elf*.")

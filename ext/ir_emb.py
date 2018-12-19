@@ -166,7 +166,7 @@ class Embeds:
         await ctx.send(embed=embed)
 
         icon = ctx.message.guild.icon_url
-        embed = discord.Embed(colour=0x9B0029, 
+        embed = discord.Embed(colour=0x9B0029,
                               description="**If you believe someone is breaching the rules, please "
                                           "contact staff either in a direct message or the channel it happened.**\n\n"
                                           "**If a staff member is in breach of their rules, please DM an "

@@ -31,7 +31,7 @@ class CleverBot:
             }
 
             self.context[str(message.author.id)].append(text)
-            
+
             if len(self.context[str(message.author.id)]) > 2:
                 self.context[str(message.author.id)].pop(0)
 

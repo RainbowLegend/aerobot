@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from time import strftime
 import typing
 
 
@@ -24,13 +23,13 @@ class MessageLogger:
             f.write(f'{time} {message.author} || {message.content}')
 
             if message.attachments:
-                f.write(f'Additional attachments: {a.url for a in message.attachments}')
+                f.write(f'Additional attachments: {[a.url for a in message.attachments]}')
                 
         with open(f'logs/users/{message.author.id}.log', 'a+') as f:
             f.write(f'{time} {message.channel} || {message.content}')
 
             if message.attachments:
-                f.write(f'Additional attachments: {a.url for a in message.attachments}')
+                f.write(f'Additional attachments: {[a.url for a in message.attachments]}')
         
         self.bot.process_command(message)
 
@@ -44,7 +43,7 @@ class MessageLogger:
         
         if isinstance(target, discord.User):
             await ctx.send(file=discord.File(f'logs/users/{target.id}.log', filename=target.name))
-        
+
         elif isinstance(target, discord.TextChannel):
             await ctx.send(file=discord.File(f'logs/channels/{target.id}.log', filename=target.name))
 
