@@ -36,8 +36,9 @@ class Holidays2018:
             return await ctx.send("**What a respectable young fellow!** Have a spot on my *nice list*.")
         elif chance in (5, 6, 7, 8, 9, 10):
             await ctx.author.add_roles(naughty_list, reason='A bad man. (Holidays 2018)')
-            return await ctx.send("**Oh I can already see the coal!** Repent on your sins and sit down on my *naughty list*.")
+            return await ctx.send("**Oh I can already see the coal!** Repent on your sins and sit down on my *naughty "
+                                  "list*.")
 
 
 def setup(bot):
-    bot.load_extension(Holidays2018(bot))
+    bot.add_cog(Holidays2018(bot))
