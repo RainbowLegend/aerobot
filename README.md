@@ -3,11 +3,11 @@
 
 This is a bot for the TOS Community Server.
 
-# Requirements
-- Python 3.6+
-- PIP
-- Git
+## Requirements
+  -  Python 3.6+
+  -  PIP
+  -  Git
 
-# Installation
-- Clone this repository using `git clone git+https://github.com/RainbowLegend/aerobot.git`
-- PIP should handle dependencies for you, but incase of a ModuleNotFoundError, use `git clone git+https://github.com/Rapptz/discord.py@rewrite`
+## Installation
+  -  Clone this repository using `git clone https://github.com/RainbowLegend/aerobot.git`
+  -  PIP should handle dependencies for you, but incase of a ModuleNotFoundError, use `git clone git+https://github.com/Rapptz/discord.py@rewrite`

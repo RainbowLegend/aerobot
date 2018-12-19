@@ -1,11 +1,14 @@
-import discord
 from discord.ext import commands
 import logging
-import os
+
+
 class Config:
     token = "HI"
     extensions = ['ext.auth', 'ext.cleverbot', 'ext.hosting', 'ext.ir_emb', 'ext.jokinator', 'ext.misc', 'ext.moderation', 'ext.owner', 'ext.tosrole']
+
+
 config = Config
+
 
 class AeroBot(commands.Bot):
     def __init__(self, *args, **kwargs):
@@ -15,8 +18,10 @@ class AeroBot(commands.Bot):
         for extension in extensions:
             self.load_extension(extension)
 
+
 bot = AeroBot(command_prefix='/', case_insensitive=True)
 bot.load_extensions(config.extensions)
+
 
 @bot.event
 async def on_message(message):

@@ -1,4 +1,3 @@
-import discord
 from discord.ext import commands
 from ext.consts import COVEN, CLASSIC
 
@@ -45,17 +44,17 @@ class Notifications:
     @commands.command(name='joingame', aliases=['jg'])
     async def _joingame(self, ctx, ign):
         """Send your IGN to the lobby host."""
-        self.bot.get_guild(288455332173316106)
+        toscd = self.bot.get_guild(288455332173316106)
         await (toscd.get_channel(407003125128495104)).send(f'{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
-    
-    @commands.command(name='gamemodes')	
-    @commands.has_any_role("Administrator", "Moderator", "Senior Moderator", "Gamenight Host")	
-    async def gamemodes(self, ctx, mode):	
-        """Sends the message for each gamemode.	
-         Params	
-        ========	
-        mode - `str` Either `coven` or `classic`"""	
+
+    @commands.command(name='gamemodes')
+    @commands.has_any_role("Administrator", "Moderator", "Senior Moderator", "Gamenight Host")
+    async def gamemodes(self, ctx, mode):
+        """Sends the message for each gamemode.
+        Params
+        ========
+        mode - `str` Either `coven` or `classic`"""
         if mode.lower() == 'coven':
             res = await ctx.send(COVEN)
             await res.add_reaction('CovenNormalClassic:406242997852700672')
@@ -75,7 +74,7 @@ class Notifications:
             await res.add_reaction('ChaosAllAny:386742078421467159')
             await res.add_reaction('ChaosRainbow:386742078845222937')
             await res.add_reaction('ChaosVigilantics:386742078471667714')
-        else:	
+        else:
             await ctx.send('Invalid gamemode!')
 
 

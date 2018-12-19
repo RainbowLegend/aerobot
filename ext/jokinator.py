@@ -1,4 +1,3 @@
-import discord
 from discord.ext import commands
 from jokes import JOKES
 import aiohttp
@@ -24,11 +23,11 @@ class Jokinator:
     async def givejoke(self, ctx):
         """Want cool jokes?"""
         await ctx.send(f'{ctx.message.author.mention}, {random.choice(JOKES)}')
-        
+
     async def on_message(self, message):
-      """This method is used for the dabs."""
-      if any(map(lambda v: v in message.content, [';dab;', '!dab'])):
-        return await message.channel.send('<a:eli1:472941813011972107><a:eli2:472941813229944842><a:eli3:472941813267824670>')
+        """This method is used for the dabs."""
+        if any(map(lambda v: v in message.content, [';dab;', '!dab'])):
+            return await message.channel.send('<a:eli1:472941813011972107><a:eli2:472941813229944842><a:eli3:472941813267824670>')
 
 
 def setup(bot):
