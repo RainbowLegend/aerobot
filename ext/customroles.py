@@ -17,7 +17,7 @@ def has_a_role():
 
 
 def conv_hex(hex_val: str) -> int:
-    hex_val = hex_val.split('#')[0]
+    hex_val = hex_val.split('#')[-1]
     return int(hex_val, base=16)
 
 
