@@ -63,10 +63,12 @@ class CustomRoles:
 
     @commands.command(name='rolecolour', aliases=['rolecolor', 'rc'])
     @has_a_role()
-    async def change_role_color(self, ctx, hex_: conv_hex):
+    async def change_role_color(self, ctx, hex_):
 
         with open('roles.json', 'r') as f:
             data = json.load(f)
+            
+        hex_ = conv_hex(hex_)
 
         role = ctx.guild.get_role(data[str(ctx.author.id)])
 
