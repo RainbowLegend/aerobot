@@ -74,7 +74,7 @@ class CustomRoles:
 
         await role.edit(
             reason=f'/rc - {role.id}',
-            colour=hex_,
+            colour=discord.Colour(hex_),
             name=role.name,
             mentionable=False,
             hoisted=True,
