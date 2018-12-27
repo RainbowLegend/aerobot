@@ -16,6 +16,7 @@ bot = AeroBot(command_prefix='/', case_insensitive=True)
 bot.load_extensions(config.extensions)
 bot.load_extension('jishaku')
 
+
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
