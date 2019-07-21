@@ -29,8 +29,7 @@ class Jokinator:
         if any(map(lambda v: v in message.content, [';dab;', '!dab'])):
             return await message.channel.send('<a:eli1:472941813011972107><a:eli2:472941813229944842><a:eli3:472941813267824670>')
         
-        """This method is used for the hugs."""
-        if any(map(lambda v: v in message.content, ['/hug', '!hug'])):
+        elif any(map(lambda v: v in message.content, ['/hug', '!hug'])):
             return await message.channel.send('\U0001F917')
 
 
