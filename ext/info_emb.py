@@ -70,21 +70,19 @@ We collect this to make your experience better, and in the case of possibly dele
         
         icon = ctx.guild.icon_url
         embed = discord.Embed(colour=0xCFFF63)
-        embed.add_field(name='Administrators', value="""- <@298166754331459586>
-- <@222147236728012800>
+        embed.add_field(name='Administrators', value="""- <@222147236728012800>
 - <@167736120400936960>
 - <@333621621116108800>""", inline=False)
-        embed.add_field(name='Senior Moderators', value="""- <@231785539370614784>
-- <@267723762563022849>
-- <@235542999063461888> 
-- <@182942393371197440>
+        embed.add_field(name='Senior Moderators', value="""- <@332715657437118485>
+- <@298166754331459586>
+- <@267723762563022849> 
 - <@189125691504066561>""", inline=False)
-        embed.add_field(name='Moderators', value="""- <@233753965353893898>
-- <@179645538533244929>
-- <@155507643115503617>
-- <@228700305263558656>
-- <@321759261925441538>
-- <@70221374404173824>""", inline=False)
+        embed.add_field(name='Moderators', value="""- <@321759261925441538>
+- <@316671807052578827>
+- <@110362755390771200>
+- <@350698340096409602>
+- <@326913617503059978>
+- <@155507643115503617>""", inline=False)
         embed.add_field(name='ToS Global Moderators', value="""- <@224737113210355712>""", inline=False)
         embed.set_author(name='Staff List', icon_url=icon)
 
