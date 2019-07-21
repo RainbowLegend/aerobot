@@ -1,11 +1,7 @@
 import discord
 from discord.ext import commands
 import random
-try:
-    from config import lelijah
-except ModuleNotFoundError:  # Travis CI check compat
-    class config:
-        lelijah = """                _,-----._____
+lelijah = """                _,-----._____
                                _,-'      .:::.  `-._
                               /                     `-.
                              /                       .::.
