@@ -108,6 +108,19 @@ class SelfRoles:
         else:
             await ctx.author.add_roles(nsfw, reason='NSFW addition')
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the NSFW role.")
+     
+    @commands.command()
+    async def LFG(self, ctx):
+        """Gives you the LFG role."""
+        toscd = self.bot.get_guild(288455332173316106)
+        nsfw = toscd.get_role(633407913796567050)
+        if nsfw in ctx.message.author.roles:
+            await ctx.author.remove_roles(nsfw, reason='LFG removal')
+            await ctx.send(f"{ctx.author.mention}, you have been unassigned the LFG role.")
+            return
+        else:
+            await ctx.author.add_roles(nsfw, reason='LFG addition')
+            return await ctx.send(f"{ctx.author.mention}, you have been assigned the LFG role.") 
 
     @commands.command()
     async def gnotif(self, ctx, arg=None):
