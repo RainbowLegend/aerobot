@@ -110,7 +110,7 @@ class SelfRoles:
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the NSFW role.")
      
     @commands.command()
-    async def LFG(self, ctx):
+    async def lfg(self, ctx):
         """Gives you the LFG role."""
         toscd = self.bot.get_guild(288455332173316106)
         nsfw = toscd.get_role(633407913796567050)
@@ -121,61 +121,32 @@ class SelfRoles:
         else:
             await ctx.author.add_roles(nsfw, reason='LFG addition')
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the LFG role.") 
-
+        
     @commands.command()
-    async def gnotif(self, ctx, arg=None):
-        """Notifications for games
-
-        arg must be either 'enable' or 'disable'"""
-
+    async def gnotif(self, ctx):
+        """Gives you the Game Notifications role."""
         toscd = self.bot.get_guild(288455332173316106)
-        role = toscd.get_role(379748801197637644)
-
-        if ctx.channel.id in [288463362357067777, 288455332173316106, 296069608216068098]:
-            if arg.lower() not in ['enable', 'disable']:
-                return await ctx.send('Use either `/gnotif enable` to enable notifcations or '
-                                      '`/gnotif disable` to disable notifications.')
-
-            elif arg.lower() == 'enable':
-                await ctx.send(f'{ctx.author.mention}, you will now **recieve** game notifications. Use `/gnotif '
-                               f'disable` to *disable* them.')
-                return ctx.author.add_roles(role, reason='GN auto-assign')
-
-            elif arg.lower() == 'disable':
-                await ctx.send(f'{ctx.author.mention}, You will now **not** recieve game notifications. '
-                               f'Use `/gnotif enable` to *enable* them.')
-
+        nsfw = toscd.get_role(379748801197637644)
+        if nsfw in ctx.message.author.roles:
+            await ctx.author.remove_roles(nsfw, reason='gnotif removal')
+            await ctx.send(f"{ctx.author.mention}, you have been unassigned the Game Notifications role.")
+            return
         else:
-            return await ctx.send(f'{ctx.author.id} **||** This command is only usable in '
-                                      '<#288455332173316106> or <#288463362357067777>.')
-
+            await ctx.author.add_roles(nsfw, reason='LFG addition')
+            return await ctx.send(f"{ctx.author.mention}, you have been assigned the Game Notifications role.") 
+        
     @commands.command()
-    async def coven(self, ctx, arg=None):
-        """Notifications for coven games
-
-        arg must be either 'enable' or 'disable'
-        """
-
+    async def coven(self, ctx):
+        """Gives you the Coven Notifications role."""
         toscd = self.bot.get_guild(288455332173316106)
-        role = toscd.get_role(358655924342095874)
-
-        if ctx.channel.id in [288463362357067777, 288455332173316106, 296069608216068098]:
-            if arg.lower() not in ['enable', 'disable']:
-                return await ctx.send('Use either `/coven enable` to enable coven notifcations or '
-                                      '`/coven disable` to disable notifications.')
-
-            elif arg.lower() == 'enable':
-                await ctx.send(f'{ctx.author.mention}, you will now **recieve** coven notifications. Use `/coven '
-                               f'disable` to *disable* them.')
-                return ctx.author.add_roles(role, reason='GN auto-assign')
-
-            elif arg.lower() == 'disable':
-                await ctx.send(f'{ctx.author.mention}, You will now **not** recieve coven notifications. '
-                               f'Use `/coven enable` to *enable* them.')
-
+        nsfw = toscd.get_role(358655924342095874)
+        if nsfw in ctx.message.author.roles:
+            await ctx.author.remove_roles(nsfw, reason='cnotif removal')
+            await ctx.send(f"{ctx.author.mention}, you have been unassigned the Coven Notifications role.")
+            return
         else:
-            return await ctx.send(f'{ctx.author.id} **||** This command is only usable in '
-                                      '<#288455332173316106> or <#288463362357067777>.')
+            await ctx.author.add_roles(nsfw, reason='cnotif addition')
+            return await ctx.send(f"{ctx.author.mention}, you have been assigned the Coven Notifications role.") 
 
 
 def setup(bot):
