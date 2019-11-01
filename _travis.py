@@ -3,7 +3,7 @@ import logging
 
 
 class Config:
-    token = "HI"
+    token = open("token.txt").read()
     extensions = ['ext.auth', 'ext.cleverbot', 'ext.hosting', 'ext.ir_emb', 'ext.jokinator', 'ext.misc', 'ext.moderation', 'ext.owner', 'ext.tosrole']
 
 
