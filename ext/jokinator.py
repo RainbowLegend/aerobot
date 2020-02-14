@@ -24,7 +24,7 @@ class Jokinator(commands.Cog):
         """Want cool jokes?"""
         await ctx.send(f'{ctx.message.author.mention}, {random.choice(JOKES)}')
 
-    @commands.Cog.listener
+    @commands.Cog.listener()
     async def on_message(self, message):
         """This method is used for the dabs."""
         if any(map(lambda v: v in message.content, [';dab;', '!dab'])):
