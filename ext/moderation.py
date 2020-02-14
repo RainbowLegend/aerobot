@@ -4,7 +4,7 @@ import datetime
 import typing
 
 
-class Moderation:
+class Moderation(commands.Cog):
     """Cogs made for moderation.
     Include various other stuff as well.
     """
