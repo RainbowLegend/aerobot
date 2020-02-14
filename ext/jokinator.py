@@ -4,7 +4,7 @@ import aiohttp
 import random
 
 
-class Jokinator:
+class Jokinator(commands.Cog):
     """Let's make jokes!"""
 
     def __init__(self, bot):
