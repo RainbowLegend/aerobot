@@ -1,7 +1,7 @@
 from discord.ext import commands
 
 
-class Auth:
+class Auth(commands.Cog):
     """Authorization command for the official TOSCD."""
 
     def __init__(self, bot):
