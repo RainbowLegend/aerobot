@@ -1,7 +1,7 @@
 from discord.ext import commands
 
 
-class SelfRoles:
+class SelfRoles(commands.Cog):
     """This cog is used for people who want their own roles in the TOSCD."""
 
     def __init__(self, bot):
