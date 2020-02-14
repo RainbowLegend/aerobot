@@ -2,7 +2,7 @@ from discord.ext import commands
 from ext.consts import COVEN, CLASSIC
 
 
-class Notifications:
+class Notifications(commands.Cog):
     """General notifier commands."""
 
     def __init__(self, bot):
