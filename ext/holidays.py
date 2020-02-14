@@ -8,7 +8,7 @@ from discord.ext import commands
 import random
 
 
-class Holidays2018:
+class Holidays2018(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
