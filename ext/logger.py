@@ -3,7 +3,7 @@ from discord.ext import commands
 import typing
 
 
-class MessageLogger:
+class MessageLogger(commands.Cog):
     """Logs messages in our server!"""
 
     def __init__(self, bot):
