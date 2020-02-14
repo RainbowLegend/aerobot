@@ -15,7 +15,7 @@ import datetime
 import re
 from datetime import datetime
 
-class InfoLoader:
+class InfoLoader(commands.Cog):
     """Loads up the #info"""
 
     def __init__(self, bot):
