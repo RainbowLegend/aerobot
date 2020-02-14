@@ -4,7 +4,7 @@ import aiohttp
 import typing
 
 
-class CleverBot:
+class CleverBot(commands.Cog):
     """Some random ***intelligent*** commands
 
     You can interact with the bot by pinging it with a question."""
