@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 
-class AnticipationNotifications:
+class AnticipationNotifications(commands.Cog):
     """Notifications for the Anticipation gamemode."""
 
     def __init__(self, bot: commands.Bot):
