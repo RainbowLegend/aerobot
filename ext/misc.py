@@ -30,7 +30,7 @@ lelijah = """
                `      | """
 
 
-class Misc:
+class Misc(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
