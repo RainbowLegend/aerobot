@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 
-class Embeds:
+class Embeds(commands.Cog):
     """Embeds for #rules and #info"""
 
     def __init__(self, bot):
