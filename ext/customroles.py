@@ -21,7 +21,7 @@ def conv_hex(hex_val: str) -> int:
     return int(hex_val, base=16)
 
 
-class CustomRoles:
+class CustomRoles(commands.Cog):
     """"""
     def __init__(self, bot):
         self.bot = bot
