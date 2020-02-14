@@ -15,7 +15,7 @@ import os
 import sys
 
 
-class Owner:
+class Owner(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self._last_result = None
