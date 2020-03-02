@@ -70,19 +70,16 @@ We collect this to make your experience better, and in the case of possibly dele
         
         icon = ctx.guild.icon_url
         embed = discord.Embed(colour=0xCFFF63)
-        embed.add_field(name='Administrators', value="""- <@222147236728012800>
-- <@167736120400936960>
-- <@333621621116108800>""", inline=False)
-        embed.add_field(name='Senior Moderators', value="""- <@332715657437118485>
-- <@298166754331459586>
-- <@267723762563022849> 
-- <@189125691504066561>""", inline=False)
-        embed.add_field(name='Moderators', value="""- <@321759261925441538>
-- <@316671807052578827>
-- <@110362755390771200>
-- <@350698340096409602>
-- <@326913617503059978>
+        embed.add_field(name='Owner',value"""- <@222147236728012800>""", inline=False)
+        embed.add_field(name='Administrators', value="""- <@321759261925441538>
+- <@167736120400936960>""", inline=False)
+        embed.add_field(name='Senior Moderators', value="""- <@221764425483288576>
+- <@652485289675194389>
 - <@155507643115503617>""", inline=False)
+        embed.add_field(name='Moderators', value="""- <@347120208722395148>
+- <@397013342495047680>
+- <@96801273969414144>
+- <@201913365377843200>""", inline=False)
         embed.add_field(name='ToS Global Moderators', value="""- <@224737113210355712>""", inline=False)
         embed.set_author(name='Staff List', icon_url=icon)
 
@@ -93,6 +90,8 @@ We collect this to make your experience better, and in the case of possibly dele
         spy = 'https://images-ext-2.discordapp.net/.eJwNyFEKgzAMANC79N9mretAQTyEJ-gk64I1KTYqMnb37X2-j9m3bHrzVi09wEGJURXv9qSFomWZRRZC-19QObmRV1NjxhVojQkrtNA-YCqXLZxgw4MqCUOOilXH-Tn4mwvO-c51IXhvvj_u-yZa.VyMAY7O3cPIU09jtrPQ4X92HbrQ'
         embed = discord.Embed(colour=0x5DADE2)
         embed.set_author(name='What can the staff roles do?', icon_url=spy)
+        embed.add_field(name='What can Former Staff do?', value="""- It really cant do anything, it's just former staff. Some are given special perms depending
+on who they are, but besides that nothing. Take a current listed staff's word over everything.""")
         embed.add_field(name='What are Moderators?', value="""- As the name suggests, Moderators are people who moderate the server, but at a lower end.
 - Moderators can delete messages, hand out punishments, create roles, etc.
 - Moderators will be in most gamenights and will be there to make sure it follows rules.
