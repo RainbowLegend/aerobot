@@ -35,13 +35,13 @@ class Notifications(commands.Cog):
             msg = final
 
         if mode.lower() == 'coven':
-            await coven.edit(coven.edit(reason="hosting mentions", mentionable=True))
+            await coven.edit(reason="hosting mentions", mentionable=True)
             await ctx.send(msg.format(coven, gamemode))
-            return await coven.edit(coven.edit(reason="hosting mentions", mentionable=False))
+            return await coven.edit(reason="hosting mentions", mentionable=False)
         elif mode.lower() == 'classic':
-            await coven.edit(classic.edit(reason="hosting mentions", mentionable=True))
+            await classic.edit(reason="hosting mentions", mentionable=True)
             await ctx.send(msg.format(classic, gamemode))
-            return await coven.edit(classic.edit(reason="hosting mentions", mentionable=False))
+            return await classic.edit(reason="hosting mentions", mentionable=False)
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
 
