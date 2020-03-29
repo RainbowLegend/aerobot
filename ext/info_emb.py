@@ -42,58 +42,58 @@ We collect this to make your experience better, and in the case of possibly dele
 
 
 
-        servericon = ctx.guild.icon_url
-        witch = 'https://images-ext-2.discordapp.net/.eJwNyDsOgzAMANC7ZCdO-FVCqjhG5zQywSLYiLgwVNwd3vj-5rdnM5hZdRsADkqMqujtSQsFyxJFFkL7LKicXMlUlZBxBVpDwgII2MOHNM524wQ7HlRIGHJQLDrG77t2vnUv37uma7rWXDdUQyd6.2qJdJ7hOx0fCYiIFYZwJuYW5JEQ'
-        embed = discord.Embed(colour=0xBF5FFF)
-        embed.set_author(name='Some important links related to Town of Salem', icon_url=witch)
-        embed.add_field(name='ToS Browser', value='http://www.blankmediagames.com/TownOfSalem/', inline=False)
-        embed.add_field(name='ToS on Steam', value='http://store.steampowered.com/app/334230/', inline=False)
-        embed.add_field(name='Official Forums', value='https://www.blankmediagames.com/phpbb/', inline=False)
-        embed.add_field(name='Unofficial Subreddit', value='https://www.reddit.com/r/TownofSalemgame/', inline=False)
-        embed.add_field(name='Trial System', value='http://blankmediagames.com/Trial/', inline=False)
-        embed.add_field(name='PTR (Public Test Realm)', value='http://www.blankmediagames.com/TownOfSalem/PublicTestRealm/', inline=False)
-        embed.set_footer(text='If there are any links you feel should be added to this list, DM an Administrator.', icon_url=servericon)
+        # servericon = ctx.guild.icon_url
+        # witch = 'https://images-ext-2.discordapp.net/.eJwNyDsOgzAMANC7ZCdO-FVCqjhG5zQywSLYiLgwVNwd3vj-5rdnM5hZdRsADkqMqujtSQsFyxJFFkL7LKicXMlUlZBxBVpDwgII2MOHNM524wQ7HlRIGHJQLDrG77t2vnUv37uma7rWXDdUQyd6.2qJdJ7hOx0fCYiIFYZwJuYW5JEQ'
+        # embed = discord.Embed(colour=0xBF5FFF)
+        # embed.set_author(name='Some important links related to Town of Salem', icon_url=witch)
+        # embed.add_field(name='ToS Browser', value='http://www.blankmediagames.com/TownOfSalem/', inline=False)
+        # embed.add_field(name='ToS on Steam', value='http://store.steampowered.com/app/334230/', inline=False)
+        # embed.add_field(name='Official Forums', value='https://www.blankmediagames.com/phpbb/', inline=False)
+        # embed.add_field(name='Unofficial Subreddit', value='https://www.reddit.com/r/TownofSalemgame/', inline=False)
+        # embed.add_field(name='Trial System', value='http://blankmediagames.com/Trial/', inline=False)
+        # embed.add_field(name='PTR (Public Test Realm)', value='http://www.blankmediagames.com/TownOfSalem/PublicTestRealm/', inline=False)
+        # embed.set_footer(text='If there are any links you feel should be added to this list, DM an Administrator.', icon_url=servericon)
 
-        await ctx.send(embed=embed)
+        # await ctx.send(embed=embed)
         
         
         
-        icon = ctx.guild.icon_url
-        embed = discord.Embed(colour=0xCFFF63)
-        embed.add_field(name='Owner',value="""- <@222147236728012800>""", inline=False)
-        embed.add_field(name='Administrators', value="""- <@321759261925441538>
-- <@167736120400936960>""", inline=False)
-        embed.add_field(name='Senior Moderators', value="""- <@221764425483288576>
-- <@652485289675194389>
-- <@155507643115503617>""", inline=False)
-        embed.add_field(name='Moderators', value="""- <@347120208722395148>
-- <@397013342495047680>
-- <@96801273969414144>
-- <@201913365377843200>""", inline=False)
-        embed.add_field(name='ToS Global Moderators', value="""- <@224737113210355712>""", inline=False)
-        embed.set_author(name='Staff List', icon_url=icon)
+        # icon = ctx.guild.icon_url
+        # embed = discord.Embed(colour=0xCFFF63)
+        # embed.add_field(name='Owner',value="""- <@222147236728012800>""", inline=False)
+        # embed.add_field(name='Administrators', value="""- <@321759261925441538>
+# - <@167736120400936960>""", inline=False)
+        # embed.add_field(name='Senior Moderators', value="""- <@221764425483288576>
+# - <@652485289675194389>
+# - <@155507643115503617>""", inline=False)
+        # embed.add_field(name='Moderators', value="""- <@347120208722395148>
+# - <@397013342495047680>
+# - <@96801273969414144>
+# - <@201913365377843200>""", inline=False)
+        # embed.add_field(name='ToS Global Moderators', value="""- <@224737113210355712>""", inline=False)
+        # embed.set_author(name='Staff List', icon_url=icon)
 
-        await ctx.send(embed=embed)
+        # await ctx.send(embed=embed)
 
 
 
-        spy = 'https://images-ext-2.discordapp.net/.eJwNyFEKgzAMANC79N9mretAQTyEJ-gk64I1KTYqMnb37X2-j9m3bHrzVi09wEGJURXv9qSFomWZRRZC-19QObmRV1NjxhVojQkrtNA-YCqXLZxgw4MqCUOOilXH-Tn4mwvO-c51IXhvvj_u-yZa.VyMAY7O3cPIU09jtrPQ4X92HbrQ'
-        embed = discord.Embed(colour=0x5DADE2)
-        embed.set_author(name='What can the staff roles do?', icon_url=spy)
-        embed.add_field(name='What can Former Staff do?', value="""- It really cant do anything, it's just former staff. Some are given special perms depending
-on who they are, but besides that nothing. Take a current listed staff's word over everything.""")
-        embed.add_field(name='What are Moderators?', value="""- As the name suggests, Moderators are people who moderate the server, but at a lower end.
-- Moderators can delete messages, hand out punishments, create roles, etc.
-- Moderators will be in most gamenights and will be there to make sure it follows rules.
-- Moderators have the power to manage the messages in channels. This includes pinning and deleting messages. They can also block you from channels.""", inline=False)
-        embed.add_field(name='What are Senior Moderators?', value="""- Senior Moderators can be considered as Semi-Administrators. They help moderate the games as well as moderate the server.
-- Senior Moderators have every permisson Moderators have.
-- Moderators can kick or ban users aswell, but can also force nicknames if the user's name is offensive, block you from any channel, mute you, and assign roles. They also have perms in the voice chats.""", inline=False)
-        embed.add_field(name='What are Administrators?', value="""- Administrators run the server and keep everything together. This role has the most power.
-- Administrators can do EVERYTHING. They have every permission.
-- Administrators will oversee the entire server and make the important decisions.""", inline=False)
-        embed.set_footer(text='If you think any Staff Member is abusing their permissions or not doing a good job, DM an Administrator immediately. If the person you have concerns about is an Administrator, DM the Owner, henlo.', icon_url=ctx.message.server.icon_url)
-        await ctx.send(embed=embed)
+        # spy = 'https://images-ext-2.discordapp.net/.eJwNyFEKgzAMANC79N9mretAQTyEJ-gk64I1KTYqMnb37X2-j9m3bHrzVi09wEGJURXv9qSFomWZRRZC-19QObmRV1NjxhVojQkrtNA-YCqXLZxgw4MqCUOOilXH-Tn4mwvO-c51IXhvvj_u-yZa.VyMAY7O3cPIU09jtrPQ4X92HbrQ'
+        # embed = discord.Embed(colour=0x5DADE2)
+        # embed.set_author(name='What can the staff roles do?', icon_url=spy)
+        # embed.add_field(name='What can Former Staff do?', value="""- It really cant do anything, it's just former staff. Some are given special perms depending
+# on who they are, but besides that nothing. Take a current listed staff's word over everything.""")
+        # embed.add_field(name='What are Moderators?', value="""- As the name suggests, Moderators are people who moderate the server, but at a lower end.
+# - Moderators can delete messages, hand out punishments, create roles, etc.
+# - Moderators will be in most gamenights and will be there to make sure it follows rules.
+# - Moderators have the power to manage the messages in channels. This includes pinning and deleting messages. They can also block you from channels.""", inline=False)
+        # embed.add_field(name='What are Senior Moderators?', value="""- Senior Moderators can be considered as Semi-Administrators. They help moderate the games as well as moderate the server.
+# - Senior Moderators have every permisson Moderators have.
+# - Moderators can kick or ban users aswell, but can also force nicknames if the user's name is offensive, block you from any channel, mute you, and assign roles. They also have perms in the voice chats.""", inline=False)
+        # embed.add_field(name='What are Administrators?', value="""- Administrators run the server and keep everything together. This role has the most power.
+# - Administrators can do EVERYTHING. They have every permission.
+# - Administrators will oversee the entire server and make the important decisions.""", inline=False)
+        # embed.set_footer(text='If you think any Staff Member is abusing their permissions or not doing a good job, DM an Administrator immediately. If the person you have concerns about is an Administrator, DM the Owner, henlo.', icon_url=ctx.message.server.icon_url)
+        # await ctx.send(embed=embed)
 
 
 
@@ -127,7 +127,7 @@ on who they are, but besides that nothing. Take a current listed staff's word ov
 - Trapper""", inline=False)
         embed.set_footer(text='Use `/tosrole [role]` to get a role!', icon_url=servericon)
 
-        await ctx.send(ctx.message.channel, embed=embed)
+        await ctx.send(embed=embed)
 
 
 
@@ -180,7 +180,6 @@ on who they are, but besides that nothing. Take a current listed staff's word ov
 - Pestilence
 - Baker""", inline=False)
         ne.set_footer(text='Use `/tosrole [role]` to get a role!', icon_url=servericon)
-
         await ctx.send(embed=ne)
 
 
