@@ -27,7 +27,7 @@ class InfoLoader(commands.Cog):
         embed.set_author(name='Frequently Asked Questions (F.A.Q.)', icon_url=confused)
         embed.add_field(name='Why are there ToS roles? How can I get them?',
                         value='Type `/tosrole [Role name]` in <#288463362357067777>. It changes nothing except for your colour. It is purely cosmetic.', inline=False)
-        embed.add_field(name='How do I get Game / Hunger Games notifications?', value="""- Head over to #register, and react with the corresponding roles.
+        embed.add_field(name='How do I get Game / Hunger Games notifications?', value="""- Head over to <#693659198290001960>, and react with the corresponding roles.
 - To disable them, you simply remove your reaction.
 - If there is a game aligned with the role, you will be pinged.
 - Tell the host your username if using Gamenights.""", inline=False)
