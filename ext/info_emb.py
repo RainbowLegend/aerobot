@@ -1,11 +1,6 @@
 # update 9June18 - Changed names of Staff -elijah
 import discord
 from discord.ext import commands
-from cogs.utils import checks
-from cogs.utils.dataIO import dataIO
-from cogs.utils.chat_formatting import box, pagify
-from copy import deepcopy
-from collections import defaultdict
 import asyncio
 import logging
 import logging.handlers
