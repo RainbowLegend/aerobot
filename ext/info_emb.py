@@ -31,17 +31,12 @@ class InfoLoader(commands.Cog):
 - To disable them, you simply remove your reaction.
 - If there is a game aligned with the role, you will be pinged.
 - Tell the host your username if using Gamenights.""", inline=False)
-        embed.add_field(name='What is Tatsumaki?', value="""**Tatsumaki is a Discord Bot with all kinds of features, including profile pages, reputation points, and top people in the server. Please do `t!help` in <#288463362357067777> to learn more.**
-- Some fun commands include `t!fish` and `t!slots`
-- `t!rep` is a command to give a "rep" point to someone. This is just purely a number, it does nothing more.
-- `t!daily` is a command to get 200 free credits each day. Or you can give someone else credits by tagging them at the end.
-- `t!credits` shows you your credit balance.""", inline=False)
         embed.add_field(name='What is the Muted role?', value="When someone has the Muted role, they can not talk anywhere. The reason they have the role is most likely because they spammed, flamed, etc. (basically they broke a rule)", inline=False)
         embed.add_field(name='How do I report someone?', value="""- Direct Message (DM) a Moderator or Administrator.
 - To direct message one, click on their name and type in the "Message @[name]" box.""", inline=False)
         embed.add_field(name='Is there anything else I should know?', value="""Yes. By staying in this server you agree to the fact that we collect your end user data (basically the messages you send).
 We collect this to make your experience better, and in the case of possibly deleted messages with offensive content, we can better trace it.""")
-        embed.add_field(name='How can I invite a friend?', value='If you want to invite a friend, send them this discord link: https://discord.gg/kDkxMQ9')
+        embed.add_field(name='How can I invite a friend?', value='If you want to invite a friend, send them this discord link: https://discord.gg/hunmV9')
 
         await ctx.send(embed=embed)
 
