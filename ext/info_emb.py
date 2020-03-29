@@ -70,7 +70,7 @@ We collect this to make your experience better, and in the case of possibly dele
         
         icon = ctx.guild.icon_url
         embed = discord.Embed(colour=0xCFFF63)
-        embed.add_field(name='Owner',value"""- <@222147236728012800>""", inline=False)
+        embed.add_field(name='Owner',value="""- <@222147236728012800>""", inline=False)
         embed.add_field(name='Administrators', value="""- <@321759261925441538>
 - <@167736120400936960>""", inline=False)
         embed.add_field(name='Senior Moderators', value="""- <@221764425483288576>
