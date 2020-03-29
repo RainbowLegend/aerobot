@@ -32,10 +32,10 @@ class InfoLoader(commands.Cog):
         embed.set_author(name='Frequently Asked Questions (F.A.Q.)', icon_url=confused)
         embed.add_field(name='Why are there ToS roles? How can I get them?',
                         value='Type `/tosrole [Role name]` in <#288463362357067777>. It changes nothing except for your colour. It is purely cosmetic.', inline=False)
-        embed.add_field(name='How do I get game notifications?', value="""- Type `/gnotif enable`
-- To disable it, do `/gnotif disable`
-- If there is a game, you will get pinged for it.
-- Tell the host your username.""", inline=False)
+        embed.add_field(name='How do I get Game / Hunger Games notifications?', value="""- Head over to #register, and react with the corresponding roles.
+- To disable them, you simply remove your reaction.
+- If there is a game aligned with the role, you will be pinged.
+- Tell the host your username if using Gamenights.""", inline=False)
         embed.add_field(name='What is Tatsumaki?', value="""**Tatsumaki is a Discord Bot with all kinds of features, including profile pages, reputation points, and top people in the server. Please do `t!help` in <#288463362357067777> to learn more.**
 - Some fun commands include `t!fish` and `t!slots`
 - `t!rep` is a command to give a "rep" point to someone. This is just purely a number, it does nothing more.
