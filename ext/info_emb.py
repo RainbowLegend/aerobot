@@ -190,16 +190,16 @@ We collect this to make your experience better, and in the case of possibly dele
         executioner = 'https://images-ext-2.discordapp.net/.eJwNyMEOgjAMANB_2Z2VTgkJifHuX1RSZ8NoyVbgYPx3fcf3CXstYQpv920COCQruzPGUxahqDabLcLxv-B2amevrlHhFWSlzA1GGBkeJMVq3DRD5UOamEIh5-b3-XlLPQ7YJ0zpesEhfH91Byej.TceIIgMCxo7EAw_kWDBKZY7Sy_A'
         witch = 'https://vignette4.wikia.nocookie.net/town-of-salem/images/3/3c/CovenIcon.png/revision/latest?cb=20170601055927'
 
-        coven = discord.Embed(colour=0xBF5FFF)
-        coven.set_author(name='List of Coven Roles', icon_url=witch)
-        coven.add_field(name='Coven Evil', value="""- Coven Leader
+        covenr = discord.Embed(colour=0xBF5FFF)
+        covenr.set_author(name='List of Coven Roles', icon_url=witch)
+        covenr.add_field(name='Coven Evil', value="""- Coven Leader
 - HexMaster
 - Medusa
 - Necromancer
 - Poisoner
 - PotionMaster""", inline=False)
-        coven.set_footer(text='Use `/tosrole [role]` to get a role!', icon_url=servericon)
-        await ctx.send(embed=coven)
+        covenr.set_footer(text='Use `/tosrole [role]` to get a role!', icon_url=servericon)
+        await ctx.send(embed=covenr)
 
 
 def setup(bot):
