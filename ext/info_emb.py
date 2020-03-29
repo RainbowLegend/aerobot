@@ -155,7 +155,7 @@ We collect this to make your experience better, and in the case of possibly dele
 
 
 
-        servericon = ctx.message.server.icon_url
+        servericon = ctx.guild.icon_url
         mayor = 'https://images-ext-1.discordapp.net/.eJwNyMEOgjAMANB_2Z11qx6QxJh45yMGKbNhtIRViDH-u7zj-7r3VlznXmZrB7BzFjIj9AfPnLzoqDoz-XPB9JBGp6amQgvwkjJVaKEdoFehzzNlv0qGjXaurAIlGVV7jMMdQ7zGgDfEiOHifn_IoihU.OugSQlTAgY1a15a8FYg1qTutY5I'
         godfather = 'https://images-ext-1.discordapp.net/.eJwVyMEOgjAMANB_2Z0VFqJCYjzyGaZiGQ2jJVuFg_Hf1bzbe7tXTq53s9nWA-wchcyo9QcvjF50VF2Y_G_B9JBKp6pgohV4xUgFOujOMOhzQpsp34PfJEKmnQurQEKjYrfxcQ11c6r_2nBpgvt8AUJHKUk.dbMZvDxsrwMlCW7kqEQhT8ZJb24'
         executioner = 'https://images-ext-2.discordapp.net/.eJwNyMEOgjAMANB_2Z2VTgkJifHuX1RSZ8NoyVbgYPx3fcf3CXstYQpv920COCQruzPGUxahqDabLcLxv-B2amevrlHhFWSlzA1GGBkeJMVq3DRD5UOamEIh5-b3-XlLPQ7YJ0zpesEhfH91Byej.TceIIgMCxo7EAw_kWDBKZY7Sy_A'
@@ -184,7 +184,7 @@ We collect this to make your experience better, and in the case of possibly dele
 
 
 
-        servericon = ctx.message.server.icon_url
+        servericon = ctx.guild.icon_url
         mayor = 'https://images-ext-1.discordapp.net/.eJwNyMEOgjAMANB_2Z11qx6QxJh45yMGKbNhtIRViDH-u7zj-7r3VlznXmZrB7BzFjIj9AfPnLzoqDoz-XPB9JBGp6amQgvwkjJVaKEdoFehzzNlv0qGjXaurAIlGVV7jMMdQ7zGgDfEiOHifn_IoihU.OugSQlTAgY1a15a8FYg1qTutY5I'
         godfather = 'https://images-ext-1.discordapp.net/.eJwVyMEOgjAMANB_2Z0VFqJCYjzyGaZiGQ2jJVuFg_Hf1bzbe7tXTq53s9nWA-wchcyo9QcvjF50VF2Y_G_B9JBKp6pgohV4xUgFOujOMOhzQpsp34PfJEKmnQurQEKjYrfxcQ11c6r_2nBpgvt8AUJHKUk.dbMZvDxsrwMlCW7kqEQhT8ZJb24'
         executioner = 'https://images-ext-2.discordapp.net/.eJwNyMEOgjAMANB_2Z2VTgkJifHuX1RSZ8NoyVbgYPx3fcf3CXstYQpv920COCQruzPGUxahqDabLcLxv-B2amevrlHhFWSlzA1GGBkeJMVq3DRD5UOamEIh5-b3-XlLPQ7YJ0zpesEhfH91Byej.TceIIgMCxo7EAw_kWDBKZY7Sy_A'
