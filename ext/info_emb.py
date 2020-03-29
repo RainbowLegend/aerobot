@@ -199,7 +199,6 @@ We collect this to make your experience better, and in the case of possibly dele
 - Poisoner
 - PotionMaster""", inline=False)
         coven.set_footer(text='Use `/tosrole [role]` to get a role!', icon_url=servericon)
-
         await ctx.send(embed=coven)
 
 
