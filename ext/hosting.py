@@ -9,6 +9,7 @@ class Notifications(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    @commands.has_any_role("Administrator", "Moderator", "Senior Moderator", "Gamenight Host")
     async def host(self, ctx, mode, notification_type, *, gamemode='Not Defined'):
         """Pings the appropriate role for the appropriate game mode.
         Params:
