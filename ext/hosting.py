@@ -9,7 +9,7 @@ class Notifications(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    @commands.has_any_role("Administrator", "Moderator", "Senior Moderator", "Gamenight Host")
+    @commands.has_any_role("admin (mosted hated/gay)", "Moderator", "Senior Moderator", "Gamenight Host", "Server Manager")
     async def host(self, ctx, mode, notification_type, *, gamemode='Not Defined'):
         """Pings the appropriate role for the appropriate game mode.
         Params:
@@ -54,7 +54,7 @@ class Notifications(commands.Cog):
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
 
     @commands.command(name='gamemodes')
-    @commands.has_any_role("Administrator", "Moderator", "Senior Moderator", "Gamenight Host")
+    @commands.has_any_role("admin (mosted hated/gay)", "Moderator", "Senior Moderator", "Gamenight Host", "Server Manager")
     async def gamemodes(self, ctx, mode):
         """Sends the message for each gamemode.
         Params
