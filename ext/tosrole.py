@@ -18,7 +18,7 @@ class SelfRoles(commands.Cog):
             'neutral_killing': toscd.get_role(702604410215333978),
             'neutral_benign': toscd.get_role(702608855661543544),
             'neutral_evil': toscd.get_role(702609935669919875),
-            'neutral_chaos': toscd.get_role(702604367802400838),
+            'neutral_chaos': toscd.get_role(702604536208031806),
             'coven': toscd.get_role(702604367802400838)
         }
 
