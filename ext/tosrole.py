@@ -81,9 +81,9 @@ class SelfRoles(commands.Cog):
             'poisoner': [base_roles['coven'], toscd.get_role(702608386675441724)],
             'potionmaster': [base_roles['coven'], toscd.get_role(702608428337594459)],
         }
-        if ctx.channel.id not in [702603364575346769, 702602218095902872, 296069608216068098]:
+        if ctx.channel.id not in [702603189324873768, 702602218095902872, 296069608216068098]:
             return await ctx.send(f'{ctx.author.mention} **||** This command is only usable in '
-                                  '<#702603364575346769> or <#288463362357067777>.')
+                                  '<#702603189324873768> or <#288463362357067777>.')
         elif newrole.lower() not in roles.keys():
             return await ctx.send(f'{ctx.author.mention} **||** For a list of roles, please check '
                                   '<#702602323310149643>.  Make sure capitalization is also followed.')
