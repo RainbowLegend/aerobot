@@ -11,82 +11,82 @@ class SelfRoles(commands.Cog):
     async def tosrole(self, ctx, *, newrole):
         """Y'all like jazz?"""
 
-        toscd = self.bot.get_guild(288455332173316106)
+        toscd = self.bot.get_guild(702600628601356359)
         base_roles = {
-            'town': toscd.get_role(297159204181901323),
-            'mafia': toscd.get_role(297159278303641600),
-            'neutral_killing': toscd.get_role(297169993270034433),
-            'neutral_benign': toscd.get_role(297170017634746369),
-            'neutral_evil': toscd.get_role(297170044553789440),
-            'neutral_chaos': toscd.get_role(297170076002680840),
-            'coven': toscd.get_role(291745541581307904)
+            'town': toscd.get_role(702604255269355610),
+            'mafia': toscd.get_role(702604336248913940),
+            'neutral_killing': toscd.get_role(702604410215333978),
+            'neutral_benign': toscd.get_role(702608855661543544),
+            'neutral_evil': toscd.get_role(702609935669919875),
+            'neutral_chaos': toscd.get_role(702604536208031806),
+            'coven': toscd.get_role(702604367802400838)
         }
 
         roles = {
-            'jailor': [base_roles['town'], toscd.get_role(289508430350254080)],
-            'veteran': [base_roles['town'], toscd.get_role(291743946642554883)],
-            'vigilante': [base_roles['town'], toscd.get_role(291743984525770754)],
-            'vampirehunter': [base_roles['town'], toscd.get_role(291743908306616323)],
-            'investigator': [base_roles['town'], toscd.get_role(291743168515538946)],
-            'lookout': [base_roles['town'], toscd.get_role(291743325814521856)],
-            'sheriff': [base_roles['town'], toscd.get_role(291743280813703168)],
-            'spy': [base_roles['town'], toscd.get_role(291743388661841920)],
-            'psychic': [base_roles['town'], toscd.get_role(321785338987282432)],
-            'tracker': [base_roles['town'], toscd.get_role(321785330439159818)],
-            'escort': [base_roles['town'], toscd.get_role(291743471750873088)],
-            'mayor': [base_roles['town'], toscd.get_role(291743563711250442)],
-            'medium': [base_roles['town'], toscd.get_role(291743513182208000)],
-            'retributionist': [base_roles['town'], toscd.get_role(291743627489574912)],
-            'transporter': [base_roles['town'], toscd.get_role(291743680241336321)],
-            'doctor': [base_roles['town'], toscd.get_role(291743828849852416)],
-            'bodyguard': [base_roles['town'], toscd.get_role(291743751846494208)],
-            'crusader': [base_roles['town'], toscd.get_role(321785124230397952)],
-            'trapper': [base_roles['town'], toscd.get_role(321785341340286976)],
+            'jailor': [base_roles['town'], toscd.get_role(702605931971608596)],
+            'veteran': [base_roles['town'], toscd.get_role(702606280837300265)],
+            'vigilante': [base_roles['town'], toscd.get_role(702606235588886549)],
+            'vampirehunter': [base_roles['town'], toscd.get_role(702606377327132703)],
+            'investigator': [base_roles['town'], toscd.get_role(702605669513298022)],
+            'lookout': [base_roles['town'], toscd.get_role(702605806658519070)],
+            'sheriff': [base_roles['town'], toscd.get_role(702605770721853442)],
+            'spy': [base_roles['town'], toscd.get_role(702606204261892146)],
+            'psychic': [base_roles['town'], toscd.get_role(702607505339056169)],
+            'tracker': [base_roles['town'], toscd.get_role(702607562662609057)],
+            'escort': [base_roles['town'], toscd.get_role(702605954050424994)],
+            'mayor': [base_roles['town'], toscd.get_role(702606063446393004)],
+            'medium': [base_roles['town'], toscd.get_role(702606095583150163)],
+            'retributionist': [base_roles['town'], toscd.get_role(702606144241270897)],
+            'transporter': [base_roles['town'], toscd.get_role(702606313430974575)],
+            'doctor': [base_roles['town'], toscd.get_role(702605844747124856)],
+            'bodyguard': [base_roles['town'], toscd.get_role(702605897926443118)],
+            'crusader': [base_roles['town'], toscd.get_role(702607601308925995)],
+            'trapper': [base_roles['town'], toscd.get_role(702607654224134154)],
 
-            'godfather': [base_roles['mafia'], toscd.get_role(289509219214950400)],
-            'mafioso': [base_roles['mafia'], toscd.get_role(291744083750158357)],
-            'ambusher': [base_roles['mafia'], toscd.get_role(321786150916194304)],
-            'blackmailer': [base_roles['mafia'], toscd.get_role(291744254563319809)],
-            'consigliere': [base_roles['mafia'], toscd.get_role(291744342572269568)],
-            'consort': [base_roles['mafia'], toscd.get_role(291744422213844992)],
-            'disguiser': [base_roles['mafia'], toscd.get_role(291744520469610496)],
-            'forger': [base_roles['mafia'], toscd.get_role(291744553919184897)],
-            'framer': [base_roles['mafia'], toscd.get_role(291744602090897408)],
-            'janitor': [base_roles['mafia'], toscd.get_role(291744671292456960)],
-            'hypnotist': [base_roles['mafia'], toscd.get_role(321786146835267594)],
+            'godfather': [base_roles['mafia'], toscd.get_role(702606921630482492)],
+            'mafioso': [base_roles['mafia'], toscd.get_role(702607003121352725)],
+            'ambusher': [base_roles['mafia'], toscd.get_role(702607082309812315)],
+            'blackmailer': [base_roles['mafia'], toscd.get_role(702606728042250310)],
+            'consigliere': [base_roles['mafia'], toscd.get_role(702606772950532096)],
+            'consort': [base_roles['mafia'], toscd.get_role(702606817930510366)],
+            'disguiser': [base_roles['mafia'], toscd.get_role(702606851208118322)],
+            'forger': [base_roles['mafia'], toscd.get_role(702607929593036862)],
+            'framer': [base_roles['mafia'], toscd.get_role(702606878613438474)],
+            'janitor': [base_roles['mafia'], toscd.get_role(702606960456892426)],
+            'hypnotist': [base_roles['mafia'], toscd.get_role(702607035400716338)],
 
-            'arsonist': [base_roles['neutral_killing'], toscd.get_role(291744786275106817)],
-            'serialkiller': [base_roles['neutral_killing'], toscd.get_role(291745200328671243)],
-            'werewolf': [base_roles['neutral_killing'], toscd.get_role(291745330574393344)],
-            'juggernaut': [base_roles['neutral_killing'], toscd.get_role(326914566263013386)],
+            'arsonist': [base_roles['neutral_killing'], toscd.get_role(702609500011757598)],
+            'serialkiller': [base_roles['neutral_killing'], toscd.get_role(702609585458118777)],
+            'werewolf': [base_roles['neutral_killing'], toscd.get_role(702609629795844227)],
+            'juggernaut': [base_roles['neutral_killing'], toscd.get_role(702609540881055904)],
 
-            'executioner': [base_roles['neutral_evil'], toscd.get_role(289509291306647552)],
-            'jester': [base_roles['neutral_evil'], toscd.get_role(291745484681510922)],
-            'witch': [base_roles['neutral_evil'], toscd.get_role(400981824706445328)],
+            'executioner': [base_roles['neutral_evil'], toscd.get_role(702609404331294953)],
+            'jester': [base_roles['neutral_evil'], toscd.get_role(702609442696331290)],
+            'witch': [base_roles['neutral_evil'], toscd.get_role(702609468567060521)],
 
-            'amnesiac': [base_roles['neutral_benign'], toscd.get_role(291745696707772417)],
-            'survivor': [base_roles['neutral_benign'], toscd.get_role(291745801107931142)],
-            'guardianangel': [base_roles['neutral_benign'], toscd.get_role(321785643812388864)],
+            'amnesiac': [base_roles['neutral_benign'], toscd.get_role(702609003620073574)],
+            'survivor': [base_roles['neutral_benign'], toscd.get_role(702609091121512508)],
+            'guardianangel': [base_roles['neutral_benign'], toscd.get_role(702609047207280660)],
 
-            'vampire': [base_roles['neutral_chaos'], toscd.get_role(291746016418594827)],
-            'pirate': [base_roles['neutral_chaos'], toscd.get_role(321785635956588544)],
-            'plaguebearer': [base_roles['neutral_chaos'], toscd.get_role(321786136974458921)],
-            'pestilence': [base_roles['neutral_chaos'], toscd.get_role(326914120576270347)],
-            'baker': [base_roles['neutral_chaos'], toscd.get_role(288682060414058516)],
+            'vampire': [base_roles['neutral_chaos'], toscd.get_role(702609358718107799)],
+            'pirate': [base_roles['neutral_chaos'], toscd.get_role(702609138500239400)],
+            'plaguebearer': [base_roles['neutral_chaos'], toscd.get_role(702609228099223642)],
+            'pestilence': [base_roles['neutral_chaos'], toscd.get_role(702609295501426722)],
+            'baker': [base_roles['neutral_chaos'], toscd.get_role(702619736277647542)],
 
-            'covenleader': [base_roles['coven'], toscd.get_role(321784224866631690)],
-            'hexmaster': [base_roles['coven'], toscd.get_role(321784193451556866)],
-            'medusa': [base_roles['coven'], toscd.get_role(321784220240314370)],
-            'necromancer': [base_roles['coven'], toscd.get_role(321784223608340480)],
-            'poisoner': [base_roles['coven'], toscd.get_role(321784203127816193)],
-            'potionmaster': [base_roles['coven'], toscd.get_role(321784216075501569)],
+            'covenleader': [base_roles['coven'], toscd.get_role(702608215388586085)],
+            'hexmaster': [base_roles['coven'], toscd.get_role(702608250956415006)],
+            'medusa': [base_roles['coven'], toscd.get_role(702608295722221669)],
+            'necromancer': [base_roles['coven'], toscd.get_role(702608329658204190)],
+            'poisoner': [base_roles['coven'], toscd.get_role(702608386675441724)],
+            'potionmaster': [base_roles['coven'], toscd.get_role(702608428337594459)],
         }
-        if ctx.channel.id not in [288463362357067777, 288455332173316106, 296069608216068098]:
+        if ctx.channel.id not in [702603189324873768, 702602218095902872, 296069608216068098]:
             return await ctx.send(f'{ctx.author.mention} **||** This command is only usable in '
-                                  '<#288455332173316106> or <#288463362357067777>.')
+                                  '<#702603189324873768> or <#288463362357067777>.')
         elif newrole.lower() not in roles.keys():
             return await ctx.send(f'{ctx.author.mention} **||** For a list of roles, please check '
-                                  '<#288752291463299083>.  Make sure capitalization is also followed.')
+                                  '<#702602323310149643>.  Make sure capitalization is also followed.')
 
         for role in roles.values():
             if role[1].id in (crole.id for crole in ctx.author.roles):
