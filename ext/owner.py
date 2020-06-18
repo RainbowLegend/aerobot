@@ -1,18 +1,14 @@
-# -*- coding: UTF-8 -*-
-
-from discord.ext import commands
 import traceback
-import discord
 import textwrap
 from contextlib import redirect_stdout
 import io
 from platform import python_version
 import copy
 
-# For the eval command
+import discord
+from discord.ext import commands
 
-import os
-import sys
+# Meta = things being done to the bot itself
 
 
 class Owner(commands.Cog):
@@ -58,11 +54,12 @@ class Owner(commands.Cog):
 
         try:
             exec(to_compile, env)
-        except Exception as e:
+        except Exception as exc:
             fooem = discord.Embed(color=0xff0000)
-            fooem.add_field(name="Code evaluation was not successful. <:peposad:496434027897552896>", value=f'```\n{e.__class__.__name__}: {e}\n```'
+            fooem.add_field(name="Code evaluation was not successful. <:peposad:496434027897552896>", value=f'```\n{exc.__class__.__name__}: {exc}\n```'
                             .replace(self.bot.http.token, '•' * len(self.bot.http.token)))
-            fooem.set_footer(text=f"Evaluated using Python {python_version()}", icon_url=icon)
+            fooem.set_footer(
+                text=f"Evaluated using Python {python_version()}", icon_url=icon)
             fooem.timestamp = ctx.message.created_at
             return await ctx.send(embed=fooem)
 
@@ -70,13 +67,14 @@ class Owner(commands.Cog):
         try:
             with redirect_stdout(stdout):
                 ret = await func()
-        except Exception as e:
+        except Exception as exc:
             value = stdout.getvalue()
             fooem = discord.Embed(color=0xff0000)
             fooem.add_field(name="Code evaluation was not successful. <:peposad:496434027897552896>", value=f'```py\n{value}{traceback.format_exc()}'
-                                                                              f'\n```'.replace(self.bot.http.token,
-                                                                                               '•' * len(self.bot.http.token)))
-            fooem.set_footer(text=f"Evaluated using Python {python_version()}", icon_url=icon)
+                            f'\n```'.replace(self.bot.http.token,
+                                             '•' * len(self.bot.http.token)))
+            fooem.set_footer(
+                text=f"Evaluated using Python {python_version()}", icon_url=icon)
             fooem.timestamp = ctx.message.created_at
             await ctx.send(embed=fooem)
         else:
@@ -92,7 +90,8 @@ class Owner(commands.Cog):
                     sfooem = discord.Embed(color=discord.Colour.green())
                     sfooem.add_field(name="Code evaluation was successful! <:hypers:496434027348230177>", value=f'```py\n{value}\n```'.
                                      replace(self.bot.http.token, '•' * len(self.bot.http.token)))
-                    sfooem.set_footer(text=f"Evaluated using Python {python_version()}", icon_url=icon)
+                    sfooem.set_footer(
+                        text=f"Evaluated using Python {python_version()}", icon_url=icon)
                     sfooem.timestamp = ctx.message.created_at
                     await ctx.send(embed=sfooem)
             else:
@@ -100,7 +99,8 @@ class Owner(commands.Cog):
                 ssfooem = discord.Embed(color=discord.Colour.green())
                 ssfooem.add_field(name="Code evaluation was successful! <:hypers:496434027348230177>", value=f'```py\n{value}{ret}\n```'
                                   .replace(self.bot.http.token, '•' * len(self.bot.http.token)))
-                ssfooem.set_footer(text=f"Evaluated using Python {python_version()}", icon_url=icon)
+                ssfooem.set_footer(
+                    text=f"Evaluated using Python {python_version()}", icon_url=icon)
                 ssfooem.timestamp = ctx.message.created_at
                 await ctx.send(embed=ssfooem)
 
@@ -129,4 +129,3 @@ class Owner(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Owner(bot))
-    print('Owner module loaded.')

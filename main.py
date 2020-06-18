@@ -1,6 +1,6 @@
-from discord.ext import commands
 import logging
 import config
+from discord.ext import commands
 
 
 class AeroBot(commands.Bot):

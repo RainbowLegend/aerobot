@@ -108,7 +108,7 @@ class SelfRoles(commands.Cog):
         else:
             await ctx.author.add_roles(nsfw, reason='NSFW addition')
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the NSFW role.")
-     
+
     @commands.command()
     async def lfg(self, ctx):
         """Gives you the LFG role."""
@@ -120,8 +120,8 @@ class SelfRoles(commands.Cog):
             return
         else:
             await ctx.author.add_roles(nsfw, reason='LFG addition')
-            return await ctx.send(f"{ctx.author.mention}, you have been assigned the LFG role.") 
-        
+            return await ctx.send(f"{ctx.author.mention}, you have been assigned the LFG role.")
+
     @commands.command()
     async def gnotif(self, ctx):
         """Gives you the Game Notifications role."""
@@ -133,8 +133,8 @@ class SelfRoles(commands.Cog):
             return
         else:
             await ctx.author.add_roles(nsfw, reason='LFG addition')
-            return await ctx.send(f"{ctx.author.mention}, you have been assigned the Game Notifications role.") 
-        
+            return await ctx.send(f"{ctx.author.mention}, you have been assigned the Game Notifications role.")
+
     @commands.command()
     async def coven(self, ctx):
         """Gives you the Coven Notifications role."""
@@ -146,9 +146,8 @@ class SelfRoles(commands.Cog):
             return
         else:
             await ctx.author.add_roles(nsfw, reason='cnotif addition')
-            return await ctx.send(f"{ctx.author.mention}, you have been assigned the Coven Notifications role.") 
+            return await ctx.send(f"{ctx.author.mention}, you have been assigned the Coven Notifications role.")
 
 
 def setup(bot):
-    n = SelfRoles(bot)
-    bot.add_cog(n)
+    bot.add_cog(SelfRoles(bot))
