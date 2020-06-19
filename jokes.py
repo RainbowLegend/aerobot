@@ -1,4 +1,3 @@
-# -*- coding: UTF-8 -*-
 # This file is to easily upgrade jokes
 
 JOKES = [
