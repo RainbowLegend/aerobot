@@ -1,5 +1,5 @@
 from discord.ext import commands
-from ext.consts import COVEN, CLASSIC, START, FINAL
+from consts import COVEN, CLASSIC, START, FINAL
 
 
 class Notifications(commands.Cog):

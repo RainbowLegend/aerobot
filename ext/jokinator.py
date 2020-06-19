@@ -1,7 +1,7 @@
 import aiohttp
 import random
 from discord.ext import commands
-from jokes import JOKES
+from consts import JOKES
 
 
 class Jokinator(commands.Cog):
