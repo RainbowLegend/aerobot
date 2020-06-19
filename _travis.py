@@ -4,7 +4,7 @@ import logging
 
 class Config:
     token = "HI"
-    extensions = ['ext.auth', 'ext.cleverbot', 'ext.hosting', 'ext.ir_emb', 'ext.jokinator', 'ext.misc', 'ext.moderation', 'ext.owner', 'ext.tosrole']
+    extensions = ['ext.auth', 'ext.hosting', 'ext.jokinator', 'ext.moderation', 'ext.owner', 'ext.tosrole']
 
 
 config = Config
