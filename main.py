@@ -12,7 +12,7 @@ class AeroBot(commands.Bot):
             self.load_extension(extension)
 
 
-bot = AeroBot(command_prefix='/', case_insensitive=True)
+bot = AeroBot(command_prefix=config.prefix, case_insensitive=True)
 bot.load_extensions(config.extensions)
 bot.load_extension('jishaku')
 
