@@ -1,5 +1,5 @@
 from discord.ext import commands
-from consts import COVEN, CLASSIC, START, FINAL
+from consts import COVEN, CLASSIC, VOTE, START, FINAL
 
 
 class Notifications(commands.Cog):
@@ -90,8 +90,12 @@ class Notifications(commands.Cog):
             await res.add_reaction('Classic_Rainbow:723204782369538088')
             await res.add_reaction('Classic_DraculasPalace:723204769111605350')
             await res.add_reaction('Classic_TownTraitor:723204820718321745')
+        elif mode.lower() == 'vote':
+            res = await ctx.send(VOTE)
+            await res.add_reaction('Classic_Icon:724663517990355115')
+            await res.add_reaction('Coven_Icon:724663284317290526')
         else:
-            await ctx.send('Invalid gamemode!')
+            await ctx.send('Invalid options!')
 
 
 def setup(bot):
