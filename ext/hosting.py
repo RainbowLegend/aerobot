@@ -43,6 +43,13 @@ class Notifications(commands.Cog):
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
 
+        if mode.lower() == "coven":
+            if gamemode.lower != "classic" or "ranked practice" or "rankedpractice" or "ranked practise" or "rankedpractise" or "mafia returns" or "mafiareturns" or "custom" or "all any" or "allany" or "any all" or "anyall" "vip" or "lovers" or "town traitor" or "towntraitor" or "rotating gamemode" or "rotatinggamemode":
+                return await ctx.send('That is an invalid gamemode.', delete_after=5)
+        elif mode.lower() == "classic":
+            if gamemode.lower != "classic" or "ranked practice" or "rankedpractice" or "ranked practise" or "rankedpractise" or "custom" or "rapid mode" or "rapidmode" or "all any" or "allany" or "any all" or "anyall" or "rainbow" or "dracula's palace" or "dracuals palace" or "dracula'spalace" or "dracualspalace" or "town traitor" or "towntraitor":
+                return await ctx.send('That is an invalid gamemode.', delete_after=5)
+
     # /joingame
 
     @commands.command(name='joingame', aliases=['jg'])
@@ -57,7 +64,7 @@ class Notifications(commands.Cog):
     # /gamemodes
 
     @commands.command(name='gamemodes')
-    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638, 724625915619049513)
+    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
     async def gamemodes(self, ctx, mode):
 
         """Sends the message for each gamemode.
