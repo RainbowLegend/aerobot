@@ -57,7 +57,7 @@ class Notifications(commands.Cog):
     # /gamemodes
 
     @commands.command(name='gamemodes')
-    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
+    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638, 724625915619049513)
     async def gamemodes(self, ctx, mode):
 
         """Sends the message for each gamemode.
