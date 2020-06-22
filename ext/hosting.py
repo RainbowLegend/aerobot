@@ -21,6 +21,7 @@ class Notifications(commands.Cog):
         notification_type - Either `start` or `final`
         gamemode - Things like Ranked Practice, Classic, etc.
         """
+        await ctx.message.delete()
 
         toscd = self.bot.get_guild(702600628601356359)
 
@@ -64,13 +65,15 @@ class Notifications(commands.Cog):
     # /gamemodes
 
     @commands.command(name='gamemodes')
-    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
+    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638, 724625915619049513)
     async def gamemodes(self, ctx, mode):
 
         """Sends the message for each gamemode.
         Params
         ========
         mode - `str` Either `coven` or `classic`"""
+
+        await ctx.message.delete()
 
         if mode.lower() == 'coven':
             res = await ctx.send(COVEN)
@@ -96,6 +99,21 @@ class Notifications(commands.Cog):
             await res.add_reaction('Coven_Icon:724663284317290526')
         else:
             await ctx.send('Invalid options!')
+
+    @commands.command(name="end")
+    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638, 724625915619049513)
+    async def end(self, ctx):
+        toscd = self.bot.get_guild(723203635185451142)
+        await ctx.message.delete()
+        await ctx.channel.set_permissions(toscd.get_role(724708658608472178), send_messages=False)
+        await ctx.send('This gamenight has ended, go to <#702602837737078897> if you wish to continue playing.')
+
+    @commands.command(name="start")
+    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638, 724625915619049513)
+    async def start(self, ctx):
+        toscd = self.bot.get_guild(723203635185451142)
+        await ctx.message.delete()
+        await ctx.channel.set_permissions(toscd.get_role(724708658608472178), send_messages=True)
 
 
 def setup(bot):
