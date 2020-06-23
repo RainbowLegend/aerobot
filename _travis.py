@@ -4,7 +4,8 @@ import logging
 
 class Config:
     token = "HI"
-    extensions = ['ext.auth', 'ext.hosting', 'ext.jokinator', 'ext.moderation', 'ext.owner', 'ext.tosrole']
+    extensions = ['ext.auth', 'ext.hosting', 'ext.jokinator',
+                  'ext.moderation', 'ext.owner', 'ext.tosrole']
 
 
 config = Config
@@ -19,7 +20,7 @@ class AeroBot(commands.Bot):
             self.load_extension(extension)
 
 
-bot = AeroBot(command_prefix='/', case_insensitive=True)
+bot = AeroBot(command_prefix="/", case_insensitive=True)
 bot.load_extensions(config.extensions)
 
 
@@ -29,8 +30,10 @@ async def on_message(message):
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+handler = logging.FileHandler(
+    filename='discord.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter(
+    '%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
 print("Travis Tests Successful!")

@@ -56,7 +56,7 @@ class Owner(commands.Cog):
             exec(to_compile, env)
         except Exception as exc:
             fooem = discord.Embed(color=0xff0000)
-            fooem.add_field(name="Code evaluation was not successful. <:peposad:496434027897552896>", value=f'```\n{exc.__class__.__name__}: {exc}\n```'
+            fooem.add_field(name="Code evaluation was not successful. <a:warped:724630886317817927>", value=f'```\n{exc.__class__.__name__}: {exc}\n```'
                             .replace(self.bot.http.token, '•' * len(self.bot.http.token)))
             fooem.set_footer(
                 text=f"Evaluated using Python {python_version()}", icon_url=icon)
@@ -70,7 +70,7 @@ class Owner(commands.Cog):
         except Exception as exc:
             value = stdout.getvalue()
             fooem = discord.Embed(color=0xff0000)
-            fooem.add_field(name="Code evaluation was not successful. <:peposad:496434027897552896>", value=f'```py\n{value}{traceback.format_exc()}'
+            fooem.add_field(name="Code evaluation was not successful. <a:warped:724630886317817927>", value=f'```py\n{value}{traceback.format_exc()}'
                             f'\n```'.replace(self.bot.http.token,
                                              '•' * len(self.bot.http.token)))
             fooem.set_footer(
@@ -88,7 +88,7 @@ class Owner(commands.Cog):
             if ret is None:
                 if value:
                     sfooem = discord.Embed(color=discord.Colour.green())
-                    sfooem.add_field(name="Code evaluation was successful! <:hypers:496434027348230177>", value=f'```py\n{value}\n```'.
+                    sfooem.add_field(name="Code evaluation was successful! <a:WumpusHype:724630580687405056>", value=f'```py\n{value}\n```'.
                                      replace(self.bot.http.token, '•' * len(self.bot.http.token)))
                     sfooem.set_footer(
                         text=f"Evaluated using Python {python_version()}", icon_url=icon)
@@ -97,7 +97,7 @@ class Owner(commands.Cog):
             else:
                 self._last_result = ret
                 ssfooem = discord.Embed(color=discord.Colour.green())
-                ssfooem.add_field(name="Code evaluation was successful! <:hypers:496434027348230177>", value=f'```py\n{value}{ret}\n```'
+                ssfooem.add_field(name="Code evaluation was successful! <a:WumpusHype:724630580687405056>", value=f'```py\n{value}{ret}\n```'
                                   .replace(self.bot.http.token, '•' * len(self.bot.http.token)))
                 ssfooem.set_footer(
                     text=f"Evaluated using Python {python_version()}", icon_url=icon)
@@ -118,11 +118,11 @@ class Owner(commands.Cog):
         msg.author = member
         await self.bot.process_commands(msg)
 
-    @commands.command(hidden=True, aliases=['die', 'kys', 'neckrope'])
+    @commands.command(hidden=True)
     @commands.is_owner()
     async def restart(self, ctx):
         """Restarts the bot"""
-        await ctx.send(embed=discord.Embed(color=0x00FFFF, description="wow lowkey rude but fine"))
+        await ctx.send(embed=discord.Embed(color=0x00FFFF, description="Restarting..."))
         await self.bot.logout()
         raise KeyboardInterrupt
 

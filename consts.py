@@ -1,7 +1,65 @@
-# -*- coding: UTF-8 -*-
-# This file is to easily upgrade jokes
+CLASSIC = (
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370>\n"
+    "<@&702609120540491786> **||** We're voting for today's gamemodes! "
+    "React to an emoji to vote.\nYou may choose more than 1.\n\n"
+    "**You may choose from these options:**\n"
+    "<:Classic_Classic:723204741278204006> - Classic.\n"
+    "<:Classic_RankedPractice:723204796945006643> - Ranked Practice.\n"
+    "<:Classic_Custom:723204754431279125> - Custom.\n"
+    "<:Classic_RapidMode:723204808336736388> - Rapid Mode.\n"
+    "<:Classic_AllAny:723204714132668498>- All Any.\n"
+    "<:Classic_Rainbow:723204782369538088> - Rainbow.\n"
+    "<:Classic_DraculasPalace:723204769111605350> - Dracula's Palace.\n"
+    "<:Classic_TownTraitor:723204820718321745> - Town Traitor."
+)
 
-JOKES = [
+COVEN = (
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370>\n"
+    "<@&702610491717189673> **||** We're voting for today's coven gamemodes! "
+    "React to an emoji to vote.\nYou may choose more than 1.\n\n"
+    "**You may choose from these options:**\n"
+    "<:Coven_Classic:723204853433761893> - Classic.\n"
+    "<:Coven_RankedPractice:723204889332809821> - Ranked Practice.\n"
+    "<:Coven_MafiaReturns:723204877458604156> - Mafia Returns.\n"
+    "<:Coven_Custom:723204865639055370> - Custom.\n"
+    "<:Coven_AllAny:723204840729346119>- All Any.\n"
+    "<:Coven_Rotating:723204902121373747> - Rotating Gamemode."
+)
+
+VOTE = (
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370>\n"
+    "<@&702609120540491786> **+** <@&702610491717189673> **||** We're voting the type of gamenight! "
+    "React to an emoji to vote.\nYou may choose more than 1.\n\n"
+    "**You may choose from these options:**\n"
+    "<:Classic_Icon:724663517990355115> - Classic.\n"
+    "<:Coven_Icon:724663284317290526> - Coven."
+)
+
+START=(
+    '{0.mention} **||** A new game of **{1}** is starting.\n\n'
+    'Use `/joingame [ToS IGN]` or `/jg [ToS IGN]` to join. You will shortly get a party '
+    'invite.'
+)
+
+FINAL=(
+    '{0.mention} **||** A new game of **{1}** is starting.\nThe game will start shortly.\n\n'
+    'Use `/joingame [ToS IGN]` or `/jg [ToS IGN]` to join. You will shortly get a party '
+    'invite.'
+)
+
+JOKES=[
     "What do you call a fake noodle? An Impasta.",
     "I would avoid the sushi if I was you. It's a little fishy.",
     "Want to hear a joke about paper? Nevermind it's tearable.",

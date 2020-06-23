@@ -12,7 +12,7 @@ class AeroBot(commands.Bot):
             self.load_extension(extension)
 
 
-bot = AeroBot(command_prefix='/', case_insensitive=True)
+bot = AeroBot(command_prefix=config.prefix, case_insensitive=True)
 bot.load_extensions(config.extensions)
 bot.load_extension('jishaku')
 
@@ -23,8 +23,10 @@ async def on_message(message):
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+handler = logging.FileHandler(
+    filename='discord.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter(
+    '%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
 bot.run(config.token)

@@ -4,3 +4,7 @@
 config\.py
 
 \.vscode/
+
+__pycache__
+
+discord.log
