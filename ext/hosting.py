@@ -4,17 +4,14 @@ from consts import COVEN, CLASSIC, VOTE, START, FINAL
 
 class Notifications(commands.Cog):
 
-    """General notifier commands."""
-
     def __init__(self, bot):
         self.bot = bot
 
     # /host
 
-    @commands.command()
-    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
+    @commands.command(name='host')
+    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638, 724625915619049513)
     async def host(self, ctx, mode, notification_type, *, gamemode='Not Defined'):
-
         """Pings the appropriate role for the appropriate game mode.
         Params:
         mode - Either `Coven` or `Classic`
@@ -23,15 +20,46 @@ class Notifications(commands.Cog):
         """
         await ctx.message.delete()
 
-        toscd = self.bot.get_guild(702600628601356359)
+        toscd = self.bot.get_guild(723203635185451142)
 
-        coven = toscd.get_role(702610491717189673)
-        classic = toscd.get_role(702609120540491786)
+        coven = toscd.get_role(724716280845697135)
+        classic = toscd.get_role(724716296037597226)
 
         if notification_type.lower() == 'start':
             msg = START
         elif notification_type.lower() == 'final':
             msg = FINAL
+
+        gamemodes = [
+            "classic",
+            "ranked practice",
+            "rankedpractice",
+            "ranked practise",
+            "rankedpractise",
+            "custom",
+            "rapid mode",
+            "rapidmode",
+            "all any",
+            "allany",
+            "any all",
+            "anyall",
+            "rainbow",
+            "dracula's palace",
+            "draculas palace",
+            "draculaspalace",
+            "dracula'spalace",
+            "town traitor",
+            "towntraitor",
+            "mafia returns",
+            "mafiareturns",
+            "vip",
+            "lovers",
+            "rotating gamemode",
+            "rotatinggamemode"
+        ]
+
+        if gamemode.lower() not in gamemodes:
+            return await ctx.send('That is an invalid gamemode.', delete_after=5)
 
         if mode.lower() == 'coven':
             await coven.edit(reason="hosting mentions", mentionable=True)
@@ -44,20 +72,11 @@ class Notifications(commands.Cog):
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
 
-        if mode.lower() == "coven":
-            if gamemode.lower != "classic" or "ranked practice" or "rankedpractice" or "ranked practise" or "rankedpractise" or "mafia returns" or "mafiareturns" or "custom" or "all any" or "allany" or "any all" or "anyall" "vip" or "lovers" or "town traitor" or "towntraitor" or "rotating gamemode" or "rotatinggamemode":
-                return await ctx.send('That is an invalid gamemode.', delete_after=5)
-        elif mode.lower() == "classic":
-            if gamemode.lower != "classic" or "ranked practice" or "rankedpractice" or "ranked practise" or "rankedpractise" or "custom" or "rapid mode" or "rapidmode" or "all any" or "allany" or "any all" or "anyall" or "rainbow" or "dracula's palace" or "dracuals palace" or "dracula'spalace" or "dracualspalace" or "town traitor" or "towntraitor":
-                return await ctx.send('That is an invalid gamemode.', delete_after=5)
-
     # /joingame
 
     @commands.command(name='joingame', aliases=['jg'])
     async def _joingame(self, ctx, ign):
-
         """Send your IGN to the lobby host."""
-
         toscd = self.bot.get_guild(702600628601356359)
         await (toscd.get_channel(702639694474903643)).send(f'{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
@@ -67,12 +86,10 @@ class Notifications(commands.Cog):
     @commands.command(name='gamemodes')
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638, 724625915619049513)
     async def gamemodes(self, ctx, mode):
-
         """Sends the message for each gamemode.
         Params
         ========
         mode - `str` Either `coven` or `classic`"""
-
         await ctx.message.delete()
 
         if mode.lower() == 'coven':
@@ -114,6 +131,15 @@ class Notifications(commands.Cog):
         toscd = self.bot.get_guild(723203635185451142)
         await ctx.message.delete()
         await ctx.channel.set_permissions(toscd.get_role(724708658608472178), send_messages=True)
+        await ctx.send(f'Gamenight opened! ({ctx.author.mention})')
+
+    @commands.command(name="takeover")
+    @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638, 724625915619049513)
+    async def takeover(self, ctx):
+        toscd = self.bot.get_guild(723203635185451142)
+        await ctx.message.delete()
+        await ctx.channel.set_permissions(toscd.get_role(724708658608472178), send_messages=True)
+        await ctx.send(f'Gamenight takeover. ({ctx.author.mention})')
 
 
 def setup(bot):
