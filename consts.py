@@ -40,7 +40,7 @@ VOTE = (
     "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
     "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
     "<a:Gamenight_Party:723208543116984370>\n"
-    "<@&702609120540491786> **||** We're voting the type of gamenight! "
+    "<@&702609120540491786> **+** <@&702610491717189673> **||** We're voting the type of gamenight! "
     "React to an emoji to vote.\nYou may choose more than 1.\n\n"
     "**You may choose from these options:**\n"
     "<:Classic_Icon:724663517990355115> - Classic.\n"
