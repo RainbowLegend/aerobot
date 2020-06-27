@@ -140,10 +140,13 @@ class Notifications(commands.Cog):
 
     @commands.command(name="takeover")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
-    async def takeover(self, ctx):
+    async def takeover(self, ctx, cohost: typing.Optional[discord.User]):
         guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
-        await ctx.send(f'Gamenight takeover. ({ctx.author.mention})')
+        if cohost == None:
+            return await ctx.send(f'Gamenight takeover. ({ctx.author.mention})')
+        else:
+            return await ctx.send(f'Gamenight takeover. ({ctx.author.mention}, {cohost.mention})')
 
 
 def setup(bot):
