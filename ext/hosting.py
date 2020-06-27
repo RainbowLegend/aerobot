@@ -1,4 +1,6 @@
+import typing
 from discord.ext import commands
+import discord
 from consts import COVEN, CLASSIC, VOTE, START, FINAL
 
 
@@ -20,10 +22,10 @@ class Notifications(commands.Cog):
         """
         await ctx.message.delete()
 
-        toscd = self.bot.get_guild(702600628601356359)
+        guild = self.bot.get_guild(702600628601356359)
 
-        coven = toscd.get_role(702610491717189673)
-        classic = toscd.get_role(702609120540491786)
+        coven = guild.get_role(702610491717189673)
+        classic = guild.get_role(702609120540491786)
 
         if notification_type.lower() == 'start':
             msg = START
@@ -77,8 +79,8 @@ class Notifications(commands.Cog):
     @commands.command(name='joingame', aliases=['jg'])
     async def _joingame(self, ctx, ign):
         """Send your IGN to the lobby host."""
-        toscd = self.bot.get_guild(702600628601356359)
-        await (toscd.get_channel(702639694474903643)).send(f'{ctx.author.mention} - **{ign}**')
+        guild = self.bot.get_guild(702600628601356359)
+        await (guild.get_channel(702639694474903643)).send(f'{ctx.author.mention} - **{ign}**')
         return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
 
     # /gamemodes
@@ -120,23 +122,26 @@ class Notifications(commands.Cog):
     @commands.command(name="end")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
     async def end(self, ctx):
-        toscd = self.bot.get_guild(702600628601356359)
+        guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
-        await toscd.get_channel(702602469812863106).set_permissions(toscd.get_role(702694502204178554), send_messages=False)
+        await guild.get_channel(702602469812863106).set_permissions(guild.get_role(702694502204178554), send_messages=False)
         await ctx.send('This gamenight has ended, go to <#702602837737078897> if you wish to continue playing.')
 
     @commands.command(name="start")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
-    async def start(self, ctx):
-        toscd = self.bot.get_guild(702600628601356359)
+    async def start(self, ctx, cohost: typing.Optional[discord.User]):
+        guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
-        await toscd.get_channel(702602469812863106).set_permissions(toscd.get_role(702694502204178554), send_messages=True)
-        await ctx.send(f'Gamenight opened! ({ctx.author.mention})')
+        await guild.get_channel(702602469812863106).set_permissions(guild.get_role(702694502204178554), send_messages=True)
+        if cohost == None:
+            return await ctx.send(f'Gamenight opened! ({ctx.author.mention})')
+        else:
+            return await ctx.send(f'Gamenight opened! ({ctx.author.mention}, {cohost.mention})')
 
     @commands.command(name="takeover")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
     async def takeover(self, ctx):
-        toscd = self.bot.get_guild(702600628601356359)
+        guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
         await ctx.send(f'Gamenight takeover. ({ctx.author.mention})')
 
