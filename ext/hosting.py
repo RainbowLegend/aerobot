@@ -143,10 +143,10 @@ class Notifications(commands.Cog):
     async def takeover(self, ctx, cohost: typing.Optional[discord.User]):
         guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
-        if cohost == None:
-            return await ctx.send(f'Gamenight takeover. ({ctx.author.mention})')
-        else:
+        if cohost:
             return await ctx.send(f'Gamenight takeover. ({ctx.author.mention}, {cohost.mention})')
+        else:
+            return await ctx.send(f'Gamenight takeover. ({ctx.author.mention})')
 
 
 def setup(bot):
