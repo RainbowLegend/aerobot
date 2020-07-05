@@ -133,10 +133,10 @@ class Notifications(commands.Cog):
         guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
         await guild.get_channel(702602469812863106).set_permissions(guild.get_role(702694502204178554), send_messages=True)
-        if cohost == None:
-            return await ctx.send(f'Gamenight opened! ({ctx.author.mention})')
-        else:
+        if cohost:
             return await ctx.send(f'Gamenight opened! ({ctx.author.mention}, {cohost.mention})')
+        else:
+            return await ctx.send(f'Gamenight opened! ({ctx.author.mention})')
 
     @commands.command(name="takeover")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
