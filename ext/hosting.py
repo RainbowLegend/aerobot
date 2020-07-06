@@ -78,17 +78,17 @@ class Notifications(commands.Cog):
 
     # /joingame
 
-    @commands.command(name='joingame', aliases=['jg'])
-    async def _joingame(self, ctx, ign: None):
+    @commands.command(name='joingame', aliases=['jg', 'join'])
+    async def joingame(self, ctx, ign=None):
         """Send your IGN to the lobby host."""
         await ctx.message.delete()
 
         guild = self.bot.get_guild(702600628601356359)
-        if ign == None:
-            return await ctx.send(f'You didn\'t provide your ign! ({ctx.author.mention})')
-        else:
-            await (guild.get_channel(702639694474903643)).send(f'{ctx.author.mention} - **{ign}**')
+        if ign:
+            await (guild.get_channel(702639694474903643)).send(f'{ctx.author.mention} - **{ign.capitalize()}**')
             return await ctx.send(f'{ign.capitalize()} will receive a party invite shortly. ({ctx.author.mention})')
+        else:
+            return await ctx.send(f'You didn\'t provide your ign! ({ctx.author.mention})')
 
     # /gamemodes
 
