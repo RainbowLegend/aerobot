@@ -76,6 +76,8 @@ class Notifications(commands.Cog):
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
 
+        await (guild.get_channel(702639694474903643)).send(f"**{ctx.author.capitalize()}'s {gamemode.capitalize()} Game**")
+
     # /joingame
 
     @commands.command(name='joingame', aliases=['jg', 'join'])
@@ -85,7 +87,7 @@ class Notifications(commands.Cog):
 
         guild = self.bot.get_guild(702600628601356359)
         if ign:
-            await (guild.get_channel(702639694474903643)).send(f'{ctx.author.mention} - **{ign.capitalize()}**')
+            await (guild.get_channel(702639694474903643)).send(f'**{ign.capitalize()}** ({ctx.author.mention})')
             return await ctx.send(f'{ign.capitalize()} will receive a party invite shortly. ({ctx.author.mention})')
         else:
             return await ctx.send(f'You didn\'t provide your ign! ({ctx.author.mention})')
