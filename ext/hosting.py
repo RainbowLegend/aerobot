@@ -44,6 +44,8 @@ class Notifications(commands.Cog):
             "all any",
             "allany",
             "any all",
+            "caa",
+            "coven any all",
             "anyall",
             "rainbow",
             "dracula's palace",
@@ -74,14 +76,21 @@ class Notifications(commands.Cog):
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
 
+        await (guild.get_channel(702639694474903643)).send(f"**{ctx.author.capitalize()}'s {gamemode.capitalize()} Game**")
+
     # /joingame
 
-    @commands.command(name='joingame', aliases=['jg'])
-    async def _joingame(self, ctx, ign):
+    @commands.command(name='joingame', aliases=['jg', 'join'])
+    async def joingame(self, ctx, ign=None):
         """Send your IGN to the lobby host."""
+        await ctx.message.delete()
+
         guild = self.bot.get_guild(702600628601356359)
-        await (guild.get_channel(702639694474903643)).send(f'{ctx.author.mention} - **{ign}**')
-        return await ctx.send(f'{ctx.author.mention}, your IGN was sent.')
+        if ign:
+            await (guild.get_channel(702639694474903643)).send(f'**{ign.capitalize()}** ({ctx.author.mention})')
+            return await ctx.send(f'{ign.capitalize()} will receive a party invite shortly. ({ctx.author.mention})')
+        else:
+            return await ctx.send(f'You didn\'t provide your ign! ({ctx.author.mention})')
 
     # /gamemodes
 
@@ -119,30 +128,41 @@ class Notifications(commands.Cog):
         else:
             await ctx.send('Invalid options!')
 
+  # /end
+
     @commands.command(name="end")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
-    async def end(self, ctx):
+    async def end(self, ctx, cohost: typing.Optional[discord.User]):
         guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
         await guild.get_channel(702602469812863106).set_permissions(guild.get_role(702694502204178554), send_messages=False)
-        await ctx.send('This gamenight has ended, go to <#702602837737078897> if you wish to continue playing.')
+        if cohost:
+            return await ctx.send(f'Gamenight ended! ({ctx.author.mention}, {cohost.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
+        else:
+            return await ctx.send(f'Gamenight ended! ({ctx.author.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
+
+  # /start
 
     @commands.command(name="start")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
     async def start(self, ctx, cohost: typing.Optional[discord.User]):
-        guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
+
+        guild = self.bot.get_guild(702600628601356359)
         await guild.get_channel(702602469812863106).set_permissions(guild.get_role(702694502204178554), send_messages=True)
         if cohost:
             return await ctx.send(f'Gamenight opened! ({ctx.author.mention}, {cohost.mention})')
         else:
             return await ctx.send(f'Gamenight opened! ({ctx.author.mention})')
 
+  # /takeover
+
     @commands.command(name="takeover")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
     async def takeover(self, ctx, cohost: typing.Optional[discord.User]):
-        guild = self.bot.get_guild(702600628601356359)
         await ctx.message.delete()
+
+        guild = self.bot.get_guild(702600628601356359)
         if cohost:
             return await ctx.send(f'Gamenight takeover. ({ctx.author.mention}, {cohost.mention})')
         else:
