@@ -76,7 +76,7 @@ class Notifications(commands.Cog):
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
 
-        await (guild.get_channel(702639694474903643)).send(f"**{ctx.author.capitalize()}'s {gamemode.capitalize()} Game**")
+        await (guild.get_channel(702639694474903643)).send(f"**{ctx.author.display_name.capitalize()}'s {gamemode.capitalize()} Game**")
 
     # /joingame
 
