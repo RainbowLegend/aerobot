@@ -139,7 +139,7 @@ class Notifications(commands.Cog):
         if cohost:
             return await ctx.send(f'Gamenight ended! ({ctx.author.mention}, {cohost.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
         else:
-            return await ctx.send(f'Gamenight opened! ({ctx.author.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
+            return await ctx.send(f'Gamenight ended! ({ctx.author.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
 
   # /start
 
