@@ -18,8 +18,14 @@ bot.load_extension('jishaku')
 
 
 @bot.event
+async def on_ready():
+    print("Aerobot is online!")
+
+
+@bot.event
 async def on_message(message):
     await bot.process_commands(message)
+
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)

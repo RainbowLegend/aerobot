@@ -1,7 +1,7 @@
 import typing
 from discord.ext import commands
 import discord
-from consts import COVEN, CLASSIC, VOTE, START, FINAL
+from consts import COVEN, CLASSIC, VOTE, START, FINAL, GAMEMODES
 
 
 class Notifications(commands.Cog):
@@ -32,37 +32,7 @@ class Notifications(commands.Cog):
         elif notification_type.lower() == 'final':
             msg = FINAL
 
-        gamemodes = [
-            "classic",
-            "ranked practice",
-            "rankedpractice",
-            "ranked practise",
-            "rankedpractise",
-            "custom",
-            "rapid mode",
-            "rapidmode",
-            "all any",
-            "allany",
-            "any all",
-            "caa",
-            "coven any all",
-            "anyall",
-            "rainbow",
-            "dracula's palace",
-            "draculas palace",
-            "draculaspalace",
-            "dracula'spalace",
-            "town traitor",
-            "towntraitor",
-            "mafia returns",
-            "mafiareturns",
-            "vip",
-            "lovers",
-            "rotating gamemode",
-            "rotatinggamemode"
-        ]
-
-        if gamemode.lower() not in gamemodes:
+        if gamemode.lower() not in GAMEMODES:
             return await ctx.send('That is an invalid gamemode.', delete_after=5)
 
         if mode.lower() == 'coven':

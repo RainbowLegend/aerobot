@@ -5,7 +5,7 @@
 ![build](https://travis-ci.org/RainbowLegend/aerobot.svg?branch=master)
 ![py](https://img.shields.io/badge/python-3.6%20--%203.7-yellow.svg)
 
-This is a bot for the TOS Community Server.
+This is a bot the town of salem community discord server.
 
 ## Requirements
 

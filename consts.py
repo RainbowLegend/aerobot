@@ -69,6 +69,36 @@ FINAL=(
     'invite.'
 )
 
+GAMEMODES=[
+    "classic",
+    "ranked practice",
+    "rankedpractice",
+    "ranked practise",
+    "rankedpractise",
+    "custom",
+    "rapid mode",
+    "rapidmode",
+    "all any",
+    "allany",
+    "any all",
+    "caa",
+    "coven any all",
+    "anyall",
+    "rainbow",
+    "dracula's palace",
+    "draculas palace",
+    "draculaspalace",
+    "dracula'spalace",
+    "town traitor",
+    "towntraitor",
+    "mafia returns",
+    "mafiareturns",
+    "vip",
+    "lovers",
+    "rotating gamemode",
+    "rotatinggamemode"
+]
+
 JOKES=[
     "What do you call a fake noodle? An Impasta.",
     "I would avoid the sushi if I was you. It's a little fishy.",
