@@ -48,12 +48,22 @@ VOTE = (
 )
 
 START=(
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370>\n"
     '{0.mention} **||** A new game of **{1}** is starting.\n\n'
     'Use `/joingame [ToS IGN]` or `/jg [ToS IGN]` to join. You will shortly get a party '
     'invite.'
 )
 
 FINAL=(
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370> <a:Gamenight_Party:723208543116984370> "
+    "<a:Gamenight_Party:723208543116984370>\n"
     '{0.mention} **||** A new game of **{1}** is starting.\nThe game will start shortly.\n\n'
     'Use `/joingame [ToS IGN]` or `/jg [ToS IGN]` to join. You will shortly get a party '
     'invite.'

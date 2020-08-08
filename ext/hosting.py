@@ -68,15 +68,15 @@ class Notifications(commands.Cog):
         if mode.lower() == 'coven':
             await coven.edit(reason="hosting mentions", mentionable=True)
             await ctx.send(msg.format(coven, gamemode))
+            await guild.get_channel(702639694474903643).send(f"**{ctx.author.display_name}'s {gamemode} Game**".upper())
             return await coven.edit(reason="hosting mentions", mentionable=False)
         elif mode.lower() == 'classic':
             await classic.edit(reason="hosting mentions", mentionable=True)
             await ctx.send(msg.format(classic, gamemode))
+            await guild.get_channel(702639694474903643).send(f"**{ctx.author.display_name}'s {gamemode} Game**".upper())
             return await classic.edit(reason="hosting mentions", mentionable=False)
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
-
-        await (guild.get_channel(702639694474903643)).send(f"**{ctx.author.display_name.capitalize()}'s {gamemode.capitalize()} Game**")
 
     # /joingame
 
