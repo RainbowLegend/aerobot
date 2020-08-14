@@ -88,7 +88,7 @@ class Notifications(commands.Cog):
         guild = self.bot.get_guild(702600628601356359)
         if ign:
             await (guild.get_channel(702639694474903643)).send(f'**`{ign.capitalize()}`** ({ctx.author.mention})')
-            return await ctx.send(f'{discord.utils.escape_mentions(ign.capitalize())}` will receive a party invite shortly. ({ctx.author.mention})')
+            return await ctx.send(f'{discord.utils.escape_mentions(ign.capitalize())} will receive a party invite shortly. ({ctx.author.mention})')
         else:
             return await ctx.send(f'You didn\'t provide your ign! ({ctx.author.mention})')
 
