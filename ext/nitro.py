@@ -11,7 +11,7 @@ class NitroPerks(commands.Cog):
     @commands.has_any_role(702614991446081578, 718662691861823489)
     async def roles(self, ctx, action, *, args=None):
         if action == "create":
-            if discord.utils.get(self.guild.roles, name=ctx.author.id):
+            if discord.utils.get(self.guild.roles, name=str(ctx.author.id)):
                 return await ctx.send("You already have a custom role!")
             newrole = await self.guild.create_role(name=ctx.author.id, reason=f"Nitro Booster Role for {ctx.author.id}")
             ghost = self.guild.get_role(702605281204502638)
@@ -20,7 +20,7 @@ class NitroPerks(commands.Cog):
             await ctx.author.add_roles(newrole, reason="Nitro Booster Role")
             return await ctx.send("Your new role has been created!")
         if action == "color":
-            userrole = discord.utils.get(self.guild.roles, name=ctx.author.id)
+            userrole = discord.utils.get(self.guild.roles, name=str(ctx.author.id))
             if not userrole:
                 return await ctx.send("Create a role first using `/customrole create`.")
             try:
