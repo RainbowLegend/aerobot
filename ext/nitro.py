@@ -24,7 +24,7 @@ class NitroPerks(commands.Cog):
             if not userrole:
                 return await ctx.send("Create a role first using `/customrole create`.")
             try:
-                await userrole.edit(color=int(args.strip("#"), 16))
+                await userrole.edit(color=discord.Color(value=int(args.strip("#"), 16)))
                 return await ctx.send(f"You have changed your role's color to {args}!")
             except ValueError:
                 return await ctx.send("Input a valid hex code such as `FFFFFF`!")
