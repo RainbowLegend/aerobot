@@ -11,7 +11,7 @@ class NitroPerks(commands.Cog):
     async def roles(self, ctx, action, *, args):
         if action == "create":
             newrole = await self.guild.create_role(name=ctx.author.id, reason=f"Nitro Booster Role for {ctx.author.id}")
-            ghost = self.guild.get_roles(702605281204502638)
+            ghost = self.guild.get_role(702605281204502638)
             current_guild_roles = self.guild.roles
             await newrole.edit(position=current_guild_roles.index(ghost) + 1)
             return await ctx.send("Your new role has been created!")
