@@ -16,7 +16,8 @@ class NitroPerks(commands.Cog):
             newrole = await self.guild.create_role(name=ctx.author.id, reason=f"Nitro Booster Role for {ctx.author.id}")
             ghost = self.guild.get_role(702605281204502638)
             current_guild_roles = self.guild.roles
-            await newrole.edit(position=current_guild_roles.index(ghost) + 1)
+            await newrole.edit(position=current_guild_roles.index(ghost))
+            await ctx.author.add_roles(newrole, reason="Nitro Booster Role")
             return await ctx.send("Your new role has been created!")
         if action == "color":
             userrole = discord.utils.get(self.guild.roles, name=ctx.author.id)
