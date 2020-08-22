@@ -4,7 +4,7 @@ from discord.ext import commands
 class NitroPerks(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.guild = bot.get_guild(288455332173316106)
+        self.guild = bot.get_guild(702600628601356359)
 
     @commands.command(name="customrole")
     @commands.has_any_role(702614991446081578)
