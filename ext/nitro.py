@@ -8,7 +8,7 @@ class NitroPerks(commands.Cog):
 
     @commands.command(name="customrole")
     @commands.has_any_role(702614991446081578, 718662691861823489)
-    async def roles(self, ctx, action, *, args):
+    async def roles(self, ctx, action, *, args=None):
         if action == "create":
             if discord.utils.get(self.guild.roles, name=ctx.author.id):
                 return await ctx.send("You already have a custom role!")
