@@ -29,10 +29,11 @@ class NitroPerks(commands.Cog):
 
     @customrole.command(name="color")
     async def color(self, ctx, *, hexinput=None):
-        try:
-            userrole = discord.utils.get(self.guild.roles, name=str(ctx.author.id))
-        except:
+
+        if discord.utils.get(self.guild.roles, name=str(ctx.author.id)) is None:
             return await ctx.send("Create a role before using this command!")
+
+        userrole = discord.utils.get(self.guild.roles, name=str(ctx.author.id))
 
         try:
             await userrole.edit(color=discord.Color(value=int(hexinput.strip("#"), 16)))
