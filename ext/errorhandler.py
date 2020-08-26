@@ -16,17 +16,21 @@ class ErrorHandler(commands.Cog):
             return
 
         if ctx.cog:
-            if ctx.cog._getoverridden_method(cog.cog_command_error) is not None:
+            if ctx.cog._get_overridden_method(ctx.cog.cog_command_error) is not None:
                 return
 
         error = getattr(error, "original", error)
 
         if isinstance(error, commands.CommandNotFound):
             return
-        if isinstance(error, commands.NoPrivateMessage):
+
+        elif isinstance(error, commands.PrivateMessageOnly):
             return
 
-        if isinstance(error, commands.DisabledCommand):
+        elif isinstance(error, commands.NoPrivateMessage):
+            return
+
+        elif isinstance(error, commands.DisabledCommand):
             await ctx.send("This command has been disabled.")
 
         else:
