@@ -3,8 +3,7 @@ from discord.ext import commands
 import discord
 from consts import COVEN, CLASSIC, VOTE, START, FINAL, GAMEMODES
 
-
-class Notifications(commands.Cog):
+class Hosting(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -14,12 +13,7 @@ class Notifications(commands.Cog):
     @commands.command(name='host')
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
     async def host(self, ctx, mode, notification_type, *, gamemode='Not Defined'):
-        """Pings the appropriate role for the appropriate game mode.
-        Params:
-        mode - Either `Coven` or `Classic`
-        notification_type - Either `start` or `final`
-        gamemode - Things like Ranked Practice, Classic, etc.
-        """
+
         await ctx.message.delete()
 
         guild = self.bot.get_guild(702600628601356359)
@@ -140,4 +134,4 @@ class Notifications(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Notifications(bot))
+    bot.add_cog(Hosting(bot))
