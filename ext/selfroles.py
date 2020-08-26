@@ -94,8 +94,7 @@ class SelfRoles(commands.Cog):
 
         await ctx.send(f'{ctx.author.mention}, you have been assigned **{roles[newrole.lower()][1].name.title()}**')
 
-    @commands.command(name="nsfw", hidden=True)
-    @commands.enabled(False)
+    @commands.command(name="nsfw", hidden=True, enabled=False)
     async def nsfw(self, ctx):
         # Gives you the NSFW role.
         toscd = self.bot.get_guild(702600628601356359)
@@ -108,8 +107,7 @@ class SelfRoles(commands.Cog):
             await ctx.author.add_roles(nsfwRole, reason='Selfrole assigner (nsfw, addition)')
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the NSFW role.")
 
-    @commands.command(name="lfg", aliases=["lookingforgames"], hidden=True)
-    @commands.enabled(False)
+    @commands.command(name="lfg", aliases=["lookingforgames"], hidden=True, enabled=False)
     async def lfg(self, ctx):
         # Gives you the LFG role.
         toscd = self.bot.get_guild(702600628601356359)
@@ -122,7 +120,7 @@ class SelfRoles(commands.Cog):
             await ctx.author.add_roles(lfgRole, reason='Selfrole assigner (lfg, addition)')
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the LFG role.")
 
-    @commands.command(name="gnotif", aliases=["gamenightnotify", "gamenightnotifications", "gamenightnotif"], hidden=True)
+    @commands.command(name="gnotif", aliases=["gamenightnotify", "gamenightnotifications", "gamenightnotif"], hidden=True, enabled=False)
     async def gnotif(self, ctx):
         toscd = self.bot.get_guild(702600628601356359)
         gnotifRole = toscd.get_role(379748801197637644)
@@ -134,7 +132,7 @@ class SelfRoles(commands.Cog):
             await ctx.author.add_roles(gnotifRole, reason='Selfrole assigner (gamenight notifications, addition')
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the Game Notifications role.")
 
-    @commands.command(name="cnotif", aliases=["covennotify", "covennotifications", "covennotif"], hidden=True)
+    @commands.command(name="cnotif", aliases=["covennotify", "covennotifications", "covennotif"], hidden=True, enabled=False)
     async def cnotif(self, ctx):
         toscd = self.bot.get_guild(702600628601356359)
         cnotifRole = toscd.get_role(358655924342095874)
