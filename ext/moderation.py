@@ -36,7 +36,7 @@ class Moderation(commands.Cog):
         You can pass more than one role in at the same time, make sure it is between member and /addrole.
         """
 
-        toscd = self.bot.get_guild(288455332173316106)
+        toscd = self.bot.get_guild(702600628601356359)
         await user.add_roles(*role)
         emb = discord.Embed(colour=discord.Colour.green(),
                             description='Logging Entry - `/addrole`')
@@ -48,7 +48,7 @@ class Moderation(commands.Cog):
                        icon_url=ctx.guild.icon_url)
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
-        channel = toscd.get_channel(288467626890362880)
+        channel = toscd.get_channel(702600628601356359)
         await channel.send(embed=emb)
         await ctx.send(embed=emb)
         await user.send('A recipt of a moderator action has been sent to you:', embed=emb)
@@ -77,8 +77,8 @@ class Moderation(commands.Cog):
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        toscd = self.bot.get_guild(288455332173316106)
-        channel = toscd.get_channel(288467626890362880)
+        toscd = self.bot.get_guild(702600628601356359)
+        channel = toscd.get_channel(702602072868126860)
 
         await channel.send(embed=emb)
         await ctx.send(embed=emb)
@@ -107,8 +107,8 @@ class Moderation(commands.Cog):
         await user.send('You can appeal by DMing me once you join '
                         'the Auth server by using `/appeal [contents]`.', embed=emb)
 
-        toscd = self.bot.get_guild(288455332173316106)
-        channel = toscd.get_channel(288467626890362880)
+        toscd = self.bot.get_guild(702600628601356359)
+        channel = toscd.get_channel(702602072868126860)
 
         await channel.send(embed=emb)
         await ctx.send(embed=emb)
@@ -126,7 +126,7 @@ class Moderation(commands.Cog):
 
         emb = discord.Embed(colour=discord.Colour.orange(),
                             description='Logging Entry - `/ban`\n\nAppeals can be sent in the '
-                            '[verification server](http://discord.gg/JHTyKYA)')
+                                        '[verification server](http://discord.gg/JHTyKYA)')
         emb.add_field(name='Banned member', value=f'{user.mention}')
         emb.add_field(name='Reason:', value=reason)
         emb.set_footer(text='ToS Community Discord',
@@ -136,8 +136,8 @@ class Moderation(commands.Cog):
 
         await user.send('You can appeal by DMing me once you join '
                         'the Auth server by using `/appeal [contents]`', embed=emb)
-        toscd = self.bot.get_guild(288455332173316106)
-        channel = toscd.get_channel(288467626890362880)
+        toscd = self.bot.get_guild(702600628601356359)
+        channel = toscd.get_channel(702602072868126860)
         await channel.send(embed=emb)
         await user.ban(reason=f'Action by {ctx.author}')
         await ctx.send(embed=emb)
@@ -170,9 +170,9 @@ class Moderation(commands.Cog):
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
 
-        toscd = self.bot.get_guild(288455332173316106)
-        muted = toscd.get_role(289194167463182337)
-        channel = toscd.get_channel(288467626890362880)
+        toscd = self.bot.get_guild(702600628601356359)
+        muted = toscd.get_role(702657311600148510)
+        channel = toscd.get_channel(702602072868126860)
 
         await user.send('You can appeal by DMing me by using `/appeal [contents]`', embed=emb)
         await channel.send(embed=emb)
@@ -197,8 +197,8 @@ class Moderation(commands.Cog):
                        icon_url=ctx.guild.icon_url)
         emb.timestamp = datetime.datetime.utcnow()
 
-        toscd = self.bot.get_guild(288455332173316106)
-        channel = toscd.get_channel(297442649168936961)
+        toscd = self.bot.get_guild(702600628601356359)
+        channel = toscd.get_channel(702602072868126860)
 
         await channel.send(embed=emb)
         await ctx.author.send('Your appeal was successfully sent.')

@@ -1,0 +1,37 @@
+import discord
+import asyncio
+from discord.ext import commands
+
+
+class NitroPerks(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+        self.guild = bot.get_guild(702600628601356359)
+
+    @commands.command(name="customrole")
+    @commands.has_any_role(702614991446081578, 718662691861823489)
+    async def roles(self, ctx, action, *, args=None):
+        if action == "create":
+            if discord.utils.get(self.guild.roles, name=str(ctx.author.id)):
+                return await ctx.send("You already have a custom role!")
+            newrole = await self.guild.create_role(name=ctx.author.id, reason=f"Nitro Booster Role for {ctx.author.id}")
+            ghost = self.guild.get_role(702605281204502638)
+            current_guild_roles = self.guild.roles
+            await asyncio.sleep(1)
+            await newrole.edit(position=current_guild_roles.index(ghost))
+            await asyncio.sleep(1)
+            await ctx.author.add_roles(newrole, reason="Nitro Booster Role")
+            return await ctx.send("Your new role has been created!")
+        if action == "color":
+            userrole = discord.utils.get(self.guild.roles, name=str(ctx.author.id))
+            if not userrole:
+                return await ctx.send("Create a role first using `/customrole create`.")
+            try:
+                await userrole.edit(color=discord.Color(value=int(args.strip("#"), 16)))
+                return await ctx.send(f"You have changed your role's color to {args}!")
+            except ValueError:
+                return await ctx.send("Input a valid hex code such as `FFFFFF`!")
+                
+
+def setup(bot):
+    bot.add_cog(NitroPerks(bot))
