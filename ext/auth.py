@@ -2,7 +2,7 @@ from discord.ext import commands
 
 
 class Auth(commands.Cog):
-  # Create one-time use invite links.
+    """Create one-time invite links to the server."""
 
     def __init__(self, bot):
         self.bot = bot
