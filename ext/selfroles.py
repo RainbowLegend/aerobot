@@ -96,7 +96,7 @@ class SelfRoles(commands.Cog):
 
     @commands.command(name="nsfw", hidden=True, enabled=False)
     async def nsfw(self, ctx):
-        # Gives you the NSFW role.
+        """Gives you the NSFW role."""
         toscd = self.bot.get_guild(702600628601356359)
         nsfwRole = toscd.get_role(425123783863435276)
         if nsfwRole in ctx.message.author.roles:
@@ -109,7 +109,7 @@ class SelfRoles(commands.Cog):
 
     @commands.command(name="lfg", aliases=["lookingforgames"], hidden=True, enabled=False)
     async def lfg(self, ctx):
-        # Gives you the LFG role.
+        """Gives you the LFG role."""
         toscd = self.bot.get_guild(702600628601356359)
         lfgRole = toscd.get_role(633407913796567050)
         if lfgRole in ctx.message.author.roles:
@@ -123,25 +123,25 @@ class SelfRoles(commands.Cog):
     @commands.command(name="gnotif", aliases=["gamenightnotify", "gamenightnotifications", "gamenightnotif"], hidden=True, enabled=False)
     async def gnotif(self, ctx):
         toscd = self.bot.get_guild(702600628601356359)
-        gnotifRole = toscd.get_role(379748801197637644)
-        if gnotifRole in ctx.message.author.roles:
-            await ctx.author.remove_roles(gnotifRole, reason='Selfrole assigner (gamenight notifications, removal)')
+        gnotif_role = toscd.get_role(379748801197637644)
+        if gnotif_role in ctx.message.author.roles:
+            await ctx.author.remove_roles(gnotif_role, reason='Selfrole assigner (gamenight notifications, removal)')
             await ctx.send(f"{ctx.author.mention}, you have been unassigned the Game Notifications role.")
             return
         else:
-            await ctx.author.add_roles(gnotifRole, reason='Selfrole assigner (gamenight notifications, addition')
+            await ctx.author.add_roles(gnotif_role, reason='Selfrole assigner (gamenight notifications, addition')
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the Game Notifications role.")
 
     @commands.command(name="cnotif", aliases=["covennotify", "covennotifications", "covennotif"], hidden=True, enabled=False)
     async def cnotif(self, ctx):
         toscd = self.bot.get_guild(702600628601356359)
-        cnotifRole = toscd.get_role(358655924342095874)
-        if cnotifRole in ctx.message.author.roles:
-            await ctx.author.remove_roles(cnotifRole, reason='Selfrole assinger (coven notifications, removal')
+        cnotif_role = toscd.get_role(358655924342095874)
+        if cnotif_role in ctx.message.author.roles:
+            await ctx.author.remove_roles(cnotif_role, reason='Selfrole assinger (coven notifications, removal')
             await ctx.send(f"{ctx.author.mention}, you have been unassigned the Coven Notifications role.")
             return
         else:
-            await ctx.author.add_roles(cnotifRole, reason='Selfrole assigner (coven notifications, addition)')
+            await ctx.author.add_roles(cnotif_role, reason='Selfrole assigner (coven notifications, addition)')
             return await ctx.send(f"{ctx.author.mention}, you have been assigned the Coven Notifications role.")
 
 
