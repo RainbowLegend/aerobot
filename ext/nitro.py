@@ -9,16 +9,18 @@ class NitroPerks(commands.Cog):
 
     @commands.group(invoke_without_command=True)
     async def customrole(self, ctx):
-      pass
+        pass
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        self.guild = self.bot.get_guild(702600628601356359)
+    
     @customrole.command(name="create")
     async def create(self, ctx):
-        self.guild = self.bot.get_guild(702600628601356359)
-
         if discord.utils.get(self.guild.roles, name=str(ctx.author.id)):
             return await ctx.send("You already have a custom role!")
 
-        ghostRole = self.guild.get_role(702605281204502638)
+        ghost_role = self.guild.get_role(702605281204502638)
 
         newrole = await self.guild.create_role(name=ctx.author.id, reason=f"Nitro Booster Role for {ctx.author.id}")
         await asyncio.sleep(1)
@@ -29,8 +31,7 @@ class NitroPerks(commands.Cog):
 
     @customrole.command(name="color")
     async def color(self, ctx, *, hexinput=None):
-
-        if discord.utils.get(self.guild.roles, name=str(ctx.author.id)) is None:
+        if not discord.utils.get(self.guild.roles, name=str(ctx.author.id)):
             return await ctx.send("Create a role before using this command!")
 
         userrole = discord.utils.get(self.guild.roles, name=str(ctx.author.id))
