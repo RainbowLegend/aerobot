@@ -29,16 +29,18 @@ class Hosting(commands.Cog):
 
         if gamemode.lower() not in GAMEMODES:
             return await ctx.send('That is an invalid gamemode.', delete_after=5)
-
+        
+        channel = guild.get_channel(702639694474903643)
+        
         if mode.lower() == 'coven':
             await coven.edit(reason="hosting mentions", mentionable=True)
             await ctx.send(msg.format(coven, gamemode))
-            await guild.get_channel(702639694474903643).send(f"**{ctx.author.display_name}'s {gamemode} Game**".upper())
+            await channel.send(f"**{ctx.author.display_name}'s {gamemode} Game**".upper())
             return await coven.edit(reason="hosting mentions", mentionable=False)
         elif mode.lower() == 'classic':
             await classic.edit(reason="hosting mentions", mentionable=True)
             await ctx.send(msg.format(classic, gamemode))
-            await guild.get_channel(702639694474903643).send(f"**{ctx.author.display_name}'s {gamemode} Game**".upper())
+            await channel.send(f"**{ctx.author.display_name}'s {gamemode} Game**".upper())
             return await classic.edit(reason="hosting mentions", mentionable=False)
         else:
             return await ctx.send('That is an invalid mode.', delete_after=5)
