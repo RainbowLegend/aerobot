@@ -4,8 +4,9 @@ import logging
 
 class Config:
     token = "HI"
-    extensions = ['ext.auth', 'ext.hosting', 'ext.jokinator',
-                  'ext.moderation', 'ext.owner', 'ext.tosrole']
+    prefix = "/"
+    extensions = ["ext.hosting", "ext.jokinator", "ext.errorhandler",
+                  "ext.moderation", "ext.owner", "ext.selfroles", "ext.nitro"]
 
 
 config = Config
@@ -20,7 +21,7 @@ class AeroBot(commands.Bot):
             self.load_extension(extension)
 
 
-bot = AeroBot(command_prefix="/", case_insensitive=True)
+bot = AeroBot(command_prefix=config.prefix, case_insensitive=True)
 bot.load_extensions(config.extensions)
 
 
@@ -36,4 +37,4 @@ handler.setFormatter(logging.Formatter(
     '%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
 logger.addHandler(handler)
 
-print("Travis Tests Successful!")
+print("Travis has successfully completed the build test!")
