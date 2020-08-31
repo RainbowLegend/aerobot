@@ -26,7 +26,7 @@ class Owner(commands.Cog):
     @commands.command(hidden=True, name='eval', aliases=['evaluate'])
     @commands.is_owner()
     async def _eval(self, ctx, *, body: str):
-        """Evaluates a piece of code"""
+        # Evaluates a piece of code
         env = {
             'bot': self.bot,
             'ctx': ctx,
@@ -104,25 +104,25 @@ class Owner(commands.Cog):
                 ssfooem.timestamp = ctx.message.created_at
                 await ctx.send(embed=ssfooem)
 
-    @commands.command(hidden=True, aliases=["say", "print"])
+    @commands.command(name="echo", hidden=True, aliases=["say", "print"])
     @commands.is_owner()
     async def echo(self, ctx, *, content):
         await ctx.send(content)
 
-    @commands.command(hidden=True, aliases=["impersonate"])
+    @commands.command(name="runas", hidden=True, aliases=["impersonate"])
     @commands.is_owner()
     async def runas(self, ctx, member: discord.Member, *, cmd):
-        """Invoke bot command as specified user"""
+        # Invoke bot command as specified user.
         msg = copy.copy(ctx.message)
         msg.content = f"{ctx.me.mention} {cmd}"
         msg.author = member
         await self.bot.process_commands(msg)
 
-    @commands.command(hidden=True)
+    @commands.command(name="restart", aliases=["reboot"], hidden=True)
     @commands.is_owner()
     async def restart(self, ctx):
-        """Restarts the bot"""
-        await ctx.send(embed=discord.Embed(color=0x00FFFF, description="Restarting..."))
+        # Restarts the bot
+        await ctx.send("Restarting...")
         await self.bot.logout()
         raise KeyboardInterrupt
 

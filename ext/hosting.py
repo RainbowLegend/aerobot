@@ -3,6 +3,7 @@ from discord.ext import commands
 import discord
 from consts import COVEN, CLASSIC, VOTE, START, FINAL, GAMEMODES
 
+
 class Hosting(commands.Cog):
 
     def __init__(self, bot):

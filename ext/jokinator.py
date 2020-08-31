@@ -6,15 +6,13 @@ from consts import JOKES
 
 class Jokinator(commands.Cog):
 
-    """Let's make jokes!"""
+    # Let's make jokes!
 
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(name="dadjoke")
     async def dadjoke(self, ctx):
-
-        """Polly want a dadjoke?"""
 
         async with aiohttp.ClientSession() as cs:
             async with cs.get('https://icanhazdadjoke.com/', headers={"Accept": "application/json"}) as r:
@@ -22,23 +20,17 @@ class Jokinator(commands.Cog):
             joke = raw_joke['joke']
             await ctx.send(f'{ctx.message.author.mention}, {joke}')
 
-    @commands.command()
+    @commands.command(name="givejoke", aliases=["joke"])
     async def givejoke(self, ctx):
-
-        """Want cool jokes?"""
 
         await ctx.send(f'{ctx.message.author.mention}, {random.choice(JOKES)}')
 
-    @commands.Cog.listener()
-    async def on_message(self, message):
+    @commands.command(name="dab")
+    async def dab(self, ctx):
 
-        """This method is used for the dabs."""
+      # This command is used for the dabs.
 
-        if any(map(lambda v: v in message.content, [';dab;', '!dab'])):
-            return await message.channel.send('<a:eli1:472941813011972107><a:eli2:472941813229944842><a:eli3:472941813267824670>')
-
-        elif any(map(lambda v: v in message.content, ['/hug', '!hug'])):
-            return await message.channel.send('\U0001F917')
+      ctx.send("<a:Aerobot_Dab_1:749791197224108043><a:Aerobot_Dab_2:749791187313098764><a:Aerobot_Dab_3:749791176063975504>")
 
 
 def setup(bot):
