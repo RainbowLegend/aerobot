@@ -18,7 +18,9 @@ class NitroPerks(commands.Cog):
 
     @customrole.command(name="create")
     async def create(self, ctx):
-        if discord.utils.get(self.guild.roles, name=str(ctx.author.id)):
+        with open("nitro.json") as f:
+            db = json.load(f)
+        if str(ctx.author.id) in db.keys():
             return await ctx.send("You already have a custom role!")
 
         ghost_role = self.guild.get_role(702605281204502638)
@@ -28,7 +30,7 @@ class NitroPerks(commands.Cog):
         await newrole.edit(position=self.guild.roles.index(ghost_role))
         await asyncio.sleep(1)
         await ctx.author.add_roles(newrole, reason="Nitro Booster Role")
-        with open("nitro.json") as f:
+        with open("nitro.json", "w") as f:
             db = json.load(f)
             db[str(ctx.author.id)] = newrole.id
             json.dump(db, f)
