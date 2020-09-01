@@ -51,7 +51,7 @@ class NitroPerks(commands.Cog):
 
     @customrole.command(name="name")
     async def name(self, ctx, *, name):
-        with open("ntiro.json") as f:
+        with open("nitro.json") as f:
             db = json.load(f)
         if str(ctx.author.id) not in db.keys():
             return await ctx.send("Create a role before using this command!")
