@@ -38,14 +38,10 @@ class NitroPerks(commands.Cog):
     async def color(self, ctx, *, hexinput=None):
         with open("nitro.json") as f:
             db = json.load(f)
-        if not discord.utils.get(self.guild.roles, name=str(ctx.author.id)) or str(ctx.author.id) not in db.keys():
+        if str(ctx.author.id) not in db.keys():
             return await ctx.send("Create a role before using this command!")
 
-        user_role = discord.utils.get(self.guild.roles, name=str(ctx.author.id)) \
-                    or self.guild.get_role(db[str(ctx.author.id)])
-
-        if str(ctx.author.id) not in db.keys():
-            db[str(ctx.author.id)] = user_role.id
+        user_role = self.guild.get_role(db[str(ctx.author.id)])
 
         try:
             await user_role.edit(color=discord.Color(value=int(hexinput.strip("#"), 16)))
@@ -57,14 +53,10 @@ class NitroPerks(commands.Cog):
     async def name(self, ctx, *, name):
         with open("ntiro.json") as f:
             db = json.load(f)
-        if not discord.utils.get(self.guild.roles, name=str(ctx.author.id)) or str(ctx.author.id) not in db.keys():
+        if str(ctx.author.id) not in db.keys():
             return await ctx.send("Create a role before using this command!")
 
-        user_role = discord.utils.get(self.guild.roles, name=str(ctx.author.id)) \
-                    or self.guild.get_role(db[str(ctx.author.id)])
-
-        if str(ctx.author.id) not in db.keys():
-            db[str(ctx.author.id)] = user_role.id
+        user_role = self.guild.get_role(db[str(ctx.author.id)])
 
         await user_role.edit(name=name)
         return await ctx.send(f"Your role's name has been changed to **{name}**")
