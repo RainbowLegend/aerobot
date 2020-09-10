@@ -5,7 +5,7 @@
 ![build](https://travis-ci.org/RainbowLegend/aerobot.svg?branch=master)
 ![py](https://img.shields.io/badge/python-3.6%20--%203.7-yellow.svg)
 
-This is a bot the Town of Salem Community Discord server.
+This discord bot is for the Town of Salem Community Discord, and is used to host gamenights, provide moderation commands, and is a integral part of the server.
 
 ## Requirements
 
