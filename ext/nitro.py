@@ -37,7 +37,7 @@ class NitroPerks(commands.Cog):
         if str(ctx.author.id) in db.keys():
             return await ctx.send("You already have a custom role!")
         ghost_role = guild.get_role(702605281204502638)
-        if (guild.get_role(702614991446081578) not in ctx.author.roles) or \
+        if (guild.get_role(702614991446081578) not in ctx.author.roles) and \
                 (guild.get_role(702601007368241173) not in ctx.author.roles):
             return await ctx.send("You need to be nitro boosting to get a custom role!")
         with open("nitro.json") as f:
