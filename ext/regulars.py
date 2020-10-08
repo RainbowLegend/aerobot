@@ -10,17 +10,16 @@ class RegularAssigner(commands.Cog):
         self.bot = bot
 
     @staticmethod
-    def activity_check(messages: list):
+    def activity_check(messages: list, time_sep: int):
         messages = [x for x in messages if x.channel.id not in [702603189324873768, 748238536636891217]]
         message_total = 0
         last_time = datetime.now()
         for message in messages:
-            if abs((message.created_at - last_time).seconds) > 120:
+            if abs((message.created_at - last_time).seconds) > (time_sep * 60):
                 last_time = message.created_at
                 message_total += 1
         return message_total
 
-    """
     @commands.Cog.listener()
     async def on_ready(self):
         guild = self.bot.get_guild(702600628601356359)
@@ -37,14 +36,27 @@ class RegularAssigner(commands.Cog):
             server_history = server_history + channel_history
             print(len(channel_history), channel)
         print(len(server_history))
+        _2min = 0
+        _2min45 = 0
+        _3min = 0
+        _3min45 = 0
         for member in guild.members:
             activity = [message for message in server_history if message.author == member]
-            message_total = self.activity_check(activity)
-            if message_total > 45:
-                with open("activity_logs.txt", "a", encoding="utf-8") as f:
-                    f.write(f"{member} - {message_total}\n")
+            message_total = self.activity_check(activity, 2)
+            if message_total >= 45:
+                _2min45 += 1
+            if message_total >= 60:
+                _2min += 1
+            message_total = self.activity_check(activity, 3)
+            if message_total >= 60:
+                _3min += 1
+            if message_total >= 45:
+                _3min45 += 1
+        print(_2min45, " 2m45")
+        print(_2min, " 2m60")
+        print(_3min45, " 3m45")
+        print(_3min, " 3m60")
         print(datetime.now() - now)
-    """
 
 
 def setup(bot):
