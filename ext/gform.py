@@ -14,16 +14,16 @@ class FormValidator(commands.Cog):
         author = ctx.author
         with open("forms.json", "r") as f:
             db = json.load(f)
-        if author.id in db.keys():
+        if str(author.id) in db.keys():
             return await ctx.author.send(f"You have already requested a form link!\n"
-                                         f"Identifier: `{db[author.id]}`\n"
-                                         f"Link: {FORM_LINK}{db[author.id]}/")
-        uid = uuid.uuid4()
+                                         f"Identifier: `{db[str(author.id)]}`\n"
+                                         f"Link: {FORM_LINK}{db[str(author.id)]}")
+        uid = str(uuid.uuid4())
         db[author.id] = uid
         with open("forms.json", "w") as f:
             json.dump(db, f)
         return await ctx.author.send(f"Identifier: `{uid}`\n"
-                                     f"Link: {FORM_LINK}{uid}/")
+                                     f"Link: {FORM_LINK}{uid}")
 
 
 def setup(bot):
