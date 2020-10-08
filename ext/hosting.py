@@ -29,9 +29,9 @@ class Hosting(commands.Cog):
 
         if gamemode.lower() not in GAMEMODES:
             return await ctx.send('That is an invalid gamemode.', delete_after=5)
-        
+
         channel = guild.get_channel(702639694474903643)
-        
+
         if mode.lower() == 'coven':
             await coven.edit(reason="hosting mentions", mentionable=True)
             await ctx.send(msg.format(coven, gamemode))
@@ -129,7 +129,6 @@ class Hosting(commands.Cog):
     async def takeover(self, ctx, cohost: typing.Optional[discord.User]):
         await ctx.message.delete()
 
-        guild = self.bot.get_guild(702600628601356359)
         if cohost:
             return await ctx.send(f'Gamenight takeover. ({ctx.author.mention}, {cohost.mention})')
         else:

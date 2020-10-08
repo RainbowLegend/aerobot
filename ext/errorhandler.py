@@ -29,6 +29,9 @@ class ErrorHandler(commands.Cog):
         elif isinstance(error, commands.NoPrivateMessage):
             return
 
+        elif isinstance(error, commands.MissingAnyRole):
+            await ctx.send("You don't have permission to use this command!")
+
         elif isinstance(error, commands.DisabledCommand):
             await ctx.send("This command has been disabled.")
 
