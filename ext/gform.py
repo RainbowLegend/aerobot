@@ -9,8 +9,7 @@ class FormValidator(commands.Cog):
 
     @commands.command(name="contestvote")
     async def form_validation(self, ctx):
-        FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeNjEFFuXI2k4-K1Bn6r4dvjxElxiML3Gt-KnbZmvHV6jpGjQ/" \
-                    "viewform?entry.1763648885="
+        FORM_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSeNjEFFuXI2k4-K1Bn6r4dvjxElxiML3Gt-KnbZmvHV6jpGjQ/viewform?usp=pp_url&entry.1763648885="
         author = ctx.author
         with open("forms.json", "r") as f:
             db = json.load(f)
