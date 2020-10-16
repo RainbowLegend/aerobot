@@ -3,14 +3,17 @@ import asyncio
 import json
 from discord.ext import commands
 from datetime import datetime, timedelta
+from aioscheduler import TimedScheduler
 
 
 class RegularAssigner(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.scheduler = TimedScheduler()
+        self.scheduler.start()
 
     @staticmethod
-    def activity_check(messages: list, time_sep: int):
+    def activity_check(messages: list, time_sep: int) -> int:
         messages = [x for x in messages if x.channel.id not in [702603189324873768, 748238536636891217]]
         message_total = 0
         last_time = datetime.now()
@@ -20,8 +23,7 @@ class RegularAssigner(commands.Cog):
                 message_total += 1
         return message_total
 
-    @commands.Cog.listener()
-    async def on_ready(self):
+    async def update_regulars(self, scheduled=True):
         guild = self.bot.get_guild(702600628601356359)
 
         now = datetime.now()
@@ -31,32 +33,31 @@ class RegularAssigner(commands.Cog):
         # tos-general, gamenights, ranked-lounge, tos-matches, trial-reports, general, flummery, pets, art
         server_history = []
         for channel in channels:
-            print(channel, "starting")
             channel_history = await (guild.get_channel(channel)).history(after=week_ago, limit=None).flatten()
             server_history = server_history + channel_history
-            print(len(channel_history), channel)
-        print(len(server_history))
-        _2min = 0
-        _2min45 = 0
-        _3min = 0
-        _3min45 = 0
         for member in guild.members:
-            activity = [message for message in server_history if message.author == member]
-            message_total = self.activity_check(activity, 2)
-            if message_total >= 45:
-                _2min45 += 1
-            if message_total >= 60:
-                _2min += 1
-            message_total = self.activity_check(activity, 3)
-            if message_total >= 60:
-                _3min += 1
-            if message_total >= 45:
-                _3min45 += 1
-        print(_2min45, " 2m45")
-        print(_2min, " 2m60")
-        print(_3min45, " 3m45")
-        print(_3min, " 3m60")
-        print(datetime.now() - now)
+            total_messages = self.activity_check(server_history, 3)
+            if total_messages >= 55:
+                role = guild.get_role(766771845247795280)
+                if role not in member.roles:
+                    await member.add_roles(role, reason="Added regular role")
+        if scheduled:
+            now = datetime.utcnow()
+            next_monday = now + timedelta(days=(7 - now.weekday()))
+            self.scheduler.schedule(self.update_regulars(), next_monday)
+
+    @commands.command()
+    async def mr(self, ctx):
+        await self.update_regulars(scheduled=False)
+        await ctx.send("Roles given")
+
+    """
+    @commands.Cog.listener()
+    async def on_ready(self):
+        now = datetime.utcnow()
+        next_monday = now + timedelta(days=(7 - now.weekday()))
+        self.scheduler.schedule(self.update_regulars(), next_monday)
+    """
 
 
 def setup(bot):
