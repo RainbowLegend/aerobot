@@ -9,8 +9,8 @@ from datetime import datetime, timedelta
 class RegularAssigner(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.scheduler = TimedScheduler()
-        self.scheduler.start()
+        # self.scheduler = TimedScheduler()
+        # self.scheduler.start()
 
     @staticmethod
     def activity_check(messages: list, time_sep: int) -> int:
