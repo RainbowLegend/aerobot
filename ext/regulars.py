@@ -3,7 +3,7 @@ import asyncio
 import json
 from discord.ext import commands
 from datetime import datetime, timedelta
-from aioscheduler import TimedScheduler
+# from aioscheduler import TimedScheduler
 
 
 class RegularAssigner(commands.Cog):
@@ -44,7 +44,7 @@ class RegularAssigner(commands.Cog):
         if scheduled:
             now = datetime.utcnow()
             next_monday = now + timedelta(days=(7 - now.weekday()))
-            self.scheduler.schedule(self.update_regulars(), next_monday)
+            # self.scheduler.schedule(self.update_regulars(), next_monday)
 
     @commands.command()
     async def mr(self, ctx):
