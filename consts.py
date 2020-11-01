@@ -43,8 +43,8 @@ VOTE = (
     "<@&702609120540491786> **+** <@&702610491717189673> **||** We're voting the type of gamenight! "
     "React to an emoji to vote.\nYou may choose more than 1.\n\n"
     "**You may choose from these options:**\n"
-    "<:Classic_Icon:724663517990355115> - Classic.\n"
-    "<:Coven_Icon:724663284317290526> - Coven."
+    "<:Classic_Icon:772315471403679765> - Classic.\n"
+    "<:Coven_Icon:772315471340371968> - Coven."
 )
 
 START=(
