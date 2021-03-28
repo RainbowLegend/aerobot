@@ -5,7 +5,6 @@ from discord.ext import commands
 
 
 class Moderation(commands.Cog):
-
     """Cogs made for moderation.
     Include various other stuff as well.
     """
@@ -16,7 +15,6 @@ class Moderation(commands.Cog):
 
     @commands.command()
     async def getuserid(self, ctx, user: discord.User):
-
         """Get a user's ID. If the bot cannot find the person, try making sure capitalization is followed
         or use the full ping including the discriminator.
         """
@@ -26,7 +24,6 @@ class Moderation(commands.Cog):
     @commands.command()
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818)
     async def addrole(self, ctx, role: commands.Greedy[discord.Role], user: discord.Member, *, reason='None'):
-
         """Adds a role to a user.
 
         Params:
@@ -96,7 +93,7 @@ class Moderation(commands.Cog):
 
         emb = discord.Embed(colour=discord.Colour.orange(),
                             description='Logging Entry - `/kick`\n\nAppeals can be sent in the '
-                            '[verification server](http://discord.gg/JHTyKYA)')
+                                        '[verification server](http://discord.gg/JHTyKYA)')
         emb.add_field(name='Kicked member', value=f'{user.mention}')
         emb.add_field(name='Reason:', value=reason)
         emb.set_footer(text='ToS Community Discord',

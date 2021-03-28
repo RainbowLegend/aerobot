@@ -47,7 +47,7 @@ VOTE = (
     "<:Coven_Icon:772315471340371968> - Coven."
 )
 
-START=(
+START = (
     "<a:Gamenight_Party:772315471265005589> <a:Gamenight_Party:772315471265005589> "
     "<a:Gamenight_Party:772315471265005589> <a:Gamenight_Party:772315471265005589> "
     "<a:Gamenight_Party:772315471265005589> <a:Gamenight_Party:772315471265005589> "
@@ -58,7 +58,7 @@ START=(
     'invite.'
 )
 
-FINAL=(
+FINAL = (
     "<a:Gamenight_Party:772315471265005589> <a:Gamenight_Party:772315471265005589> "
     "<a:Gamenight_Party:772315471265005589> <a:Gamenight_Party:772315471265005589> "
     "<a:Gamenight_Party:772315471265005589> <a:Gamenight_Party:772315471265005589> "
@@ -69,7 +69,7 @@ FINAL=(
     'invite.'
 )
 
-GAMEMODES=[
+GAMEMODES = [
     "classic",
     "ranked practice",
     "rankedpractice",
@@ -99,7 +99,7 @@ GAMEMODES=[
     "rotatinggamemode"
 ]
 
-JOKES=[
+JOKES = [
     "What do you call a fake noodle? An Impasta.",
     "I would avoid the sushi if I was you. It's a little fishy.",
     "Want to hear a joke about paper? Nevermind it's tearable.",

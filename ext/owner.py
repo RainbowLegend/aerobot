@@ -8,6 +8,7 @@ import copy
 import discord
 from discord.ext import commands
 
+
 # Meta = things being done to the bot itself
 
 
@@ -56,7 +57,8 @@ class Owner(commands.Cog):
             exec(to_compile, env)
         except Exception as exc:
             fooem = discord.Embed(color=0xff0000)
-            fooem.add_field(name="Code evaluation was not successful. <a:warped:724630886317817927>", value=f'```\n{exc.__class__.__name__}: {exc}\n```'
+            fooem.add_field(name="Code evaluation was not successful. <a:warped:724630886317817927>",
+                            value=f'```\n{exc.__class__.__name__}: {exc}\n```'
                             .replace(self.bot.http.token, '•' * len(self.bot.http.token)))
             fooem.set_footer(
                 text=f"Evaluated using Python {python_version()}", icon_url=icon)
@@ -70,9 +72,10 @@ class Owner(commands.Cog):
         except Exception as exc:
             value = stdout.getvalue()
             fooem = discord.Embed(color=0xff0000)
-            fooem.add_field(name="Code evaluation was not successful. <a:warped:724630886317817927>", value=f'```py\n{value}{traceback.format_exc()}'
-                            f'\n```'.replace(self.bot.http.token,
-                                             '•' * len(self.bot.http.token)))
+            fooem.add_field(name="Code evaluation was not successful. <a:warped:724630886317817927>",
+                            value=f'```py\n{value}{traceback.format_exc()}'
+                                  f'\n```'.replace(self.bot.http.token,
+                                                   '•' * len(self.bot.http.token)))
             fooem.set_footer(
                 text=f"Evaluated using Python {python_version()}", icon_url=icon)
             fooem.timestamp = ctx.message.created_at
@@ -88,7 +91,8 @@ class Owner(commands.Cog):
             if ret is None:
                 if value:
                     sfooem = discord.Embed(color=discord.Colour.green())
-                    sfooem.add_field(name="Code evaluation was successful! <a:WumpusHype:724630580687405056>", value=f'```py\n{value}\n```'.
+                    sfooem.add_field(name="Code evaluation was successful! <a:WumpusHype:724630580687405056>",
+                                     value=f'```py\n{value}\n```'.
                                      replace(self.bot.http.token, '•' * len(self.bot.http.token)))
                     sfooem.set_footer(
                         text=f"Evaluated using Python {python_version()}", icon_url=icon)
@@ -97,7 +101,8 @@ class Owner(commands.Cog):
             else:
                 self._last_result = ret
                 ssfooem = discord.Embed(color=discord.Colour.green())
-                ssfooem.add_field(name="Code evaluation was successful! <a:WumpusHype:724630580687405056>", value=f'```py\n{value}{ret}\n```'
+                ssfooem.add_field(name="Code evaluation was successful! <a:WumpusHype:724630580687405056>",
+                                  value=f'```py\n{value}{ret}\n```'
                                   .replace(self.bot.http.token, '•' * len(self.bot.http.token)))
                 ssfooem.set_footer(
                     text=f"Evaluated using Python {python_version()}", icon_url=icon)

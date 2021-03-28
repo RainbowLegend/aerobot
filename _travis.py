@@ -29,6 +29,7 @@ bot.load_extensions(config.extensions)
 async def on_message(message):
     await bot.process_commands(message)
 
+
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler(
