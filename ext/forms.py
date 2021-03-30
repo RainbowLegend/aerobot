@@ -27,7 +27,7 @@ class UserForms(commands.Cog):
         )
         try:
             user = await self.bot.wait_for('message', check=lambda
-                m: m.author.id == ctx.author.id and m.channel.id == ctx.author.id, timeout=300)
+                m: m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel), timeout=300)
             if user.content.lower() == "cancel":
                 return await ctx.author.send(embed=cancel)
             try:
@@ -44,7 +44,7 @@ class UserForms(commands.Cog):
             "will help us to resolve any issues quickly.")
         try:
             reason = await self.bot.wait_for('message', check=lambda
-                m: m.author.id == ctx.author.id and m.channel.id == ctx.author.id, timeout=300)
+                m: m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel), timeout=300)
         except asyncio.TimeoutError:
             return await ctx.author.send(embed=timeout)
 
