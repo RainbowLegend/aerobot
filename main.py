@@ -1,5 +1,6 @@
-import logging
 import config
+import discord
+import logging
 from discord.ext import commands
 
 
@@ -12,7 +13,7 @@ class AeroBot(commands.Bot):
             self.load_extension(extension)
 
 
-bot = AeroBot(command_prefix=config.prefix, case_insensitive=True)
+bot = AeroBot(command_prefix=config.prefix, case_insensitive=True, intents=discord.Intents.all())
 bot.load_extensions(config.extensions)
 bot.load_extension('jishaku')
 
