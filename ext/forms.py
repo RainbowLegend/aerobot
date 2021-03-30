@@ -26,7 +26,8 @@ class UserForms(commands.Cog):
             "`222147236728012800`). "
         )
         try:
-            user = await self.bot.wait_for('message', check=lambda m: m.author.id == ctx.author.id, timeout=300)
+            user = await self.bot.wait_for('message', check=lambda
+                m: m.author.id == ctx.author.id and m.channel.id == ctx.author.id, timeout=300)
             if user.content.lower() == "cancel":
                 return await ctx.author.send(embed=cancel)
             try:
@@ -42,7 +43,8 @@ class UserForms(commands.Cog):
             "Please describe what happened and what rule(s) was broken. Please add as much detail as possible as this "
             "will help us to resolve any issues quickly.")
         try:
-            reason = await self.bot.wait_for('message', check=lambda m: m.author.id == ctx.author.id, timeout=300)
+            reason = await self.bot.wait_for('message', check=lambda
+                m: m.author.id == ctx.author.id and m.channel.id == ctx.author.id, timeout=300)
         except asyncio.TimeoutError:
             return await ctx.author.send(embed=timeout)
 
