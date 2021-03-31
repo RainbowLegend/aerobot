@@ -39,7 +39,7 @@ class NitroPerks(commands.Cog):
         ghost_role = guild.get_role(702605281204502638)
         if (guild.get_role(702614991446081578) not in ctx.author.roles) and \
                 (guild.get_role(702601007368241173) not in ctx.author.roles):
-            return await ctx.send("Vous devez être stimulant nitro pour obtenir un rôle personnalisé!")
+            return await ctx.send("You need to be nitro boosting to get a custom role!")
         with open("nitro.json") as f:
             db = json.load(f)
         newrole = await guild.create_role(name=ctx.author.id, reason=f"Nitro Booster Role for {ctx.author.id}")
@@ -50,7 +50,7 @@ class NitroPerks(commands.Cog):
         with open("nitro.json", "w") as f:
             db[str(ctx.author.id)] = newrole.id
             json.dump(db, f, indent=2)
-        return await ctx.send("Votre nouveau rôle a été créé!")
+        return await ctx.send("Your new role has been created!")
 
     @customrole.command(name="color")
     async def color(self, ctx, *, hexinput=None):
@@ -58,15 +58,15 @@ class NitroPerks(commands.Cog):
         with open("nitro.json") as f:
             db = json.load(f)
         if str(ctx.author.id) not in db.keys():
-            return await ctx.send("Créez un rôle avant d'utiliser cette commande!")
+            return await ctx.send("Create a role before using this command!")
 
         user_role = guild.get_role(db[str(ctx.author.id)])
 
         try:
             await user_role.edit(color=discord.Color(value=int(hexinput.strip("#"), 16)))
-            return await ctx.send(f"Vous avez changé la couleur de votre rôle en {hexinput}!")
+            return await ctx.send(f"You have changed your role's color to {hexinput}!")
         except ValueError:
-            return await ctx.send("Saisissez un code hexadécimal valide tel que `#FFFFFF`!")
+            return await ctx.send("Input a valid hex code such as `#FFFFFF`!")
 
     @customrole.command(name="name")
     async def name(self, ctx, *, name):
@@ -74,12 +74,12 @@ class NitroPerks(commands.Cog):
         with open("nitro.json") as f:
             db = json.load(f)
         if str(ctx.author.id) not in db.keys():
-            return await ctx.send("Créez un rôle avant d'utiliser cette commande!")
+            return await ctx.send("Create a role before using this command!")
 
         user_role = guild.get_role(db[str(ctx.author.id)])
 
         await user_role.edit(name=name)
-        return await ctx.send(f"Le nom de votre rôle a été remplacé par **{name}**")
+        return await ctx.send(f"Your role's name has been changed to **{name}**")
 
 
 def setup(bot):

@@ -19,7 +19,7 @@ class Moderation(commands.Cog):
         or use the full ping including the discriminator.
         """
 
-        await ctx.send(f'{ctx.author.mention} **||** L\'ID de cet utilisateur est**`{user.id}`**')
+        await ctx.send(f'{ctx.author.mention} **||** That user\'s ID is **`{user.id}`**')
 
     @commands.command()
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818)
@@ -36,19 +36,19 @@ class Moderation(commands.Cog):
         toscd = self.bot.get_guild(702600628601356359)
         await user.add_roles(*role)
         emb = discord.Embed(colour=discord.Colour.green(),
-                            description='Entrée de journalisation - `/addrole`')
-        emb.add_field(name='Membre:', value=f'{user.mention}')
-        emb.add_field(name='Rôle (s) ajouté (s):',
+                            description='Logging Entry - `/addrole`')
+        emb.add_field(name='Member:', value=f'{user.mention}')
+        emb.add_field(name='Role(s) added:',
                       value=', '.join((x.name for x in role)))
-        emb.add_field(name='Raison:', value=reason)
-        emb.set_footer(text='Discorde de la communauté ToS',
+        emb.add_field(name='Reason:', value=reason)
+        emb.set_footer(text='ToS Community Discord',
                        icon_url=ctx.guild.icon_url)
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
         channel = toscd.get_channel(702600628601356359)
         await channel.send(embed=emb)
         await ctx.send(embed=emb)
-        await user.send('Un reçu d\'une action du modérateur vous a été envoyé:', embed=emb)
+        await user.send('A recipt of a moderator action has been sent to you:', embed=emb)
 
     @commands.command()
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818)
@@ -64,12 +64,12 @@ class Moderation(commands.Cog):
 
         await user.remove_roles(*role)
         emb = discord.Embed(colour=discord.Colour.red(),
-                            description='Entrée de journalisation - `/removerole`')
-        emb.add_field(name='Membre:', value=f'{user.mention}', inline=True)
+                            description='Logging Entry - `/removerole`')
+        emb.add_field(name='Member:', value=f'{user.mention}', inline=True)
         emb.add_field(name='Role(s) removed:', value=', '.join(
             (x.name for x in role)), inline=True)
-        emb.add_field(name='Raison:', value=reason)
-        emb.set_footer(text='Discorde de la communauté ToS',
+        emb.add_field(name='Reason:', value=reason)
+        emb.set_footer(text='ToS Community Discord',
                        icon_url=ctx.guild.icon_url)
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
@@ -79,7 +79,7 @@ class Moderation(commands.Cog):
 
         await channel.send(embed=emb)
         await ctx.send(embed=emb)
-        await user.send('Un reçu d\'une action du modérateur vous a été envoyé:', embed=emb)
+        await user.send('A recipt of a moderator action has been sent to you:', embed=emb)
 
     @commands.command(name='kick', aliases=['boot'])
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818)
@@ -92,11 +92,11 @@ class Moderation(commands.Cog):
         """
 
         emb = discord.Embed(colour=discord.Colour.orange(),
-                            description='Entrée de journalisation - `/kick`\n\nAppeals can be sent in the '
+                            description='Logging Entry - `/kick`\n\nAppeals can be sent in the '
                                         '[verification server](http://discord.gg/JHTyKYA)')
         emb.add_field(name='Kicked member', value=f'{user.mention}')
-        emb.add_field(name='Raison:', value=reason)
-        emb.set_footer(text='Discorde de la communauté ToS',
+        emb.add_field(name='Reason:', value=reason)
+        emb.set_footer(text='ToS Community Discord',
                        icon_url=ctx.guild.icon_url)
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
@@ -122,11 +122,11 @@ class Moderation(commands.Cog):
         """
 
         emb = discord.Embed(colour=discord.Colour.orange(),
-                            description='Entrée de journalisation - `/ban`\n\nAppeals can be sent in the '
+                            description='Logging Entry - `/ban`\n\nAppeals can be sent in the '
                                         '[verification server](http://discord.gg/JHTyKYA)')
         emb.add_field(name='Banned member', value=f'{user.mention}')
-        emb.add_field(name='Raison:', value=reason)
-        emb.set_footer(text='Discorde de la communauté ToS',
+        emb.add_field(name='Reason:', value=reason)
+        emb.set_footer(text='ToS Community Discord',
                        icon_url=ctx.guild.icon_url)
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
@@ -157,12 +157,12 @@ class Moderation(commands.Cog):
         """
 
         emb = discord.Embed(colour=discord.Colour.orange(),
-                            description='Entrée de journalisation - `/mute`\n\nAppeals can be sent to me!')
+                            description='Logging Entry - `/mute`\n\nAppeals can be sent to me!')
         emb.add_field(name='Muted member',
                       value=f'{user.mention}', inline=True)
         emb.add_field(name='Time:', value=f'{time}', inline=True)
-        emb.add_field(name='Raison:', value=reason)
-        emb.set_footer(text='Discorde de la communauté ToS',
+        emb.add_field(name='Reason:', value=reason)
+        emb.set_footer(text='ToS Community Discord',
                        icon_url=ctx.guild.icon_url)
         emb.timestamp = datetime.datetime.utcnow()
         emb.set_author(name=str(ctx.author), icon_url=ctx.author.avatar_url)
@@ -187,10 +187,10 @@ class Moderation(commands.Cog):
 
         emb = discord.Embed(colour=discord.Colour.dark_magenta(),
                             description='Appeal Entry')
-        emb.add_field(name='Membre:',
+        emb.add_field(name='Member:',
                       value=f'{ctx.author}, ID `{ctx.author.id}`')
         emb.add_field(name='Contents:', value=f'{contents}')
-        emb.set_footer(text='Discorde de la communauté ToS',
+        emb.set_footer(text='ToS Community Discord',
                        icon_url=ctx.guild.icon_url)
         emb.timestamp = datetime.datetime.utcnow()
 
