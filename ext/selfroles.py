@@ -83,10 +83,10 @@ class SelfRoles(commands.Cog):
 
         if ctx.channel.id not in [702603189324873768, 748238536636891217, 702602015896895590]:
             return await ctx.send(
-                f'{ctx.author.mention} **||** This command is only usable in <#702603189324873768> and <#748238536636891217>')
+                f'{ctx.author.mention} **||** Cette commande n\'est utilisable qu\'en  <#702603189324873768> et <#748238536636891217>')
         elif newrole.lower() not in roles.keys():
             return await ctx.send(
-                f'{ctx.author.mention} **||** For a list of roles, please check <#702602323310149643>.  Make sure capitalization is also followed.')
+                f'{ctx.author.mention} **||** Pour une liste des rôles, veuillez vérifier <#702602323310149643>.  Assurez-vous que la capitalisation est également respectée.')
 
         for role in roles.values():
             if role[1].id in (crole.id for crole in ctx.author.roles):
@@ -94,7 +94,7 @@ class SelfRoles(commands.Cog):
 
         await ctx.author.add_roles(*roles[newrole.lower()], reason='Selfrole assigner (tos, addition)')
 
-        await ctx.send(f'{ctx.author.mention}, you have been assigned **{roles[newrole.lower()][1].name.title()}**')
+        await ctx.send(f'{ctx.author.mention}, on vous a attribué **{roles[newrole.lower()][1].name.title()}**')
 
     @commands.command(name="nsfw", hidden=True, enabled=False)
     async def nsfw(self, ctx):
@@ -103,11 +103,11 @@ class SelfRoles(commands.Cog):
         nsfwRole = toscd.get_role(425123783863435276)
         if nsfwRole in ctx.message.author.roles:
             await ctx.author.remove_roles(nsfwRole, reason='Selfrole assigner (nsfw, removal)')
-            await ctx.send(f"{ctx.author.mention}, you have been unassigned the NSFW role.")
+            await ctx.send(f"{ctx.author.mention}, le rôle NSFW vous a été annulé.")
             return
         else:
             await ctx.author.add_roles(nsfwRole, reason='Selfrole assigner (nsfw, addition)')
-            return await ctx.send(f"{ctx.author.mention}, you have been assigned the NSFW role.")
+            return await ctx.send(f"{ctx.author.mention}, le rôle NSFW vous a été attribué.")
 
     @commands.command(name="lfg", aliases=["lookingforgames"], hidden=True, enabled=False)
     async def lfg(self, ctx):
@@ -116,11 +116,11 @@ class SelfRoles(commands.Cog):
         lfgRole = toscd.get_role(633407913796567050)
         if lfgRole in ctx.message.author.roles:
             await ctx.author.remove_roles(lfgRole, reason='Selfrole assigner (lfg, removal)')
-            await ctx.send(f"{ctx.author.mention}, you have been unassigned the LFG role.")
+            await ctx.send(f"{ctx.author.mention}, le rôle LFG vous a été annulé.")
             return
         else:
             await ctx.author.add_roles(lfgRole, reason='Selfrole assigner (lfg, addition)')
-            return await ctx.send(f"{ctx.author.mention}, you have been assigned the LFG role.")
+            return await ctx.send(f"{ctx.author.mention}, le rôle LFG vous a été attribué.")
 
     @commands.command(name="gnotif", aliases=["gamenightnotify", "gamenightnotifications", "gamenightnotif"],
                       hidden=True, enabled=False)
@@ -129,11 +129,11 @@ class SelfRoles(commands.Cog):
         gnotif_role = toscd.get_role(379748801197637644)
         if gnotif_role in ctx.message.author.roles:
             await ctx.author.remove_roles(gnotif_role, reason='Selfrole assigner (gamenight notifications, removal)')
-            await ctx.send(f"{ctx.author.mention}, you have been unassigned the Game Notifications role.")
+            await ctx.send(f"{ctx.author.mention}, vous n'avez plus attribué le rôle de notifications de jeu.")
             return
         else:
             await ctx.author.add_roles(gnotif_role, reason='Selfrole assigner (gamenight notifications, addition')
-            return await ctx.send(f"{ctx.author.mention}, you have been assigned the Game Notifications role.")
+            return await ctx.send(f"{ctx.author.mention}, le rôle de notifications de jeu vous a été attribué.")
 
     @commands.command(name="cnotif", aliases=["covennotify", "covennotifications", "covennotif"], hidden=True,
                       enabled=False)
@@ -142,11 +142,11 @@ class SelfRoles(commands.Cog):
         cnotif_role = toscd.get_role(358655924342095874)
         if cnotif_role in ctx.message.author.roles:
             await ctx.author.remove_roles(cnotif_role, reason='Selfrole assinger (coven notifications, removal')
-            await ctx.send(f"{ctx.author.mention}, you have been unassigned the Coven Notifications role.")
+            await ctx.send(f"{ctx.author.mention}, vous n'avez plus été affecté au rôle Notifications Coven.")
             return
         else:
             await ctx.author.add_roles(cnotif_role, reason='Selfrole assigner (coven notifications, addition)')
-            return await ctx.send(f"{ctx.author.mention}, you have been assigned the Coven Notifications role.")
+            return await ctx.send(f"{ctx.author.mention}, vous avez reçu le rôle Notifications Coven.")
 
 
 def setup(bot):

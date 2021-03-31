@@ -26,26 +26,26 @@ class Hosting(commands.Cog):
             msg = START
         elif notification_type.lower() == 'final':
             msg = FINAL
+        else:
+            msg = START
 
         if gamemode.lower() not in GAMEMODES:
-            return await ctx.send('That is an invalid gamemode.', delete_after=5)
+            return await ctx.send("C'est un mode de jeu invalide.", delete_after=5)
 
         channel = guild.get_channel(702639694474903643)
 
         if mode.lower() == 'coven':
-            await coven.edit(reason="hosting mentions", mentionable=True)
+            await coven.edit(reason="mentions d'hébergement", mentionable=True)
             await ctx.send(msg.format(coven, gamemode))
             await channel.send(f"**{ctx.author.display_name}'s {gamemode} Game**".upper())
-            return await coven.edit(reason="hosting mentions", mentionable=False)
+            return await coven.edit(reason="mentions d'hébergement", mentionable=False)
         elif mode.lower() == 'classic':
-            await classic.edit(reason="hosting mentions", mentionable=True)
+            await classic.edit(reason="mentions d'hébergement", mentionable=True)
             await ctx.send(msg.format(classic, gamemode))
             await channel.send(f"**{ctx.author.display_name}'s {gamemode} Game**".upper())
-            return await classic.edit(reason="hosting mentions", mentionable=False)
+            return await classic.edit(reason="mentions d'hébergement", mentionable=False)
         else:
-            return await ctx.send('That is an invalid mode.', delete_after=5)
-
-    # /joingame
+            return await ctx.send("C'est un mode invalide.", delete_after=5)
 
     @commands.command(name='joingame', aliases=['jg', 'join'])
     async def joingame(self, ctx, ign=None):
@@ -57,11 +57,9 @@ class Hosting(commands.Cog):
             await (guild.get_channel(702639694474903643)).send(
                 f'**`{discord.utils.escape_mentions(ign.capitalize())}`** ({ctx.author.mention})')
             return await ctx.send(
-                f'{discord.utils.escape_mentions(ign.capitalize())} will receive a party invite shortly. ({ctx.author.mention})')
+                f'{discord.utils.escape_mentions(ign.capitalize())} recevra sous peu une invitation à une fête. ({ctx.author.mention})')
         else:
-            return await ctx.send(f'You didn\'t provide your ign! ({ctx.author.mention})')
-
-    # /gamemodes
+            return await ctx.send(f"Vous n'avez pas fourni votre IGN! ({ctx.author.mention})")
 
     @commands.command(name='gamemodes')
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
@@ -97,8 +95,6 @@ class Hosting(commands.Cog):
         else:
             await ctx.send('Invalid options!')
 
-    # /end
-
     @commands.command(name="end")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
     async def end(self, ctx, cohost: typing.Optional[discord.User]):
@@ -108,12 +104,10 @@ class Hosting(commands.Cog):
                                                                     send_messages=False)
         if cohost:
             return await ctx.send(
-                f'Gamenight ended! ({ctx.author.mention}, {cohost.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
+                f'Gamenight terminé! ({ctx.author.mention}, {cohost.mention})\nSi vous souhaitez continuer à jouer, vous pouvez organiser vos propres parties dans <#702602837737078897>.')
         else:
             return await ctx.send(
-                f'Gamenight ended! ({ctx.author.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
-
-    # /start
+                f'Gamenight terminé! ({ctx.author.mention})\nISi vous souhaitez continuer à jouer, vous pouvez organiser vos propres parties dans <#702602837737078897>.')
 
     @commands.command(name="start")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)
@@ -137,9 +131,9 @@ class Hosting(commands.Cog):
 
         guild = self.bot.get_guild(702600628601356359)
         if cohost:
-            return await ctx.send(f'Gamenight takeover. ({ctx.author.mention}, {cohost.mention})')
+            return await ctx.send(f'Prise de contrôle de Gamenight. ({ctx.author.mention}, {cohost.mention})')
         else:
-            return await ctx.send(f'Gamenight takeover. ({ctx.author.mention})')
+            return await ctx.send(f'Prise de contrôle de Gamenight. ({ctx.author.mention})')
 
 
 def setup(bot):
