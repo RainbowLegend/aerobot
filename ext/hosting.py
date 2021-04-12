@@ -24,6 +24,8 @@ class Hosting(commands.Cog):
             msg = START
         elif notification_type.lower() == 'final':
             msg = FINAL
+        else:
+            msg = START
 
         if gamemode.lower() not in GAMEMODES:
             return await ctx.send('That is an invalid gamemode.', delete_after=5)
@@ -100,10 +102,12 @@ class Hosting(commands.Cog):
                                                                     send_messages=False)
         if cohost:
             return await ctx.send(
-                f'Gamenight ended! ({ctx.author.mention}, {cohost.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
+                f'Gamenight ended! ({ctx.author.mention}, {cohost.mention})\nIf you wish to continue playing, you can '
+                f'organize your own games in <#702602837737078897>.')
         else:
             return await ctx.send(
-                f'Gamenight ended! ({ctx.author.mention})\nIf you wish to continue playing, you can organize your own games in <#702602837737078897>.')
+                f'Gamenight ended! ({ctx.author.mention})\nIf you wish to continue playing, you can organize your own '
+                f'games in <#702602837737078897>.')
 
     @commands.command(name="start")
     @commands.has_any_role(702601007368241173, 702604059613462589, 702604111450996818, 702605281204502638)

@@ -1,5 +1,7 @@
 import asyncio
 import discord
+import re
+from datetime import datetime
 from discord.ext import commands
 
 
@@ -73,19 +75,22 @@ class UserForms(commands.Cog):
         await ctx.author.send("When do you want to host the gamenight? Please include the timezone.")
         try:
             timezone = await ctx.bot.wait_for('message', check=lambda
-                m: m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel), timeout=300).content
+                m: m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel), timeout=300)
+            timezone = timezone.content
             if timezone.lower().strip() == "cancel":
                 return await ctx.author.send(embed=cancel)
 
             await ctx.author.send("What game are you planning to host?")
             game = await ctx.bot.wait_for('message', check=lambda
-                m: m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel), timeout=300).content
+                m: m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel), timeout=300)
+            game = game.content
             if game.lower().strip() == "cancel":
                 return await ctx.author.send(embed=cancel)
 
             await ctx.author.send("How long are you planning to host?")
             duration = await ctx.bot.wait_for('message', check=lambda
-                m: m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel), timeout=300).content
+                m: m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel), timeout=300)
+            duration = duration.content
             if duration.lower().strip() == "cancel":
                 return await ctx.author.send(embed=cancel)
 
@@ -93,12 +98,35 @@ class UserForms(commands.Cog):
             return await ctx.author.send(embed=timeout)
 
         embed = discord.Embed(color=discord.Color.green())
-        embed.add_field(name="When the gamenight will be hosted", value=timezone)
-        embed.add_field(name="Game to be hosted", value=game)
-        embed.add_field(name="Duration of gamenight", value=duration)
+        embed.add_field(name="When the gamenight will be hosted", value=timezone, inline=False)
+        embed.add_field(name="Game to be hosted", value=game, inline=False)
+        embed.add_field(name="Duration of gamenight", value=duration, inline=False)
         await ctx.author.send("Thank you for applying to host! Here is a copy of your application.", embed=embed)
-        embed.add_field(name="Applicant", value=ctx.author.mention)
-        await channel.send("A new application has been filed.", embed=embed)
+        embed.add_field(name="Applicant", value=ctx.author.mention, inline=False)
+        message = await channel.send("A new application has been filed.", embed=embed)
+        await message.add_reaction("Nay:702620459182587914")
+        await message.add_reaction("Yea:702620459199365200")
+
+    @commands.command(name="post")
+    async def post(self, ctx, *, string):
+        args = string.split("|")
+        guild = self.bot.get_guild(702600628601356359)
+        channel = guild.get_channel(831282784378945536)
+
+        embed = discord.Embed(color=discord.Color.blurple())
+        embed.add_field(name="Game:", value=args[0].strip())
+        embed.add_field(name="Duration:", value=args[1].strip())
+
+        pattern = r"([0-9]{4})-([0-1][0-9])-([0-3][0-9]) ([0-2][0-9]):([0-5][0-9])"
+        match = re.findall(pattern, args[2].strip())
+        if not match:
+            return ctx.send("can you please use the right date format im begging you")
+        match = match[0]
+        date = datetime(int(match[0]), int(match[1]), int(match[2]), int(match[3]), int(match[4]), 0, 0)
+        embed.set_footer(text="The gamenight will start at")
+        embed.timestamp = date
+        embed.set_author(name="Hoster: " + str(ctx.message.mentions[0]), icon_url=ctx.message.mentions[0].avatar_url)
+        await channel.send(embed=embed)
 
 
 def setup(bot):
