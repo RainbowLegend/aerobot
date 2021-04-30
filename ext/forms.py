@@ -11,6 +11,9 @@ class UserForms(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
+    def is_dm(self, m, ctx):
+        return m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel)
+
     @commands.command(name="report")
     async def report(self, ctx):
         guild = self.bot.get_guild(702600628601356359)
@@ -106,6 +109,79 @@ class UserForms(commands.Cog):
         message = await channel.send("A new application has been filed.", embed=embed)
         await message.add_reaction("Nay:702620459182587914")
         await message.add_reaction("Yea:702620459199365200")
+
+    @commands.command(name="hostapp")
+    async def hostapp(self, ctx):
+        def check(m):
+            m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel)
+
+        timeout = discord.Embed(color=discord.Color.red(), description="Report form timed out.")
+        cancel = discord.Embed(color=discord.Color.red(), description="Report form cancelled.")
+        await ctx.author.send("Thank you for your interest in applying to be a GHost! Please answer these following "
+                              "questions. A lengthy explanation is not necessary for any questions. A simple `yes` or "
+                              "`no` will suffice."
+                              "\n\n"
+                              "If you wish to cancel this form, simply type `cancel`.")
+
+        await ctx.author.send(embed=discord.Embed(color=discord.Color.blurple(),
+                                                  description="1. Have you read and agreed to the server rules?"))
+        try:
+            rules = await ctx.bot.wait_for('message', check=check, timeout=300)
+            if rules.content.strip().lower() == "cancel":
+                return ctx.author.send(embed=cancel)
+        except asyncio.TimeoutError:
+            return await ctx.author.send(embed=timeout)
+
+        await ctx.author.send(embed=discord.Embed(color=discord.Color.blurple(),
+                                                  description="2. Do you know the basics of the Town of Salem rules and"
+                                                              " agree not to break them during gamenights?"))
+        try:
+            tos_rules = await ctx.bot.wait_for('message', check=check, timeout=300)
+            if tos_rules.content.strip().lower() == "cancel":
+                return ctx.author.send(embed=cancel)
+        except asyncio.TimeoutError:
+            return await ctx.author.send(embed=timeout)
+
+        await ctx.author.send(embed=discord.Embed(color=discord.Color.blurple(),
+                                                  description="3. Are you at least 13 years old?"))
+        try:
+            age = await ctx.bot.wait_for('message', check=check, timeout=300)
+            if age.content.strip().lower() == "cancel":
+                return ctx.author.send(embed=cancel)
+        except asyncio.TimeoutError:
+            return await ctx.author.send(embed=timeout)
+
+        await ctx.author.send(embed=discord.Embed(color=discord.Color.blurple(),
+                                                  description="4. Do you agree to not abuse or troll "
+                                                              "with the Gamenight Host role?"))
+        try:
+            abuse = await ctx.bot.wait_for('message', check=check, timeout=300)
+            if abuse.content.strip().lower() == "cancel":
+                return ctx.author.send(embed=cancel)
+        except asyncio.TimeoutError:
+            return await ctx.author.send(embed=timeout)
+
+        await ctx.author.send(embed=discord.Embed(color=discord.Color.blurple(),
+                                                  description="5. Is there anything else you would like to add?"))
+        try:
+            additional = await ctx.bot.wait_for('message', check=check, timeout=300)
+            if additional.content.strip().lower() == "cancel":
+                return ctx.author.send(embed=cancel)
+        except asyncio.TimeoutError:
+            return await ctx.author.send(embed=timeout)
+
+        user_embed = discord.Embed(color=discord.Color.green(), description=f"Application for {ctx.author.mention}")
+        user_embed.add_field(name="Have you read and agreed to the server rules?", value=rules)
+        user_embed.add_field(
+            name="Do you know the basics of the Town of Salem rules and agree not to break them during gamenights?",
+            value=tos_rules)
+        user_embed.add_field(name="Are you 13+ years old?", value=age)
+        user_embed.add_field(name="Do you agree to not abuse or troll with the Gamenight Host role?", value=abuse)
+        user_embed.add_field(name="Is there anything else you would like to add?", value=additional)
+        await ctx.send("Thank you for applying! A copy of your application is below.", embed=user_embed)
+
+        channel = self.bot.get_channel(831277854528110642)
+        await channel.send(embed=user_embed)
 
     @commands.command(name="post")
     async def post(self, ctx, *, string):
