@@ -113,7 +113,7 @@ class UserForms(commands.Cog):
     @commands.command(name="hostapp")
     async def hostapp(self, ctx):
         def check(m):
-            m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel)
+            return m.author.id == ctx.author.id and isinstance(m.channel, discord.DMChannel)
 
         timeout = discord.Embed(color=discord.Color.red(), description="Report form timed out.")
         cancel = discord.Embed(color=discord.Color.red(), description="Report form cancelled.")
@@ -171,13 +171,14 @@ class UserForms(commands.Cog):
             return await ctx.author.send(embed=timeout)
 
         user_embed = discord.Embed(color=discord.Color.green(), description=f"Application for {ctx.author.mention}")
-        user_embed.add_field(name="Have you read and agreed to the server rules?", value=rules)
+        user_embed.add_field(name="Have you read and agreed to the server rules?", value=rules.content)
         user_embed.add_field(
             name="Do you know the basics of the Town of Salem rules and agree not to break them during gamenights?",
-            value=tos_rules)
-        user_embed.add_field(name="Are you 13+ years old?", value=age)
-        user_embed.add_field(name="Do you agree to not abuse or troll with the Gamenight Host role?", value=abuse)
-        user_embed.add_field(name="Is there anything else you would like to add?", value=additional)
+            value=tos_rules.content)
+        user_embed.add_field(name="Are you 13+ years old?", value=age.content)
+        user_embed.add_field(name="Do you agree to not abuse or troll with the Gamenight Host role?",
+                             value=abuse.content)
+        user_embed.add_field(name="Is there anything else you would like to add?", value=additional.content)
         await ctx.send("Thank you for applying! A copy of your application is below.", embed=user_embed)
 
         channel = self.bot.get_channel(831277854528110642)
