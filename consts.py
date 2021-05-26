@@ -54,7 +54,7 @@ START = (
     "<a:Gamenight_Party:772315471265005589> <a:Gamenight_Party:772315471265005589> "
     "<a:Gamenight_Party:772315471265005589>\n"
     '{0.mention} **||** A new game of **{1}** is starting.\n\n'
-    'Use `/joingame [ToS IGN]` or `/jg [ToS IGN]` to join. You will shortly get a party '
+    'Use `a!joingame [ToS IGN]` or `a!jg [ToS IGN]` to join. You will shortly get a party '
     'invite.'
 )
 
@@ -65,7 +65,7 @@ FINAL = (
     "<a:Gamenight_Party:772315471265005589> <a:Gamenight_Party:772315471265005589> "
     "<a:Gamenight_Party:772315471265005589>\n"
     '{0.mention} **||** A new game of **{1}** is starting.\nThe game will start shortly.\n\n'
-    'Use `/joingame [ToS IGN]` or `/jg [ToS IGN]` to join. You will shortly get a party '
+    'Use `a!joingame [ToS IGN]` or `a!jg [ToS IGN]` to join. You will shortly get a party '
     'invite.'
 )
 
