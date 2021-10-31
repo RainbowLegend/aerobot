@@ -16,4 +16,6 @@ This is a bot the Town of Salem Community Discord server.
 ## Installation
 
 - Clone this repository using `git clone https://github.com/RainbowLegend/aerobot.git`
-- PIP should handle dependencies for you, but incase of a ModuleNotFoundError, use `git clone https://github.com/Rapptz/discord.py@rewrite`
+
+## Note
+Uses discord.py -- library is currently deprecated. May break whenever breaking changes happen to the Discord API.
