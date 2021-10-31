@@ -118,8 +118,7 @@ class UserForms(commands.Cog):
         timeout = discord.Embed(color=discord.Color.red(), description="Report form timed out.")
         cancel = discord.Embed(color=discord.Color.red(), description="Report form cancelled.")
         await ctx.author.send("Thank you for your interest in applying to be a GHost! Please answer these following "
-                              "questions. A lengthy explanation is not necessary for any questions. A simple `yes` or "
-                              "`no` will suffice."
+                              "questions. A lengthy explanation is not necessary for any questions."
                               "\n\n"
                               "If you wish to cancel this form, simply type `cancel`.")
 
@@ -189,7 +188,7 @@ class UserForms(commands.Cog):
                              value=abuse.content)
         user_embed.add_field(name="What do you plan on hosting?", value=plan.content)
         user_embed.add_field(name="Is there anything else you would like to add?", value=additional.content)
-        await ctx.send("Thank you for applying! A copy of your application is below.", embed=user_embed)
+        await ctx.author.send("Thank you for applying! A copy of your application is below.", embed=user_embed)
 
         channel = self.bot.get_channel(831277854528110642)
         await channel.send(embed=user_embed)
