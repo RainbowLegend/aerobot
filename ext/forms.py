@@ -160,9 +160,18 @@ class UserForms(commands.Cog):
                 return ctx.author.send(embed=cancel)
         except asyncio.TimeoutError:
             return await ctx.author.send(embed=timeout)
+        
+        await ctx.author.send(embed=discord.Embed(color=discord.Color.blurple(),
+                                                  description="5. What do you plan on hosting?"))
+        try:
+            plan = await ctx.bot.wait_for('message', check=check, timeout=300)
+            if plan.content.strip().lower() == "cancel":
+                return ctx.author.send(embed=cancel)
+        except asyncio.TimeoutError:
+            return await ctx.author.send(embed=timeout)
 
         await ctx.author.send(embed=discord.Embed(color=discord.Color.blurple(),
-                                                  description="5. Is there anything else you would like to add?"))
+                                                  description="6. Is there anything else you would like to add?"))
         try:
             additional = await ctx.bot.wait_for('message', check=check, timeout=300)
             if additional.content.strip().lower() == "cancel":
@@ -178,6 +187,7 @@ class UserForms(commands.Cog):
         user_embed.add_field(name="Are you 13+ years old?", value=age.content)
         user_embed.add_field(name="Do you agree to not abuse or troll with the Gamenight Host role?",
                              value=abuse.content)
+        user_embed.add_field(name="What do you plan on hosting?", value=plan.content)
         user_embed.add_field(name="Is there anything else you would like to add?", value=additional.content)
         await ctx.send("Thank you for applying! A copy of your application is below.", embed=user_embed)
 
